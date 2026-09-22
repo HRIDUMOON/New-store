@@ -1,106 +1,416 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>MOONGLOW | Executive Digital Store</title>
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.2/css/all.min.css">
-    <link rel="stylesheet" href="style.css">
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>Reseller Store</title>
+<style>
+*{box-sizing:border-box;margin:0;padding:0}
+body{font-family:Arial,sans-serif;background:#f5f6f8;color:#111}
+header{background:#111;color:#fff;padding:16px 5%;display:flex;justify-content:space-between;align-items:center;position:sticky;top:0;z-index:10}
+.logo{font-size:23px;font-weight:800}.logo span{color:#ffd400}
+.balance{background:#222;padding:10px 14px;border-radius:10px;font-size:13px}
+.hero{background:linear-gradient(135deg,#111,#292929);color:#fff;padding:55px 5%}
+.hero h1{font-size:42px}.hero h1 span{color:#ffd400}
+.hero p{color:#bbb;margin-top:10px}
+.controls{max-width:1200px;margin:-25px auto 0;padding:0 20px;display:flex;gap:10px}
+input,select{border:1px solid #ddd;border-radius:10px;padding:14px;outline:0;background:#fff}
+#search{flex:1}#category{width:200px}
+.container{max-width:1200px;margin:auto;padding:40px 20px}
+.top{display:flex;justify-content:space-between;margin-bottom:20px}
+.products{display:grid;grid-template-columns:repeat(4,1fr);gap:18px}
+.card{background:#fff;border:1px solid #e5e5e5;border-radius:16px;overflow:hidden;transition:.2s}
+.card:hover{transform:translateY(-4px);box-shadow:0 12px 30px #0001}
+.image{height:140px;background:linear-gradient(135deg,#111,#333);display:flex;align-items:center;justify-content:center;color:#ffd400;font-size:42px;font-weight:900}
+.info{padding:17px}.cat{font-size:11px;color:#888;text-transform:uppercase;margin-bottom:8px}
+.name{font-weight:700;min-height:40px}.price{font-size:22px;font-weight:800;margin:12px 0}
+.stock{font-size:12px;color:#159447;margin-bottom:14px}
+button{border:0;border-radius:10px;padding:12px;width:100%;background:#111;color:#fff;font-weight:700;cursor:pointer}
+button:hover{background:#ffd400;color:#111}
+.loading{text-align:center;grid-column:1/-1;padding:60px;color:#777}
+.modal{display:none;position:fixed;inset:0;background:#0009;z-index:100;align-items:center;justify-content:center;padding:20px}
+.modal.show{display:flex}.box{background:#fff;width:100%;max-width:450px;padding:25px;border-radius:18px;position:relative}
+.close{position:absolute;right:15px;top:15px;width:35px;background:#eee;color:#111}
+.box h2{padding-right:40px}.box h3{margin:15px 0}
+.field{margin:12px 0}.field label{display:block;font-size:13px;font-weight:bold;margin-bottom:6px}
+.field input{width:100%}
+footer{text-align:center;background:#111;color:#aaa;padding:30px;margin-top:30px}
+@media(max-width:900px){.products{grid-template-columns:repeat(3,1fr)}}
+@media(max-width:650px){.products{grid-template-columns:repeat(2,1fr)}.controls{flex-direction:column}#category{width:100%}.hero h1{font-size:32px}}
+@media(max-width:430px){.products{grid-template-columns:1fr}}
+</style>
 </head>
-<body class="dark-theme">
 
-    <div class="glow-bg"></div>
+<body>
 
-    <div class="floating-support">
-        <a href="https://wa.me/8801XXXXXXXXX" class="sup-btn wa" target="_blank"><i class="fa-brands fa-whatsapp"></i></a>
-        <a href="https://discord.gg/yourlink" class="sup-btn dc" target="_blank"><i class="fa-brands fa-discord"></i></a>
-    </div>
+<header>
+<div class="logo">Reseller<span>Store</span></div>
+<div class="balance">Balance: <b id="balance">Loading...</b></div>
+</header>
 
-    <nav class="navbar">
-        <div class="container nav-flex">
-            <div class="logo">
-                <div class="logo-box"><i class="fa-solid fa-moon"></i></div>
-                <span class="brand-name">MOONGLOW</span>
-            </div>
-            <div class="nav-right">
-                <div class="premium-tag"><i class="fa-solid fa-crown"></i> Official</div>
-                <div class="cart-icon"><i class="fa-solid fa-bag-shopping"></i></div>
-            </div>
-        </div>
-    </nav>
+<section class="hero">
+<h1>Premium <span>Products</span></h1>
+<p>Live products, custom pricing and instant ordering.</p>
+</section>
 
-    <header class="hero">
-        <div class="container">
-            <div class="hero-badge"><i class="fa-solid fa-gem"></i> Premium Digital Solutions</div>
-            <h1 class="hero-title">Elevate Your <br><span class="accent">Digital Life</span></h1>
-            <p class="hero-sub">Trust • Quality • Instant Delivery</p>
-            
-            <div class="stats-row">
-                <div class="stat glass"><i class="fa-solid fa-shopping-cart"></i><b>500+</b>Orders</div>
-                <div class="stat glass"><i class="fa-solid fa-face-smile"></i><b>450+</b>Users</div>
-                <div class="stat glass"><i class="fa-solid fa-star"></i><b>4.9⭐</b>Rating</div>
-            </div>
-        </div>
-    </header>
+<div class="controls">
+<input id="search" placeholder="Search products...">
+<select id="category">
+<option value="all">All Categories</option>
+</select>
+</div>
 
-    <div class="container main-content">
-        <div id="dynamicCats" class="cat-wrapper"></div>
+<main class="container">
+<div class="top">
+<h2>Products</h2>
+<small id="count">Loading...</small>
+</div>
+<div class="products" id="products">
+<div class="loading">Loading products...</div>
+</div>
+</main>
 
-        <div id="productList" class="product-grid">
-            <div class="loading-box">
-                <div class="spinner"></div>
-                <p>Syncing Cloud Assets...</p>
-            </div>
-        </div>
+<footer>© 2026 ResellerStore</footer>
 
-        <section class="policy-grid">
-            <div class="policy-card glass">
-                <i class="fa-solid fa-truck-fast"></i>
-                <h3>Delivery</h3>
-                <p>Instant delivery within 5-30 mins.</p>
-            </div>
-            <div class="policy-card glass">
-                <i class="fa-solid fa-rotate-left"></i>
-                <h3>Return</h3>
-                <p>24h replacement if issues found.</p>
-            </div>
-        </section>
+<div class="modal" id="modal">
+<div class="box">
+<button class="close" onclick="closeModal()">×</button>
+<h2 id="modalName">Product</h2>
+<h3 id="modalPrice">৳0</h3>
 
-        <section class="faq-section">
-            <h2 class="title-center"><i class="fa-solid fa-question-circle"></i> General FAQs</h2>
-            <div class="faq-card glass">
-                <b><i class="fa-solid fa-cart-plus"></i> How to order?</b>
-                <p>Click "Order Now", fill the form, pay, and check WhatsApp.</p>
-            </div>
-        </section>
-    </div>
+<div class="field">
+<label>Quantity</label>
+<input id="quantity" type="number" min="1" value="1">
+</div>
 
-    <footer class="footer">
-        <div class="container">
-            <p>&copy; 2026 MOONGLOW Store | All Rights Reserved.</p>
-            <p class="owner">Developed by <i class="fa-solid fa-code"></i> <a href="https://facebook.com/yourprofile" target="_blank">HRIDOY HASAN</a></p>
-        </div>
-    </footer>
+<div class="field">
+<label>Customer Information</label>
+<input id="customer" placeholder="Email / Username / Number">
+</div>
 
-    <div id="orderModal" class="modal">
-        <div class="modal-content glass">
-            <div class="modal-header">
-                <h3><i class="fa-solid fa-cart-shopping"></i> Purchase</h3>
-                <span class="close" onclick="closeModal()">&times;</span>
-            </div>
-            <div id="mInfo" class="order-summary"></div>
-            <form id="orderForm">
-                <div class="qty-group">
-                    <label><i class="fa-solid fa-boxes-stacked"></i> Quantity:</label>
-                    <input type="number" id="uQty" value="1" min="1" max="10" required class="form-input qty-input">
-                </div>
-                <div class="input-field"><i class="fa-solid fa-user"></i><input type="text" id="uName" placeholder="Full Name" required></div>
-                <div class="input-field"><i class="fa-brands fa-whatsapp"></i><input type="text" id="uPhone" placeholder="WhatsApp Number" required></div>
-                <button type="submit" class="submit-btn">Continue to Payment <i class="fa-solid fa-paper-plane"></i></button>
-            </form>
-        </div>
-    </div>
+<div class="field">
+<label>Note</label>
+<input id="note" placeholder="Optional">
+</div>
 
-    <script src="script.js"></script>
+<button onclick="placeOrder()">Place Order</button>
+</div>
+</div>
+
+<script>
+const API_BASE="https://safwantigershopbot-production.up.railway.app/api";
+
+const API_KEY="stapi_9c66d7871f68c9b8e06f2f785ca1906595b2be0f83108daf1cd2b09055e62e14";
+
+/* Google Sheet CSV URL */
+const SHEET_URL="";
+
+/* API price USD → BDT */
+const USD_TO_BDT=120;
+
+let products=[];
+let sheet={};
+let selected=null;
+
+function headers(){
+return{
+"Content-Type":"application/json",
+"Authorization":"Bearer "+API_KEY,
+"X-API-Key":API_KEY
+};
+}
+
+async function loadProducts(){
+try{
+const r=await fetch(API_BASE+"/products",{headers:headers()});
+if(!r.ok)throw new Error("Products API Error: "+r.status);
+
+const data=await r.json();
+
+products=Array.isArray(data)?data:
+Array.isArray(data.products)?data.products:
+Array.isArray(data.data)?data.data:[];
+
+await loadSheet();
+categories();
+render();
+
+}catch(e){
+console.error(e);
+document.getElementById("products").innerHTML=
+`<div class="loading">${e.message}</div>`;
+}
+}
+
+async function loadBalance(){
+try{
+const r=await fetch(API_BASE+"/balance",{headers:headers()});
+if(!r.ok)return;
+
+const d=await r.json();
+
+const b=d.balance??
+d.data?.balance??
+d.wallet??
+d.data?.wallet;
+
+if(b!==undefined)
+document.getElementById("balance").textContent=b+" USDT";
+
+}catch(e){
+console.log(e);
+}
+}
+
+async function loadSheet(){
+if(!SHEET_URL)return;
+
+try{
+const r=await fetch(SHEET_URL);
+const csv=await r.text();
+
+const rows=csv.trim().split("\n").map(x=>x.split(","));
+if(rows.length<2)return;
+
+const h=rows[0].map(x=>x.trim().toLowerCase());
+
+const idIndex=h.indexOf("product_id");
+const priceIndex=h.indexOf("custom_price");
+const visibleIndex=h.indexOf("visible");
+
+for(let i=1;i<rows.length;i++){
+const row=rows[i];
+const pid=row[idIndex]?.trim();
+if(!pid)continue;
+
+sheet[pid]={
+price:priceIndex>=0?row[priceIndex]?.trim():"",
+visible:visibleIndex>=0?
+row[visibleIndex]?.trim().toLowerCase():"true"
+};
+}
+}catch(e){
+console.log("Sheet error",e);
+}
+}
+
+function id(p){
+return String(p.id??p.product_id??p.pid??"");
+}
+
+function name(p){
+return p.name??p.product_name??p.title??"Product";
+}
+
+function category(p){
+return p.category??p.type??"Other";
+}
+
+function apiPrice(p){
+return Number(
+p.price??
+p.amount??
+p.rate??
+p.cost??0
+);
+}
+
+function price(p){
+const s=sheet[id(p)];
+
+if(s&&s.price!==""&&!isNaN(s.price))
+return Number(s.price);
+
+return apiPrice(p)*USD_TO_BDT;
+}
+
+function visible(p){
+const s=sheet[id(p)];
+return !s||s.visible!=="false";
+}
+
+function stock(p){
+return p.stock??p.quantity??p.available??"Available";
+}
+
+function categories(){
+const select=document.getElementById("category");
+
+const cats=[...new Set(
+products.map(p=>category(p))
+)];
+
+select.innerHTML=
+`<option value="all">All Categories</option>`;
+
+cats.forEach(c=>{
+select.innerHTML+=
+`<option value="${esc(c)}">${esc(c)}</option>`;
+});
+}
+
+function render(){
+
+const search=
+document.getElementById("search")
+.value.toLowerCase();
+
+const cat=
+document.getElementById("category").value;
+
+const list=products.filter(p=>{
+if(!visible(p))return false;
+
+return name(p).toLowerCase().includes(search)&&
+(cat==="all"||category(p)===cat);
+});
+
+document.getElementById("count").textContent=
+list.length+" products";
+
+if(!list.length){
+document.getElementById("products").innerHTML=
+`<div class="loading">No products found.</div>`;
+return;
+}
+
+document.getElementById("products").innerHTML=
+list.map(p=>`
+
+<div class="card">
+
+<div class="image">
+${esc(name(p).charAt(0).toUpperCase())}
+</div>
+
+<div class="info">
+
+<div class="cat">${esc(category(p))}</div>
+
+<div class="name">${esc(name(p))}</div>
+
+<div class="price">
+৳${money(price(p))}
+</div>
+
+<div class="stock">
+● ${esc(String(stock(p)))}
+</div>
+
+<button onclick="openOrder('${esc(id(p))}')">
+Buy Now
+</button>
+
+</div>
+</div>
+
+`).join("");
+}
+
+function openOrder(pid){
+
+selected=products.find(
+p=>id(p)===String(pid)
+);
+
+if(!selected)return;
+
+document.getElementById("modalName").textContent=
+name(selected);
+
+document.getElementById("modalPrice").textContent=
+"৳"+money(price(selected));
+
+document.getElementById("modal").classList.add("show");
+}
+
+function closeModal(){
+document.getElementById("modal")
+.classList.remove("show");
+}
+
+async function placeOrder(){
+
+if(!selected)return;
+
+const quantity=
+Number(document.getElementById("quantity").value);
+
+const customer=
+document.getElementById("customer").value.trim();
+
+const note=
+document.getElementById("note").value.trim();
+
+if(quantity<1){
+alert("Invalid quantity");
+return;
+}
+
+if(!customer){
+alert("Enter customer information");
+return;
+}
+
+const payload={
+product_id:id(selected),
+quantity:quantity,
+customer:customer,
+note:note
+};
+
+try{
+
+const r=await fetch(API_BASE+"/order",{
+method:"POST",
+headers:headers(),
+body:JSON.stringify(payload)
+});
+
+const data=await r.json();
+
+if(!r.ok)
+throw new Error(
+data.message||
+data.error||
+"Order failed"
+);
+
+alert("Order placed successfully!");
+
+closeModal();
+loadBalance();
+
+}catch(e){
+console.error(e);
+alert("Order failed: "+e.message);
+}
+}
+
+document.getElementById("search")
+.addEventListener("input",render);
+
+document.getElementById("category")
+.addEventListener("change",render);
+
+function money(n){
+return Number(n||0).toLocaleString("en-BD",{
+maximumFractionDigits:2
+});
+}
+
+function esc(v){
+return String(v)
+.replaceAll("&","&amp;")
+.replaceAll("<","&lt;")
+.replaceAll(">","&gt;")
+.replaceAll('"',"&quot;")
+.replaceAll("'","&#039;");
+}
+
+loadProducts();
+loadBalance();
+</script>
+
 </body>
     </html>
