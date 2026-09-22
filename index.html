@@ -1,0 +1,58 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<meta name="description" content="BEST DEAL - Premium digital products at affordable prices.">
+<meta property="og:title" content="BEST DEAL">
+<meta property="og:description" content="Premium digital products at affordable prices.">
+<meta property="og:image" content="https://yourdomain.com/best-deal-logo.png">
+<title>BEST DEAL</title>
+<link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'%3E%3Crect width='100' height='100' rx='20' fill='%23101114'/%3E%3Ctext x='50' y='62' text-anchor='middle' font-size='42' font-family='Arial' font-weight='700' fill='%23f5c400'%3EBD%3C/text%3E%3C/svg%3E">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="style.css">
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.7.2/css/all.min.css">
+</head>
+<body>
+<header class="header"><div class="container nav">
+<a class="logo" href="#home"><b>BEST</b> DEAL</a>
+<button id="menuBtn" class="menu"><i class="fa-solid fa-bars"></i></button>
+<nav id="nav"><a href="#home">Home</a><a href="#products">Products</a><a href="#about">About</a><a href="#contact">Contact</a></nav>
+</div></header>
+
+<section class="hero" id="home"><div class="container hero-inner reveal">
+<span class="eyebrow"><i class="fa-solid fa-bolt"></i> PREMIUM DIGITAL STORE</span>
+<h1>Everything You Need.<br><span>BEST DEAL.</span></h1>
+<p>Premium digital products, subscriptions and services at affordable prices with a simple ordering experience.</p>
+<div class="actions"><a class="btn primary" href="#products">Explore Products <i class="fa-solid fa-arrow-right"></i></a><a class="btn secondary" href="#about">Learn More</a></div>
+</div></section>
+
+<section class="stats"><div class="container stats-grid">
+<div><strong id="productCount">0</strong><small>Products</small></div><div><strong>24/7</strong><small>Support</small></div><div><strong>100%</strong><small>Digital Delivery</small></div><div><strong>BDT</strong><small>Simple Pricing</small></div>
+</div></section>
+
+<section class="section" id="products"><div class="container">
+<div class="section-title reveal"><div><span class="eyebrow">OUR PRODUCTS</span><h2>Choose Your <span>Product</span></h2></div><p>Browse available digital products and select the one you need.</p></div>
+<div class="toolbar reveal"><div class="search"><i class="fa-solid fa-magnifying-glass"></i><input id="search" placeholder="Search products..."></div>
+<div class="filters" id="filters"><button class="active" data-cat="All">All</button><button data-cat="AI">AI</button><button data-cat="VPN">VPN</button><button data-cat="OTT">OTT</button><button data-cat="Other">Other</button></div></div>
+<div class="grid" id="grid"><div class="loading"><i class="fa-solid fa-circle-notch fa-spin"></i> Loading products...</div></div>
+</div></section>
+
+<section class="section about" id="about"><div class="container about-grid">
+<div class="reveal"><span class="eyebrow">ABOUT BEST DEAL</span><h2>Your trusted place for <span>digital products.</span></h2>
+<p>BEST DEAL is built to make premium digital services easier to find and order. Choose a product, check availability, view details and contact us to order.</p>
+<div class="points"><div><i class="fa-solid fa-circle-check"></i> Simple and transparent pricing</div><div><i class="fa-solid fa-circle-check"></i> Live product stock from API</div><div><i class="fa-solid fa-circle-check"></i> Fast support through social channels</div></div></div>
+<div class="about-card reveal"><i class="fa-solid fa-bag-shopping"></i><h3>Shop Smart</h3><p>Find the right digital product without unnecessary complexity.</p></div>
+</div></section>
+
+<section class="section" id="contact"><div class="container contact-box reveal"><div><span class="eyebrow">CONTACT US</span><h2>Ready to place an order?</h2><p>Choose a product and contact us through your preferred platform.</p></div><a class="btn primary" href="#products">View Products <i class="fa-solid fa-arrow-right"></i></a></div></section>
+
+<footer><div class="container foot"><div><a class="logo" href="#home"><b>BEST</b> DEAL</a><p>Premium digital products, made simple.</p></div><div class="footlinks"><a href="#home">Home</a><a href="#products">Products</a><a href="#about">About</a><a href="#contact">Contact</a></div></div><div class="copy">© 2026 BEST DEAL. All rights reserved.</div></footer>
+
+<div class="modal" id="details"><div class="modal-card detail-card"><button class="close" data-close="details"><i class="fa-solid fa-xmark"></i></button><div class="modal-img"><img id="dimg"></div><div class="modal-body"><span class="tag" id="dcat"></span><h2 id="dname"></h2><div class="price-row"><strong id="dprice"></strong><span id="dstock"></span></div><p id="ddesc"></p><button id="orderBtn" class="btn primary full">Order Now <i class="fa-solid fa-cart-shopping"></i></button></div></div></div>
+
+<div class="modal" id="order"><div class="modal-card order-card"><button class="close" data-close="order"><i class="fa-solid fa-xmark"></i></button><span class="eyebrow">ORDER PRODUCT</span><h2>Contact us to order</h2><p id="orderName"></p><div class="socials"><a id="discord" class="social discord" target="_blank"><i class="fa-brands fa-discord"></i> Discord</a><a id="telegram" class="social telegram" target="_blank"><i class="fa-brands fa-telegram"></i> Telegram</a><a id="whatsapp" class="social whatsapp" target="_blank"><i class="fa-brands fa-whatsapp"></i> WhatsApp</a></div></div></div>
+<script src="script.js"></script>
+</body></html>
