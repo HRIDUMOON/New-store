@@ -1,6 +1,6 @@
 const CONFIG={
  API_URL:"https://safwantigershopbot-production.up.railway.app/api/products",
- API_KEY:"PASTE_YOUR_API_KEY_HERE",
+ API_KEY:"stapi_647ab56bacc03fed1e779effe4f3409c7dc1d4699e4f3db96fdeba5f961ca2fa",
  GOOGLE_SHEET_CSV_URL:"https://docs.google.com/spreadsheets/d/1yyntuIltB3Zg26ZpaihejsrdyPbgWfKD1AbFcI5kMOE/edit?usp=drivesdk",
  DISCORD_URL:"https://discord.gg/YOURSERVER",
  TELEGRAM_URL:"https://t.me/YOURUSERNAME",
