@@ -4,72 +4,104 @@
   <meta charset="UTF-8">
 
   <!-- =========================
-       BASIC META
+       META TAGS
   ========================== -->
+
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <meta name="theme-color" content="#0b0b0d">
 
   <title>BEST DEAL — Premium Digital Products</title>
 
   <meta name="description"
-        content="BEST DEAL — Premium AI, VPN, OTT, productivity and digital products at affordable prices.">
+        content="BEST DEAL — Premium AI tools, subscriptions, VPN, OTT and digital products at affordable BDT prices.">
 
   <meta name="keywords"
-        content="BEST DEAL, AI Products, Premium Accounts, Digital Products, VPN, OTT, ChatGPT, Gemini, Canva, Cursor">
+        content="BEST DEAL, digital products, AI products, ChatGPT, Gemini, CapCut, VPN, OTT, premium accounts">
 
   <meta name="author" content="BEST DEAL">
 
+  <meta name="robots" content="index, follow">
+
+  <meta name="theme-color" content="#0b0b0d">
+
   <!-- =========================
-       OPEN GRAPH — LINK SHARE
+       OPEN GRAPH
+       LINK SHARE PREVIEW
   ========================== -->
+
   <meta property="og:type" content="website">
-  <meta property="og:title" content="BEST DEAL — Premium Digital Products">
+
+  <meta property="og:title"
+        content="BEST DEAL — Premium Digital Products">
+
   <meta property="og:description"
-        content="Premium AI, VPN, OTT and digital products at affordable prices.">
-  <meta property="og:site_name" content="BEST DEAL">
+        content="Premium AI, VPN, OTT and digital products at affordable BDT prices.">
 
-  <!--
-    Put your hosted logo URL here later.
-    Example:
-    https://yourdomain.com/logo.png
-  -->
-  <meta property="og:image" content="https://yourdomain.com/best-deal-logo.png">
-  <meta property="og:image:alt" content="BEST DEAL Logo">
+  <meta property="og:site_name"
+        content="BEST DEAL">
 
-  <!-- IMPORTANT:
-       Put your real website URL here after hosting.
-  -->
-  <meta property="og:url" content="https://yourdomain.com/">
+  <!-- Replace with your hosted logo URL -->
+  <meta property="og:image"
+        content="https://yourdomain.com/best-deal-logo.png">
+
+  <meta property="og:image:alt"
+        content="BEST DEAL">
+
+  <!-- Replace after hosting -->
+  <meta property="og:url"
+        content="https://yourdomain.com/">
 
   <!-- =========================
-       TWITTER / X SHARE
+       TWITTER / X
   ========================== -->
-  <meta name="twitter:card" content="summary_large_image">
-  <meta name="twitter:title" content="BEST DEAL — Premium Digital Products">
+
+  <meta name="twitter:card"
+        content="summary_large_image">
+
+  <meta name="twitter:title"
+        content="BEST DEAL — Premium Digital Products">
+
   <meta name="twitter:description"
-        content="Premium AI, VPN, OTT and digital products.">
+        content="Premium AI, VPN, OTT and digital products at affordable BDT prices.">
+
   <meta name="twitter:image"
         content="https://yourdomain.com/best-deal-logo.png">
 
   <!-- =========================
-       FAVICON
+       FAVICON / WEBSITE ICON
   ========================== -->
+
   <link rel="icon"
-        href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'%3E%3Crect width='100' height='100' rx='24' fill='%230b0b0d'/%3E%3Ctext x='50' y='68' text-anchor='middle' font-size='52' font-family='Arial' font-weight='900' fill='%23ffffff'%3EBD%3C/text%3E%3C/svg%3E">
+        type="image/svg+xml"
+        href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'%3E%3Crect width='100' height='100' rx='22' fill='%230b0b0d'/%3E%3Ctext x='50' y='66' text-anchor='middle' font-family='Arial' font-size='39' font-weight='900' fill='white'%3EBD%3C/text%3E%3C/svg%3E">
 
   <!-- =========================
-       FONTS + ICONS
+       FONTS
   ========================== -->
-  <link rel="preconnect" href="https://fonts.googleapis.com">
-  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+
+  <link rel="preconnect"
+        href="https://fonts.googleapis.com">
+
+  <link rel="preconnect"
+        href="https://fonts.gstatic.com"
+        crossorigin>
 
   <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800;900&display=swap"
         rel="stylesheet">
 
+  <!-- =========================
+       FONT AWESOME
+  ========================== -->
+
   <link rel="stylesheet"
         href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.7.2/css/all.min.css">
 
+
   <style>
+
+    /* =====================================================
+       RESET
+    ===================================================== */
+
     * {
       margin: 0;
       padding: 0;
@@ -81,9 +113,9 @@
     }
 
     body {
-      font-family: "Inter", sans-serif;
       background: #08080a;
-      color: #fff;
+      color: #ffffff;
+      font-family: "Inter", sans-serif;
       overflow-x: hidden;
     }
 
@@ -92,20 +124,21 @@
     }
 
     ::selection {
-      background: #fff;
-      color: #000;
+      background: #ffffff;
+      color: #000000;
     }
 
-    /* =========================
+
+    /* =====================================================
        BACKGROUND
-    ========================== */
+    ===================================================== */
 
     .bg-glow {
       position: fixed;
       width: 500px;
       height: 500px;
       border-radius: 50%;
-      filter: blur(130px);
+      filter: blur(140px);
       opacity: .08;
       pointer-events: none;
       z-index: -1;
@@ -113,19 +146,20 @@
 
     .glow-one {
       background: #ffffff;
-      top: -220px;
-      left: -180px;
+      top: -250px;
+      left: -220px;
     }
 
     .glow-two {
-      background: #777777;
-      right: -220px;
+      background: #888888;
+      right: -250px;
       top: 45%;
     }
 
-    /* =========================
+
+    /* =====================================================
        HEADER
-    ========================== */
+    ===================================================== */
 
     header {
       position: sticky;
@@ -138,9 +172,10 @@
 
     .nav {
       max-width: 1250px;
-      margin: auto;
       height: 76px;
+      margin: auto;
       padding: 0 22px;
+
       display: flex;
       align-items: center;
       justify-content: space-between;
@@ -148,48 +183,53 @@
     }
 
     .brand {
+      color: #fff;
+      text-decoration: none;
+
       display: flex;
       align-items: center;
       gap: 12px;
-      color: #fff;
-      text-decoration: none;
     }
 
     .brand-logo {
       width: 43px;
       height: 43px;
-      border-radius: 13px;
+
       display: flex;
       align-items: center;
       justify-content: center;
+
+      border-radius: 13px;
       background: #fff;
       color: #000;
+
       font-size: 14px;
       font-weight: 900;
       letter-spacing: -1px;
-      box-shadow: 0 8px 35px rgba(255,255,255,.10);
+
+      box-shadow: 0 8px 35px rgba(255,255,255,.1);
     }
 
-    .brand-text {
+    .brand-name {
       font-size: 19px;
       font-weight: 900;
       letter-spacing: -.7px;
     }
 
-    .brand-text span {
-      color: #888;
+    .brand-name span {
+      color: #777;
     }
 
     .nav-links {
       display: flex;
       align-items: center;
-      gap: 26px;
+      gap: 25px;
     }
 
     .nav-links a {
-      color: #aaa;
+      color: #999;
       text-decoration: none;
-      font-size: 14px;
+      font-size: 13px;
       font-weight: 600;
       transition: .25s;
     }
@@ -199,16 +239,16 @@
     }
 
     .nav-order {
-      border: 1px solid rgba(255,255,255,.15);
+      padding: 11px 16px;
+      border-radius: 10px;
       background: #fff;
       color: #000 !important;
-      padding: 11px 17px;
-      border-radius: 10px;
     }
 
-    /* =========================
+
+    /* =====================================================
        HERO
-    ========================== */
+    ===================================================== */
 
     .hero {
       max-width: 1250px;
@@ -221,24 +261,29 @@
       display: inline-flex;
       align-items: center;
       gap: 8px;
+
       padding: 8px 13px;
-      border-radius: 100px;
-      border: 1px solid rgba(255,255,255,.12);
+
+      border: 1px solid rgba(255,255,255,.11);
       background: rgba(255,255,255,.035);
-      color: #bbb;
-      font-size: 12px;
+      border-radius: 100px;
+
+      color: #aaa;
+      font-size: 11px;
       font-weight: 700;
-      margin-bottom: 22px;
+
+      margin-bottom: 23px;
     }
 
     .hero-badge i {
-      font-size: 10px;
+      font-size: 7px;
       color: #fff;
     }
 
     .hero h1 {
-      max-width: 850px;
+      max-width: 900px;
       margin: auto;
+
       font-size: clamp(43px, 7vw, 82px);
       line-height: .98;
       letter-spacing: -5px;
@@ -252,29 +297,34 @@
     .hero p {
       max-width: 650px;
       margin: 25px auto 0;
-      color: #999;
+
+      color: #888;
+      font-size: 14px;
       line-height: 1.8;
-      font-size: 15px;
     }
 
-    /* =========================
+
+    /* =====================================================
        STATS
-    ========================== */
+    ===================================================== */
 
     .stats {
       max-width: 900px;
       margin: 15px auto 0;
       padding: 0 22px;
+
       display: grid;
       grid-template-columns: repeat(3,1fr);
       gap: 12px;
     }
 
     .stat {
+      padding: 20px;
+
       border: 1px solid rgba(255,255,255,.08);
       background: rgba(255,255,255,.025);
       border-radius: 17px;
-      padding: 20px;
+
       text-align: center;
     }
 
@@ -286,27 +336,30 @@
 
     .stat span {
       display: block;
-      color: #777;
-      font-size: 11px;
       margin-top: 6px;
-      text-transform: uppercase;
+
+      color: #666;
+      font-size: 10px;
       letter-spacing: 1px;
+      text-transform: uppercase;
     }
 
-    /* =========================
-       PRODUCTS SECTION
-    ========================== */
+
+    /* =====================================================
+       PRODUCTS
+    ===================================================== */
 
     .products-section {
       max-width: 1250px;
       margin: auto;
-      padding: 70px 22px 100px;
+      padding: 75px 22px 100px;
     }
 
     .section-top {
       display: flex;
       align-items: end;
       justify-content: space-between;
+
       gap: 20px;
       margin-bottom: 25px;
     }
@@ -317,21 +370,29 @@
     }
 
     .section-title p {
-      color: #777;
-      font-size: 13px;
       margin-top: 7px;
+      color: #666;
+      font-size: 12px;
     }
+
+
+    /* =====================================================
+       SEARCH
+    ===================================================== */
 
     .search-box {
       width: 290px;
       height: 45px;
-      border: 1px solid rgba(255,255,255,.1);
-      background: rgba(255,255,255,.035);
-      border-radius: 11px;
+
       display: flex;
       align-items: center;
-      padding: 0 14px;
+
       gap: 10px;
+      padding: 0 14px;
+
+      border: 1px solid rgba(255,255,255,.09);
+      background: rgba(255,255,255,.035);
+      border-radius: 11px;
     }
 
     .search-box i {
@@ -340,39 +401,49 @@
 
     .search-box input {
       width: 100%;
-      border: none;
-      outline: none;
+
+      border: 0;
+      outline: 0;
+
       background: transparent;
       color: #fff;
+
       font-family: inherit;
       font-size: 13px;
     }
 
     .search-box input::placeholder {
-      color: #666;
+      color: #555;
     }
 
-    /* =========================
+
+    /* =====================================================
        CATEGORY
-    ========================== */
+    ===================================================== */
 
     .categories {
       display: flex;
-      gap: 8px;
       flex-wrap: wrap;
+      gap: 8px;
+
       margin-bottom: 28px;
     }
 
     .category-btn {
-      cursor: pointer;
-      border: 1px solid rgba(255,255,255,.09);
+      border: 1px solid rgba(255,255,255,.08);
       background: rgba(255,255,255,.025);
-      color: #888;
+
+      color: #777;
+
       padding: 9px 14px;
       border-radius: 9px;
+
+      cursor: pointer;
+
       font-family: inherit;
-      font-size: 12px;
+      font-size: 11px;
       font-weight: 700;
+
       transition: .25s;
     }
 
@@ -383,9 +454,10 @@
       border-color: #fff;
     }
 
-    /* =========================
+
+    /* =====================================================
        PRODUCT GRID
-    ========================== */
+    ===================================================== */
 
     .product-grid {
       display: grid;
@@ -393,15 +465,29 @@
       gap: 15px;
     }
 
+
+    /* =====================================================
+       PRODUCT CARD
+    ===================================================== */
+
     .product-card {
-      position: relative;
       overflow: hidden;
+
       border: 1px solid rgba(255,255,255,.08);
       background: #101012;
+
       border-radius: 18px;
-      transition: transform .35s ease, border-color .35s ease, box-shadow .35s ease;
+
+      cursor: pointer;
+
       opacity: 0;
       transform: translateY(35px);
+
+      transition:
+        opacity .55s ease,
+        transform .35s ease,
+        border-color .3s ease,
+        box-shadow .3s ease;
     }
 
     .product-card.visible {
@@ -411,73 +497,119 @@
 
     .product-card:hover {
       transform: translateY(-7px);
-      border-color: rgba(255,255,255,.22);
-      box-shadow: 0 20px 50px rgba(0,0,0,.3);
+      border-color: rgba(255,255,255,.2);
+      box-shadow: 0 25px 60px rgba(0,0,0,.35);
     }
 
+
+    /* =====================================================
+       PRODUCT IMAGE
+       IMPORTANT:
+       NO CROP
+       FULL IMAGE VISIBLE
+    ===================================================== */
+
     .product-image {
-      height: 185px;
       position: relative;
+
+      width: 100%;
+      height: 205px;
+
       background: #171719;
+
+      display: flex;
+      align-items: center;
+      justify-content: center;
+
       overflow: hidden;
     }
 
     .product-image img {
       width: 100%;
       height: 100%;
-      object-fit: cover;
+
+      /*
+       * IMPORTANT:
+       * Image will NOT be cropped.
+       * Full image will remain visible.
+       */
+      object-fit: contain;
+
+      padding: 10px;
+
       display: block;
-      transition: transform .5s ease;
+
+      transition: transform .45s ease;
     }
 
     .product-card:hover .product-image img {
-      transform: scale(1.06);
+      transform: scale(1.035);
     }
 
     .image-placeholder {
       width: 100%;
       height: 100%;
+
       display: flex;
       align-items: center;
       justify-content: center;
-      color: #555;
-      font-size: 30px;
+
+      color: #444;
+      font-size: 32px;
     }
+
+
+    /* =====================================================
+       STOCK BADGE
+    ===================================================== */
 
     .stock-badge {
       position: absolute;
       top: 11px;
       right: 11px;
+
       padding: 6px 9px;
+
       border-radius: 7px;
-      background: rgba(0,0,0,.75);
+
+      background: rgba(0,0,0,.76);
       backdrop-filter: blur(8px);
-      font-size: 10px;
-      font-weight: 800;
+
       color: #ddd;
+      font-size: 9px;
+      font-weight: 800;
     }
 
     .stock-badge.out {
       color: #777;
     }
 
+
+    /* =====================================================
+       PRODUCT CONTENT
+    ===================================================== */
+
     .product-content {
       padding: 16px;
     }
 
     .product-category {
-      font-size: 10px;
-      text-transform: uppercase;
-      letter-spacing: 1px;
-      color: #666;
-      font-weight: 800;
       margin-bottom: 8px;
+
+      color: #666;
+      font-size: 9px;
+      font-weight: 800;
+
+      letter-spacing: 1px;
+      text-transform: uppercase;
     }
 
     .product-name {
-      min-height: 43px;
+      min-height: 45px;
+
       color: #fff;
-      font-size: 14px;
+
+      font-size: 13px;
       line-height: 1.5;
       font-weight: 700;
     }
@@ -486,6 +618,7 @@
       display: flex;
       align-items: center;
       justify-content: space-between;
+
       gap: 10px;
       margin-top: 16px;
     }
@@ -497,16 +630,22 @@
     }
 
     .order-btn {
+      height: 36px;
+
       border: 0;
+      border-radius: 9px;
+
       background: #fff;
       color: #000;
-      height: 36px;
+
       padding: 0 13px;
-      border-radius: 9px;
+
       cursor: pointer;
+
       font-family: inherit;
-      font-size: 11px;
+      font-size: 10px;
       font-weight: 900;
+
       transition: .2s;
     }
 
@@ -520,27 +659,37 @@
       cursor: not-allowed;
     }
 
-    /* =========================
+
+    /* =====================================================
        LOADING
-    ========================== */
+    ===================================================== */
 
     .loading {
       grid-column: 1 / -1;
+
       min-height: 250px;
+
       display: flex;
       align-items: center;
       justify-content: center;
+
       flex-direction: column;
+
       gap: 15px;
+
       color: #666;
+      font-size: 12px;
     }
 
     .loader {
       width: 35px;
       height: 35px;
+
       border: 3px solid #222;
       border-top-color: #fff;
+
       border-radius: 50%;
+
       animation: spin .8s linear infinite;
     }
 
@@ -552,14 +701,17 @@
 
     .empty {
       grid-column: 1 / -1;
-      text-align: center;
+
       padding: 80px 20px;
-      color: #666;
+
+      text-align: center;
+      color: #555;
     }
 
-    /* =========================
+
+    /* =====================================================
        ABOUT
-    ========================== */
+    ===================================================== */
 
     .about {
       max-width: 1250px;
@@ -568,26 +720,37 @@
     }
 
     .about-box {
-      border: 1px solid rgba(255,255,255,.08);
-      background: linear-gradient(135deg,#111113,#0b0b0d);
-      border-radius: 24px;
-      padding: 45px;
       display: grid;
       grid-template-columns: 1.2fr .8fr;
+
       gap: 40px;
+
+      padding: 45px;
+
+      border: 1px solid rgba(255,255,255,.08);
+      border-radius: 24px;
+
+      background: linear-gradient(
+        135deg,
+        #111113,
+        #0b0b0d
+      );
     }
 
     .about h2 {
+      margin-bottom: 15px;
+
       font-size: 32px;
       letter-spacing: -1.5px;
-      margin-bottom: 15px;
     }
 
     .about p {
-      color: #888;
-      line-height: 1.9;
-      font-size: 14px;
       max-width: 700px;
+
+      color: #888;
+
+      font-size: 13px;
+      line-height: 1.9;
     }
 
     .about-features {
@@ -598,32 +761,35 @@
 
     .feature {
       padding: 18px;
+
       border: 1px solid rgba(255,255,255,.07);
       border-radius: 13px;
+
       background: rgba(255,255,255,.02);
     }
 
     .feature i {
-      color: #fff;
       margin-bottom: 12px;
-      font-size: 17px;
+      color: #fff;
     }
 
     .feature strong {
       display: block;
-      font-size: 12px;
+      font-size: 11px;
     }
 
     .feature span {
       display: block;
-      color: #666;
-      font-size: 10px;
       margin-top: 5px;
+
+      color: #555;
+      font-size: 9px;
     }
 
-    /* =========================
+
+    /* =====================================================
        FOOTER
-    ========================== */
+    ===================================================== */
 
     footer {
       border-top: 1px solid rgba(255,255,255,.07);
@@ -633,9 +799,11 @@
     .footer-inner {
       max-width: 1250px;
       margin: auto;
+
       display: flex;
       align-items: center;
       justify-content: space-between;
+
       gap: 20px;
     }
 
@@ -645,9 +813,9 @@
     }
 
     .footer-copy {
-      color: #555;
-      font-size: 11px;
       margin-top: 6px;
+      color: #555;
+      font-size: 10px;
     }
 
     .footer-social {
@@ -658,13 +826,17 @@
     .social-btn {
       width: 38px;
       height: 38px;
-      border-radius: 10px;
-      border: 1px solid rgba(255,255,255,.08);
-      color: #aaa;
+
       display: flex;
       align-items: center;
       justify-content: center;
+
+      border: 1px solid rgba(255,255,255,.08);
+      border-radius: 10px;
+
+      color: #aaa;
       text-decoration: none;
+
       transition: .2s;
     }
 
@@ -674,109 +846,257 @@
       transform: translateY(-2px);
     }
 
-    /* =========================
-       MODAL
-    ========================== */
+
+    /* =====================================================
+       UNIVERSAL MODAL
+    ===================================================== */
 
     .modal {
       position: fixed;
       inset: 0;
+
       z-index: 5000;
+
       display: none;
       align-items: center;
       justify-content: center;
+
       padding: 20px;
-      background: rgba(0,0,0,.78);
+
+      background: rgba(0,0,0,.8);
       backdrop-filter: blur(12px);
     }
 
     .modal.show {
       display: flex;
-      animation: modalIn .25s ease;
+      animation: modalFade .2s ease;
     }
 
-    @keyframes modalIn {
+    @keyframes modalFade {
       from {
         opacity: 0;
       }
+
       to {
         opacity: 1;
       }
     }
 
     .modal-box {
-      width: 100%;
-      max-width: 450px;
-      border: 1px solid rgba(255,255,255,.1);
-      background: #111113;
-      border-radius: 22px;
-      padding: 28px;
       position: relative;
-      box-shadow: 0 30px 100px rgba(0,0,0,.6);
+
+      width: 100%;
+      max-width: 460px;
+      max-height: 90vh;
+
+      overflow-y: auto;
+
+      padding: 27px;
+
+      border: 1px solid rgba(255,255,255,.1);
+      border-radius: 22px;
+
+      background: #111113;
+
+      box-shadow: 0 30px 100px rgba(0,0,0,.65);
     }
 
     .modal-close {
       position: absolute;
-      top: 17px;
-      right: 17px;
+      top: 16px;
+      right: 16px;
+
       width: 35px;
       height: 35px;
+
       border: 1px solid rgba(255,255,255,.08);
+      border-radius: 9px;
+
       background: #19191b;
       color: #aaa;
-      border-radius: 9px;
+
       cursor: pointer;
     }
 
     .modal-title {
+      padding-right: 40px;
+
       font-size: 21px;
       font-weight: 900;
-      padding-right: 40px;
     }
+
+
+    /* =====================================================
+       PRODUCT DETAILS MODAL
+    ===================================================== */
+
+    .details-image {
+      width: 100%;
+      height: 260px;
+
+      margin-top: 20px;
+
+      display: flex;
+      align-items: center;
+      justify-content: center;
+
+      overflow: hidden;
+
+      background: #171719;
+      border-radius: 15px;
+    }
+
+    .details-image img {
+      width: 100%;
+      height: 100%;
+
+      /*
+       * FULL IMAGE
+       * NO CROPPING
+       */
+      object-fit: contain;
+
+      padding: 10px;
+    }
+
+    .details-category {
+      margin-top: 18px;
+
+      color: #666;
+      font-size: 9px;
+      font-weight: 800;
+
+      letter-spacing: 1px;
+      text-transform: uppercase;
+    }
+
+    .details-name {
+      margin-top: 7px;
+
+      font-size: 20px;
+      line-height: 1.45;
+      font-weight: 900;
+    }
+
+    .details-price {
+      margin-top: 10px;
+
+      font-size: 22px;
+      font-weight: 900;
+    }
+
+    .details-stock {
+      margin-top: 8px;
+
+      color: #777;
+      font-size: 11px;
+    }
+
+    .description-title {
+      margin-top: 22px;
+      margin-bottom: 9px;
+
+      color: #666;
+
+      font-size: 9px;
+      font-weight: 800;
+
+      letter-spacing: 1px;
+      text-transform: uppercase;
+    }
+
+    .description-text {
+      color: #999;
+
+      font-size: 13px;
+      line-height: 1.8;
+
+      white-space: pre-line;
+
+      word-break: break-word;
+    }
+
+    .details-order {
+      width: 100%;
+      height: 48px;
+
+      margin-top: 22px;
+
+      border: 0;
+      border-radius: 11px;
+
+      background: #fff;
+      color: #000;
+
+      cursor: pointer;
+
+      font-family: inherit;
+      font-size: 12px;
+      font-weight: 900;
+    }
+
+
+    /* =====================================================
+       ORDER MODAL
+    ===================================================== */
 
     .selected-product {
       margin-top: 18px;
+
+      padding: 14px;
+
       border: 1px solid rgba(255,255,255,.07);
       border-radius: 13px;
-      padding: 14px;
     }
 
     .selected-product-name {
       font-size: 13px;
-      font-weight: 800;
       line-height: 1.5;
+      font-weight: 800;
     }
 
     .selected-product-price {
-      color: #aaa;
       margin-top: 6px;
-      font-size: 13px;
+
+      color: #aaa;
+      font-size: 12px;
     }
 
     .contact-title {
       margin: 24px 0 10px;
+
       color: #666;
-      font-size: 10px;
-      text-transform: uppercase;
-      letter-spacing: 1.2px;
+
+      font-size: 9px;
       font-weight: 800;
+
+      letter-spacing: 1px;
+      text-transform: uppercase;
     }
 
     .contact-btn {
       width: 100%;
       height: 49px;
-      border: 1px solid rgba(255,255,255,.08);
-      background: #19191b;
-      color: #fff;
-      border-radius: 11px;
+
       display: flex;
       align-items: center;
+
       gap: 12px;
+
       padding: 0 15px;
       margin-top: 8px;
+
+      border: 1px solid rgba(255,255,255,.08);
+      border-radius: 11px;
+
+      background: #19191b;
+      color: #fff;
+
       text-decoration: none;
+
       font-size: 12px;
       font-weight: 800;
+
       transition: .2s;
     }
 
@@ -787,21 +1107,28 @@
 
     .contact-btn i {
       width: 22px;
+
       text-align: center;
+
       font-size: 17px;
     }
 
-    /* =========================
+
+    /* =====================================================
        RESPONSIVE
-    ========================== */
+    ===================================================== */
 
     @media(max-width:1050px) {
+
       .product-grid {
         grid-template-columns: repeat(3,1fr);
       }
+
     }
 
+
     @media(max-width:800px) {
+
       .nav-links {
         display: none;
       }
@@ -816,8 +1143,8 @@
       }
 
       .section-top {
-        align-items: stretch;
         flex-direction: column;
+        align-items: stretch;
       }
 
       .search-box {
@@ -832,15 +1159,18 @@
         grid-template-columns: 1fr;
         padding: 30px;
       }
+
     }
 
+
     @media(max-width:520px) {
-      .brand-text {
-        font-size: 16px;
-      }
 
       .nav {
         padding: 0 15px;
+      }
+
+      .brand-name {
+        font-size: 16px;
       }
 
       .nav-order {
@@ -862,12 +1192,12 @@
       }
 
       .product-grid {
-        grid-template-columns: 1fr 1fr;
+        grid-template-columns: repeat(2,1fr);
         gap: 9px;
       }
 
       .product-image {
-        height: 140px;
+        height: 145px;
       }
 
       .product-content {
@@ -900,129 +1230,215 @@
         grid-template-columns: 1fr 1fr;
       }
 
+      .details-image {
+        height: 230px;
+      }
+
       .footer-inner {
         flex-direction: column;
         align-items: flex-start;
       }
+
     }
+
   </style>
 </head>
+
 
 <body>
 
   <div class="bg-glow glow-one"></div>
   <div class="bg-glow glow-two"></div>
 
-  <!-- =========================
+
+  <!-- =====================================================
        HEADER
-  ========================== -->
+  ===================================================== -->
 
   <header>
+
     <nav class="nav">
 
       <a href="#" class="brand">
-        <div class="brand-logo">BD</div>
-        <div class="brand-text">
+
+        <div class="brand-logo">
+          BD
+        </div>
+
+        <div class="brand-name">
           BEST <span>DEAL</span>
         </div>
+
       </a>
 
+
       <div class="nav-links">
-        <a href="#products">Products</a>
-        <a href="#about">About</a>
-        <a href="#contact" class="nav-order">
+
+        <a href="#products">
+          Products
+        </a>
+
+        <a href="#about">
+          About
+        </a>
+
+        <a href="#contact"
+           class="nav-order">
+
           <i class="fa-solid fa-bag-shopping"></i>
           Order
+
         </a>
+
       </div>
 
     </nav>
+
   </header>
 
 
-  <!-- =========================
+  <!-- =====================================================
        HERO
-  ========================== -->
+  ===================================================== -->
 
   <main>
 
     <section class="hero">
 
       <div class="hero-badge">
+
         <i class="fa-solid fa-circle"></i>
+
         PREMIUM DIGITAL STORE
+
       </div>
 
+
       <h1>
+
         Premium Products.<br>
+
         <span>Better Deals.</span>
+
       </h1>
 
+
       <p>
-        Discover premium AI tools, subscriptions, VPNs, productivity
-        services and digital products — all organized in one place.
+
+        Discover premium AI tools, subscriptions, VPNs,
+        productivity services and digital products —
+        all organized in one place.
+
       </p>
 
     </section>
 
 
-    <!-- =========================
+    <!-- =====================================================
          STATS
-    ========================== -->
+    ===================================================== -->
 
     <section class="stats">
 
       <div class="stat">
-        <strong id="productCount">48+</strong>
-        <span>Products</span>
+
+        <strong id="productCount">
+          48+
+        </strong>
+
+        <span>
+          Products
+        </span>
+
       </div>
 
-      <div class="stat">
-        <strong>24/7</strong>
-        <span>Order Support</span>
-      </div>
 
       <div class="stat">
-        <strong>BDT</strong>
-        <span>Simple Pricing</span>
+
+        <strong>
+          24/7
+        </strong>
+
+        <span>
+          Order Support
+        </span>
+
+      </div>
+
+
+      <div class="stat">
+
+        <strong>
+          BDT
+        </strong>
+
+        <span>
+          Simple Pricing
+        </span>
+
       </div>
 
     </section>
 
 
-    <!-- =========================
+    <!-- =====================================================
          PRODUCTS
-    ========================== -->
+    ===================================================== -->
 
-    <section class="products-section" id="products">
+    <section
+      class="products-section"
+      id="products"
+    >
 
       <div class="section-top">
 
         <div class="section-title">
-          <h2>Our Products</h2>
-          <p>Choose a product and place your order.</p>
+
+          <h2>
+            Our Products
+          </h2>
+
+          <p>
+            Click any product to see details.
+          </p>
+
         </div>
 
+
         <div class="search-box">
+
           <i class="fa-solid fa-magnifying-glass"></i>
+
           <input
             type="text"
             id="searchInput"
             placeholder="Search products..."
           >
+
         </div>
 
       </div>
 
 
-      <div class="categories" id="categories"></div>
+      <div
+        class="categories"
+        id="categories"
+      ></div>
 
 
-      <div class="product-grid" id="productGrid">
+      <div
+        class="product-grid"
+        id="productGrid"
+      >
 
         <div class="loading">
+
           <div class="loader"></div>
-          <span>Loading products...</span>
+
+          <span>
+            Loading products...
+          </span>
+
         </div>
 
       </div>
@@ -1030,31 +1446,43 @@
     </section>
 
 
-    <!-- =========================
+    <!-- =====================================================
          ABOUT
-    ========================== -->
+    ===================================================== -->
 
-    <section class="about" id="about">
+    <section
+      class="about"
+      id="about"
+    >
 
       <div class="about-box">
 
         <div>
 
-          <h2>About BEST DEAL</h2>
+          <h2>
+            About BEST DEAL
+          </h2>
 
           <p>
-            BEST DEAL is a premium digital product marketplace designed
-            to make quality digital services easier to discover and order.
-            From AI tools and productivity platforms to VPN, OTT and
-            subscription products, everything is presented in a clean,
-            simple and organized experience.
+
+            BEST DEAL is a premium digital product
+            marketplace built to make quality digital
+            services easier to discover and order.
+
+            From AI tools and productivity platforms
+            to VPN, OTT and subscription products,
+            everything is organized in a clean,
+            simple and modern experience.
+
           </p>
 
           <br>
 
           <p>
-            Our goal is simple — clear product information, transparent
-            pricing and a smooth ordering experience.
+
+            Our goal is simple — clear product information,
+            transparent pricing and a smooth ordering experience.
+
           </p>
 
         </div>
@@ -1063,27 +1491,62 @@
         <div class="about-features">
 
           <div class="feature">
+
             <i class="fa-solid fa-layer-group"></i>
-            <strong>Premium Products</strong>
-            <span>Curated digital services</span>
+
+            <strong>
+              Premium Products
+            </strong>
+
+            <span>
+              Curated digital services
+            </span>
+
           </div>
 
+
           <div class="feature">
+
             <i class="fa-solid fa-tags"></i>
-            <strong>Clear Pricing</strong>
-            <span>BDT pricing system</span>
+
+            <strong>
+              Clear Pricing
+            </strong>
+
+            <span>
+              BDT pricing system
+            </span>
+
           </div>
 
+
           <div class="feature">
+
             <i class="fa-solid fa-box-open"></i>
-            <strong>Live Stock</strong>
-            <span>API based stock</span>
+
+            <strong>
+              Live Stock
+            </strong>
+
+            <span>
+              API based stock
+            </span>
+
           </div>
 
+
           <div class="feature">
+
             <i class="fa-solid fa-headset"></i>
-            <strong>Order Support</strong>
-            <span>Multiple contact options</span>
+
+            <strong>
+              Order Support
+            </strong>
+
+            <span>
+              Multiple contact options
+            </span>
+
           </div>
 
         </div>
@@ -1095,22 +1558,28 @@
   </main>
 
 
-  <!-- =========================
+  <!-- =====================================================
        FOOTER
-  ========================== -->
+  ===================================================== -->
 
   <footer id="contact">
 
     <div class="footer-inner">
 
       <div>
+
         <div class="footer-brand">
           BEST DEAL
         </div>
 
         <div class="footer-copy">
-          © <span id="year"></span> BEST DEAL. All rights reserved.
+
+          ©
+          <span id="year"></span>
+          BEST DEAL. All rights reserved.
+
         </div>
+
       </div>
 
 
@@ -1120,27 +1589,32 @@
           href="https://discord.gg/YOURSERVER"
           target="_blank"
           class="social-btn"
-          aria-label="Discord"
         >
+
           <i class="fa-brands fa-discord"></i>
+
         </a>
+
 
         <a
           href="https://t.me/YOURUSERNAME"
           target="_blank"
           class="social-btn"
-          aria-label="Telegram"
         >
+
           <i class="fa-brands fa-telegram"></i>
+
         </a>
+
 
         <a
           href="https://wa.me/8801XXXXXXXXX"
           target="_blank"
           class="social-btn"
-          aria-label="WhatsApp"
         >
+
           <i class="fa-brands fa-whatsapp"></i>
+
         </a>
 
       </div>
@@ -1150,21 +1624,115 @@
   </footer>
 
 
-  <!-- =========================
-       ORDER MODAL
-  ========================== -->
+  <!-- =====================================================
+       PRODUCT DETAILS MODAL
+  ===================================================== -->
 
-  <div class="modal" id="orderModal">
+  <div
+    class="modal"
+    id="detailsModal"
+  >
 
     <div class="modal-box">
 
-      <button class="modal-close" id="modalClose">
+      <button
+        class="modal-close"
+        id="detailsClose"
+      >
+
         <i class="fa-solid fa-xmark"></i>
+
       </button>
+
+
+      <div class="modal-title">
+        Product Details
+      </div>
+
+
+      <div
+        class="details-image"
+        id="detailsImage"
+      ></div>
+
+
+      <div
+        class="details-category"
+        id="detailsCategory"
+      ></div>
+
+
+      <div
+        class="details-name"
+        id="detailsName"
+      ></div>
+
+
+      <div
+        class="details-price"
+        id="detailsPrice"
+      ></div>
+
+
+      <div
+        class="details-stock"
+        id="detailsStock"
+      ></div>
+
+
+      <div class="description-title">
+        Description
+      </div>
+
+
+      <div
+        class="description-text"
+        id="detailsDescription"
+      >
+      </div>
+
+
+      <button
+        class="details-order"
+        id="detailsOrder"
+      >
+
+        <i class="fa-solid fa-cart-shopping"></i>
+
+        Order This Product
+
+      </button>
+
+    </div>
+
+  </div>
+
+
+  <!-- =====================================================
+       ORDER MODAL
+  ===================================================== -->
+
+  <div
+    class="modal"
+    id="orderModal"
+  >
+
+    <div class="modal-box">
+
+      <button
+        class="modal-close"
+        id="orderClose"
+      >
+
+        <i class="fa-solid fa-xmark"></i>
+
+      </button>
+
 
       <div class="modal-title">
         Choose Order Method
       </div>
+
 
       <div class="selected-product">
 
@@ -1174,6 +1742,7 @@
         >
           Product
         </div>
+
 
         <div
           class="selected-product-price"
@@ -1195,8 +1764,11 @@
         target="_blank"
         class="contact-btn"
       >
+
         <i class="fa-brands fa-discord"></i>
+
         Order via Discord
+
       </a>
 
 
@@ -1205,8 +1777,11 @@
         target="_blank"
         class="contact-btn"
       >
+
         <i class="fa-brands fa-telegram"></i>
+
         Order via Telegram
+
       </a>
 
 
@@ -1216,8 +1791,11 @@
         class="contact-btn"
         id="whatsappOrder"
       >
+
         <i class="fa-brands fa-whatsapp"></i>
+
         Order via WhatsApp
+
       </a>
 
     </div>
@@ -1225,51 +1803,35 @@
   </div>
 
 
+  <!-- =====================================================
+       JAVASCRIPT
+  ===================================================== -->
+
   <script>
 
+
     /* =====================================================
-       CONFIG
+       CONFIGURATION
     ===================================================== */
 
     const CONFIG = {
 
-      /*
-       * API
-       */
       API_URL:
         "https://safwantigershopbot-production.up.railway.app/api/products",
 
-      /*
-       * Paste your API key here.
-       *
-       * IMPORTANT:
-       * Frontend API keys are visible to website visitors.
-       * Backend proxy is recommended for production.
-       */
       API_KEY:
-        "YOUR_API_KEY_HERE",
+        "stapi_9c66d7871f68c9b8e06f2f785ca1906595b2be0f83108daf1cd2b09055e62e14",
 
 
       /*
-       * GOOGLE SHEET
+       * Google Sheet CSV link:
        *
-       * You will paste your Google Sheet CSV link here later.
-       *
-       * Sheet example:
-       *
-       * Product Name | Image
-       * Gemini Pro 18M | https://example.com/gemini.jpg
-       *
-       * IMPORTANT:
-       * Publish the sheet to the web as CSV.
+       * পরে এখানে শুধু তোমার Sheet CSV link বসাবে.
        */
       GOOGLE_SHEET_CSV_URL:
         "YOUR_GOOGLE_SHEET_CSV_URL_HERE",
 
 
-      /*
-       * Order links
-       */
       DISCORD_URL:
         "https://discord.gg/YOURSERVER",
 
@@ -1278,12 +1840,13 @@
 
       WHATSAPP_NUMBER:
         "8801XXXXXXXXX"
+
     };
 
 
     /* =====================================================
-       FIXED PRODUCT PRICES
-       130 BDT RATE
+       FIXED BDT PRICE LIST
+       BASED ON USER PROVIDED LIST
     ===================================================== */
 
     const PRICE_LIST = {
@@ -1383,16 +1946,160 @@
       "Cursor Pro Plus + Grok Bot 1M": 5200,
 
       "Manus Pro 1 Year": 5200
+
     };
 
 
     /* =====================================================
-       PRODUCT CATEGORIES
+       GLOBAL VARIABLES
+    ===================================================== */
+
+    let products = [];
+
+    let sheetImages = {};
+
+    let activeCategory = "All";
+
+    let selectedProduct = null;
+
+
+    /* =====================================================
+       NORMALIZE
+    ===================================================== */
+
+    function normalize(text) {
+
+      return String(text || "")
+        .toLowerCase()
+        .trim()
+        .replace(/\s+/g, " ");
+
+    }
+
+
+    /* =====================================================
+       ESCAPE HTML
+    ===================================================== */
+
+    function escapeHTML(value) {
+
+      return String(value ?? "")
+        .replace(/&/g, "&amp;")
+        .replace(/</g, "&lt;")
+        .replace(/>/g, "&gt;")
+        .replace(/"/g, "&quot;")
+        .replace(/'/g, "&#039;");
+
+    }
+
+
+    function escapeAttribute(value) {
+
+      return escapeHTML(value);
+
+    }
+
+
+    /* =====================================================
+       FORMAT PRICE
+    ===================================================== */
+
+    function formatNumber(number) {
+
+      return Number(number || 0)
+        .toLocaleString("en-US");
+
+    }
+
+
+    /* =====================================================
+       GET FIELD
+    ===================================================== */
+
+    function getField(object, fields) {
+
+      for (const field of fields) {
+
+        if (
+          object &&
+          object[field] !== undefined &&
+          object[field] !== null
+        ) {
+
+          return object[field];
+
+        }
+
+      }
+
+      return "";
+
+    }
+
+
+    /* =====================================================
+       GET FIXED PRICE
+    ===================================================== */
+
+    function getFixedPrice(name) {
+
+      const normalizedName =
+        normalize(name);
+
+
+      /* Exact match */
+
+      for (
+        const key of Object.keys(PRICE_LIST)
+      ) {
+
+        if (
+          normalize(key) === normalizedName
+        ) {
+
+          return PRICE_LIST[key];
+
+        }
+
+      }
+
+
+      /* Flexible match */
+
+      for (
+        const key of Object.keys(PRICE_LIST)
+      ) {
+
+        const normalizedKey =
+          normalize(key);
+
+
+        if (
+          normalizedName.includes(normalizedKey) ||
+          normalizedKey.includes(normalizedName)
+        ) {
+
+          return PRICE_LIST[key];
+
+        }
+
+      }
+
+
+      return 0;
+
+    }
+
+
+    /* =====================================================
+       CATEGORY
     ===================================================== */
 
     function getCategory(name) {
 
-      const n = name.toLowerCase();
+      const n =
+        normalize(name);
+
 
       if (
         n.includes("gemini") ||
@@ -1409,24 +2116,33 @@
         n.includes("factory") ||
         n.includes("lovable")
       ) {
+
         return "AI";
+
       }
+
 
       if (
         n.includes("vpn") ||
         n.includes("surfshark") ||
         n.includes("nordvpn")
       ) {
+
         return "VPN";
+
       }
+
 
       if (
         n.includes("youtube") ||
         n.includes("amazon prime") ||
         n.includes("ott")
       ) {
+
         return "OTT";
+
       }
+
 
       if (
         n.includes("canva") ||
@@ -1440,103 +2156,25 @@
         n.includes("resend") ||
         n.includes("quillbot") ||
         n.includes("coursera") ||
-        n.includes("edx") ||
         n.includes("duolingo") ||
+        n.includes("edx") ||
         n.includes("wispr") ||
         n.includes("warp") ||
         n.includes("linkedin")
       ) {
+
         return "Tools";
+
       }
+
 
       return "Digital";
-    }
-
-
-    /* =====================================================
-       GLOBAL DATA
-    ===================================================== */
-
-    let products = [];
-    let sheetImages = {};
-    let activeCategory = "All";
-
-
-    /* =====================================================
-       NORMALIZE TEXT
-    ===================================================== */
-
-    function normalize(text) {
-
-      return String(text || "")
-        .toLowerCase()
-        .trim()
-        .replace(/\s+/g, " ");
 
     }
 
 
     /* =====================================================
-       FIND PRICE
-    ===================================================== */
-
-    function getFixedPrice(productName) {
-
-      const name = normalize(productName);
-
-      for (const key of Object.keys(PRICE_LIST)) {
-
-        if (normalize(key) === name) {
-          return PRICE_LIST[key];
-        }
-
-      }
-
-      /*
-       * Flexible matching for API names
-       */
-
-      for (const key of Object.keys(PRICE_LIST)) {
-
-        const fixed = normalize(key);
-
-        if (
-          name.includes(fixed) ||
-          fixed.includes(name)
-        ) {
-          return PRICE_LIST[key];
-        }
-
-      }
-
-      return 0;
-    }
-
-
-    /* =====================================================
-       GET PRODUCT FIELD
-    ===================================================== */
-
-    function getField(obj, fields) {
-
-      for (const field of fields) {
-
-        if (
-          obj &&
-          obj[field] !== undefined &&
-          obj[field] !== null
-        ) {
-          return obj[field];
-        }
-
-      }
-
-      return "";
-    }
-
-
-    /* =====================================================
-       API RESPONSE NORMALIZER
+       API RESPONSE
     ===================================================== */
 
     function normalizeAPIResponse(data) {
@@ -1558,104 +2196,141 @@
       }
 
       return [];
+
     }
 
 
     /* =====================================================
-       LOAD API PRODUCTS
+       LOAD API
     ===================================================== */
 
     async function loadProducts() {
 
       try {
 
-        const response = await fetch(
-          CONFIG.API_URL,
-          {
-            method: "GET",
-            headers: {
-              "Accept": "application/json",
-              "Authorization":
-                `Bearer ${CONFIG.API_KEY}`
+        const response =
+          await fetch(
+            CONFIG.API_URL,
+            {
+              method: "GET",
+
+              headers: {
+
+                "Accept":
+                  "application/json",
+
+                "Authorization":
+                  `Bearer ${CONFIG.API_KEY}`
+
+              }
+
             }
-          }
-        );
+          );
+
 
         if (!response.ok) {
+
           throw new Error(
-            "API Error: " + response.status
+            "API Error " +
+            response.status
           );
+
         }
 
-        const data = await response.json();
+
+        const data =
+          await response.json();
+
 
         const rawProducts =
           normalizeAPIResponse(data);
 
-        products = rawProducts.map((item, index) => {
 
-          const name = getField(
-            item,
-            [
-              "name",
-              "title",
-              "product_name",
-              "productName",
-              "display_name"
-            ]
-          );
+        products =
+          rawProducts
+            .map((item, index) => {
 
-          const stock = getField(
-            item,
-            [
-              "stock",
-              "quantity",
-              "inventory",
-              "available_stock",
-              "availableStock",
-              "stock_quantity",
-              "stockQuantity",
-              "currentStock",
-              "remaining",
-              "available"
-            ]
-          );
+              const name =
+                getField(
+                  item,
+                  [
+                    "name",
+                    "title",
+                    "product_name",
+                    "productName",
+                    "display_name"
+                  ]
+                );
 
-          return {
 
-            id:
-              item.id ||
-              item._id ||
-              index + 1,
+              const description =
+                getField(
+                  item,
+                  [
+                    "description",
+                    "details",
+                    "short_description",
+                    "shortDescription",
+                    "product_description"
+                  ]
+                );
 
-            name:
-              String(name || "Unnamed Product"),
 
-            stock:
-              stock === ""
-                ? 0
-                : Number(stock) || 0,
+              const stock =
+                getField(
+                  item,
+                  [
+                    "stock",
+                    "quantity",
+                    "inventory",
+                    "available_stock",
+                    "availableStock",
+                    "stock_quantity",
+                    "stockQuantity",
+                    "currentStock",
+                    "remaining",
+                    "available"
+                  ]
+                );
 
-            category:
-              getCategory(
-                String(name || "")
-              )
-          };
 
-        });
+              return {
 
-        /*
-         * IMPORTANT:
-         * We do NOT use API price.
-         *
-         * Price comes ONLY from PRICE_LIST.
-         */
+                id:
+                  item.id ||
+                  item._id ||
+                  index + 1,
 
-        products = products.filter(product => {
+                name:
+                  String(
+                    name ||
+                    "Unnamed Product"
+                  ),
 
-          return getFixedPrice(product.name) > 0;
+                description:
+                  String(
+                    description ||
+                    "No description available."
+                  ),
 
-        });
+                stock:
+                  Number(stock) || 0,
+
+                category:
+                  getCategory(
+                    String(name || "")
+                  )
+
+              };
+
+            })
+            .filter(
+              product =>
+                getFixedPrice(
+                  product.name
+                ) > 0
+            );
+
 
         updateStats();
 
@@ -1663,9 +2338,13 @@
 
         renderProducts();
 
+
       } catch (error) {
 
-        console.error(error);
+        console.error(
+          error
+        );
+
 
         document.getElementById(
           "productGrid"
@@ -1685,7 +2364,7 @@
             <small
               style="display:block;margin-top:8px;color:#444;"
             >
-              Please check API configuration.
+              Please check your API configuration.
             </small>
 
           </div>
@@ -1698,15 +2377,10 @@
 
 
     /* =====================================================
-       GOOGLE SHEET CSV
+       GOOGLE SHEET
     ===================================================== */
 
     async function loadSheetImages() {
-
-      /*
-       * Sheet link not added yet.
-       * Website will simply continue without images.
-       */
 
       if (
         !CONFIG.GOOGLE_SHEET_CSV_URL ||
@@ -1722,13 +2396,19 @@
 
       try {
 
-        const response = await fetch(
-          CONFIG.GOOGLE_SHEET_CSV_URL
-        );
+        const response =
+          await fetch(
+            CONFIG.GOOGLE_SHEET_CSV_URL
+          );
 
-        const csv = await response.text();
 
-        const rows = parseCSV(csv);
+        const csv =
+          await response.text();
+
+
+        const rows =
+          parseCSV(csv);
+
 
         if (!rows.length) {
           return;
@@ -1742,26 +2422,28 @@
 
 
         const nameIndex =
-          headers.findIndex(h =>
-            [
-              "product name",
-              "name",
-              "product",
-              "title"
-            ].includes(h)
+          headers.findIndex(
+            h =>
+              [
+                "product name",
+                "name",
+                "product",
+                "title"
+              ].includes(h)
           );
 
 
         const imageIndex =
-          headers.findIndex(h =>
-            [
-              "image",
-              "image url",
-              "image_url",
-              "photo",
-              "photo url",
-              "image link"
-            ].includes(h)
+          headers.findIndex(
+            h =>
+              [
+                "image",
+                "image url",
+                "image_url",
+                "photo",
+                "photo url",
+                "image link"
+              ].includes(h)
           );
 
 
@@ -1771,7 +2453,7 @@
         ) {
 
           console.warn(
-            "Sheet must contain Product Name and Image columns."
+            "Google Sheet needs Product Name and Image columns."
           );
 
           return;
@@ -1785,17 +2467,21 @@
           i++
         ) {
 
-          const row = rows[i];
+          const row =
+            rows[i];
+
 
           const name =
             normalize(
               row[nameIndex]
             );
 
+
           const image =
             String(
               row[imageIndex] || ""
             ).trim();
+
 
           if (
             name &&
@@ -1809,10 +2495,11 @@
 
         }
 
+
       } catch (error) {
 
         console.error(
-          "Google Sheet error:",
+          "Google Sheet Error:",
           error
         );
 
@@ -1822,7 +2509,7 @@
 
 
     /* =====================================================
-       SIMPLE CSV PARSER
+       CSV PARSER
     ===================================================== */
 
     function parseCSV(text) {
@@ -1842,9 +2529,11 @@
         i++
       ) {
 
-        const char = text[i];
+        const char =
+          text[i];
 
-        const next = text[i + 1];
+        const next =
+          text[i + 1];
 
 
         if (
@@ -1873,7 +2562,9 @@
           !insideQuotes
         ) {
 
-          row.push(value.trim());
+          row.push(
+            value.trim()
+          );
 
           value = "";
 
@@ -1891,10 +2582,16 @@
             char === "\r" &&
             next === "\n"
           ) {
+
             i++;
+
           }
 
-          row.push(value.trim());
+
+          row.push(
+            value.trim()
+          );
+
 
           if (
             row.some(
@@ -1905,6 +2602,7 @@
             rows.push(row);
 
           }
+
 
           row = [];
 
@@ -1926,7 +2624,9 @@
         row.length
       ) {
 
-        row.push(value.trim());
+        row.push(
+          value.trim()
+        );
 
         rows.push(row);
 
@@ -1939,7 +2639,7 @@
 
 
     /* =====================================================
-       GET IMAGE
+       GET IMAGE FROM SHEET
     ===================================================== */
 
     function getProductImage(name) {
@@ -1947,10 +2647,6 @@
       const normalized =
         normalize(name);
 
-
-      /*
-       * Exact match
-       */
 
       if (
         sheetImages[normalized]
@@ -1962,10 +2658,6 @@
 
       }
 
-
-      /*
-       * Flexible match
-       */
 
       for (
         const key of Object.keys(
@@ -1991,7 +2683,7 @@
 
 
     /* =====================================================
-       UPDATE STATS
+       STATS
     ===================================================== */
 
     function updateStats() {
@@ -2036,7 +2728,7 @@
                   ? "active"
                   : ""
               }"
-              data-category="${escapeHTML(category)}"
+              data-category="${escapeAttribute(category)}"
             >
               ${escapeHTML(category)}
             </button>
@@ -2081,6 +2773,7 @@
           "productGrid"
         );
 
+
       const search =
         normalize(
           document.getElementById(
@@ -2089,25 +2782,25 @@
         );
 
 
-      let filtered =
+      const filtered =
         products.filter(
           product => {
 
-            const matchesCategory =
+            const categoryMatch =
               activeCategory === "All" ||
               product.category ===
                 activeCategory;
 
 
-            const matchesSearch =
+            const searchMatch =
               normalize(
                 product.name
               ).includes(search);
 
 
             return (
-              matchesCategory &&
-              matchesSearch
+              categoryMatch &&
+              searchMatch
             );
 
           }
@@ -2139,17 +2832,17 @@
 
 
       grid.innerHTML =
-        filtered.map(
-          product =>
-            createProductCard(
-              product
-            )
-        ).join("");
+        filtered
+          .map(
+            product =>
+              createProductCard(
+                product
+              )
+          )
+          .join("");
 
 
-      /*
-       * Scroll reveal
-       */
+      /* Scroll animation */
 
       requestAnimationFrame(
         () => {
@@ -2181,28 +2874,72 @@
       );
 
 
-      /*
-       * Order button
-       */
+      /* Card click */
 
       grid
         .querySelectorAll(
-          ".order-btn:not(.disabled)"
+          ".product-card"
         )
-        .forEach(button => {
+        .forEach(card => {
 
-          button.addEventListener(
+          card.addEventListener(
             "click",
             () => {
-
-              const id =
-                button.dataset.id;
 
               const product =
                 products.find(
                   p =>
                     String(p.id) ===
-                    String(id)
+                    String(
+                      card.dataset.id
+                    )
+                );
+
+
+              if (product) {
+
+                openDetailsModal(
+                  product
+                );
+
+              }
+
+            }
+          );
+
+        });
+
+
+      /* Prevent order button from triggering card twice */
+
+      grid
+        .querySelectorAll(
+          ".order-btn"
+        )
+        .forEach(button => {
+
+          button.addEventListener(
+            "click",
+            event => {
+
+              event.stopPropagation();
+
+              if (
+                button.disabled
+              ) {
+
+                return;
+
+              }
+
+
+              const product =
+                products.find(
+                  p =>
+                    String(p.id) ===
+                    String(
+                      button.dataset.id
+                    )
                 );
 
 
@@ -2248,27 +2985,36 @@
 
       const imageHTML =
         image
+
           ? `
 
             <img
               src="${escapeAttribute(image)}"
               alt="${escapeAttribute(product.name)}"
               loading="lazy"
-              onerror="this.style.display='none';this.nextElementSibling.style.display='flex';"
+              onerror="
+                this.style.display='none';
+                this.nextElementSibling.style.display='flex';
+              "
             >
 
             <div
               class="image-placeholder"
               style="display:none;"
             >
+
               <i class="fa-regular fa-image"></i>
+
             </div>
 
           `
+
           : `
 
             <div class="image-placeholder">
+
               <i class="fa-regular fa-image"></i>
+
             </div>
 
           `;
@@ -2285,16 +3031,27 @@
 
             ${imageHTML}
 
+
             <div
               class="stock-badge ${
                 inStock ? "" : "out"
               }"
             >
+
               ${
                 inStock
-                  ? `<i class="fa-solid fa-box"></i> ${product.stock} in stock`
-                  : `<i class="fa-solid fa-circle-xmark"></i> Out of stock`
+
+                  ? `
+                    <i class="fa-solid fa-box"></i>
+                    ${product.stock} in stock
+                  `
+
+                  : `
+                    <i class="fa-solid fa-circle-xmark"></i>
+                    Out of stock
+                  `
               }
+
             </div>
 
           </div>
@@ -2303,36 +3060,48 @@
           <div class="product-content">
 
             <div class="product-category">
-              ${escapeHTML(product.category)}
+
+              ${escapeHTML(
+                product.category
+              )}
+
             </div>
 
+
             <div class="product-name">
-              ${escapeHTML(product.name)}
+
+              ${escapeHTML(
+                product.name
+              )}
+
             </div>
 
 
             <div class="product-bottom">
 
               <div class="price">
-                ৳${formatNumber(price)}
+
+                ৳${formatNumber(
+                  price
+                )}
+
               </div>
+
 
               <button
                 class="order-btn ${
                   inStock ? "" : "disabled"
                 }"
-                ${
-                  inStock
-                    ? ""
-                    : "disabled"
-                }
                 data-id="${escapeAttribute(product.id)}"
+                ${inStock ? "" : "disabled"}
               >
+
                 ${
                   inStock
                     ? "Order"
                     : "Unavailable"
                 }
+
               </button>
 
             </div>
@@ -2347,6 +3116,144 @@
 
 
     /* =====================================================
+       DETAILS MODAL
+    ===================================================== */
+
+    function openDetailsModal(
+      product
+    ) {
+
+      selectedProduct =
+        product;
+
+
+      const price =
+        getFixedPrice(
+          product.name
+        );
+
+
+      const image =
+        getProductImage(
+          product.name
+        );
+
+
+      document.getElementById(
+        "detailsCategory"
+      ).textContent =
+        product.category;
+
+
+      document.getElementById(
+        "detailsName"
+      ).textContent =
+        product.name;
+
+
+      document.getElementById(
+        "detailsPrice"
+      ).textContent =
+        `৳${formatNumber(price)}`;
+
+
+      document.getElementById(
+        "detailsStock"
+      ).innerHTML =
+        Number(product.stock) > 0
+
+          ? `
+            <i class="fa-solid fa-circle-check"></i>
+            ${product.stock} in stock
+          `
+
+          : `
+            <i class="fa-solid fa-circle-xmark"></i>
+            Out of stock
+          `;
+
+
+      document.getElementById(
+        "detailsDescription"
+      ).textContent =
+        product.description ||
+        "No description available.";
+
+
+      const imageContainer =
+        document.getElementById(
+          "detailsImage"
+        );
+
+
+      if (image) {
+
+        imageContainer.innerHTML = `
+
+          <img
+            src="${escapeAttribute(image)}"
+            alt="${escapeAttribute(product.name)}"
+            onerror="
+              this.style.display='none';
+              this.nextElementSibling.style.display='flex';
+            "
+          >
+
+          <div
+            class="image-placeholder"
+            style="display:none;"
+          >
+            <i class="fa-regular fa-image"></i>
+          </div>
+
+        `;
+
+      } else {
+
+        imageContainer.innerHTML = `
+
+          <div class="image-placeholder">
+
+            <i class="fa-regular fa-image"></i>
+
+          </div>
+
+        `;
+
+      }
+
+
+      const orderButton =
+        document.getElementById(
+          "detailsOrder"
+        );
+
+
+      orderButton.disabled =
+        Number(product.stock) <= 0;
+
+
+      orderButton.style.opacity =
+        Number(product.stock) > 0
+          ? "1"
+          : ".4";
+
+
+      document.getElementById(
+        "detailsModal"
+      ).classList.add(
+        "show"
+      );
+
+
+      document.body.classList.add(
+        "modal-open"
+      );
+
+    }
+
+
+    /* =====================================================
        ORDER MODAL
     ===================================================== */
 
@@ -2354,10 +3261,8 @@
       product
     ) {
 
-      const modal =
-        document.getElementById(
-          "orderModal"
-        );
+      selectedProduct =
+        product;
 
 
       const price =
@@ -2388,9 +3293,12 @@
         `https://wa.me/${CONFIG.WHATSAPP_NUMBER}?text=${encodeURIComponent(message)}`;
 
 
-      modal.classList.add(
+      document.getElementById(
+        "orderModal"
+      ).classList.add(
         "show"
       );
+
 
       document.body.classList.add(
         "modal-open"
@@ -2399,47 +3307,88 @@
     }
 
 
-    function closeOrderModal() {
-
-      document.getElementById(
-        "orderModal"
-      ).classList.remove(
-        "show"
-      );
-
-      document.body.classList.remove(
-        "modal-open"
-      );
-
-    }
-
+    /* =====================================================
+       DETAILS ORDER BUTTON
+    ===================================================== */
 
     document.getElementById(
-      "modalClose"
+      "detailsOrder"
     ).addEventListener(
       "click",
-      closeOrderModal
-    );
-
-
-    document.getElementById(
-      "orderModal"
-    ).addEventListener(
-      "click",
-      event => {
+      () => {
 
         if (
-          event.target.id ===
-          "orderModal"
+          selectedProduct &&
+          Number(
+            selectedProduct.stock
+          ) > 0
         ) {
 
-          closeOrderModal();
+          closeAllModals();
+
+          openOrderModal(
+            selectedProduct
+          );
 
         }
 
       }
     );
 
+
+    /* =====================================================
+       CLOSE DETAILS
+    ===================================================== */
+
+    document.getElementById(
+      "detailsClose"
+    ).addEventListener(
+      "click",
+      closeAllModals
+    );
+
+
+    /* =====================================================
+       CLOSE ORDER
+    ===================================================== */
+
+    document.getElementById(
+      "orderClose"
+    ).addEventListener(
+      "click",
+      closeAllModals
+    );
+
+
+    /* =====================================================
+       CLOSE BY BACKGROUND
+    ===================================================== */
+
+    document.querySelectorAll(
+      ".modal"
+    ).forEach(modal => {
+
+      modal.addEventListener(
+        "click",
+        event => {
+
+          if (
+            event.target === modal
+          ) {
+
+            closeAllModals();
+
+          }
+
+        }
+      );
+
+    });
+
+
+    /* =====================================================
+       ESC
+    ===================================================== */
 
     document.addEventListener(
       "keydown",
@@ -2449,12 +3398,31 @@
           event.key === "Escape"
         ) {
 
-          closeOrderModal();
+          closeAllModals();
 
         }
 
       }
     );
+
+
+    function closeAllModals() {
+
+      document.querySelectorAll(
+        ".modal"
+      ).forEach(
+        modal =>
+          modal.classList.remove(
+            "show"
+          )
+      );
+
+
+      document.body.classList.remove(
+        "modal-open"
+      );
+
+    }
 
 
     /* =====================================================
@@ -2470,68 +3438,7 @@
 
 
     /* =====================================================
-       ESCAPE HTML
-    ===================================================== */
-
-    function escapeHTML(
-      value
-    ) {
-
-      return String(value ?? "")
-        .replace(
-          /&/g,
-          "&amp;"
-        )
-        .replace(
-          /</g,
-          "&lt;"
-        )
-        .replace(
-          />/g,
-          "&gt;"
-        )
-        .replace(
-          /"/g,
-          "&quot;"
-        )
-        .replace(
-          /'/g,
-          "&#039;"
-        );
-
-    }
-
-
-    function escapeAttribute(
-      value
-    ) {
-
-      return escapeHTML(
-        value
-      );
-
-    }
-
-
-    /* =====================================================
-       NUMBER FORMAT
-    ===================================================== */
-
-    function formatNumber(
-      number
-    ) {
-
-      return Number(
-        number || 0
-      ).toLocaleString(
-        "en-US"
-      );
-
-    }
-
-
-    /* =====================================================
-       INITIALIZE
+       YEAR
     ===================================================== */
 
     document.getElementById(
@@ -2540,14 +3447,22 @@
       new Date().getFullYear();
 
 
-    /*
-     * Load Sheet first,
-     * then API products.
-     */
+    /* =====================================================
+       INITIALIZE
+    ===================================================== */
 
     (async function init() {
 
+      /*
+       * Sheet images first
+       */
+
       await loadSheetImages();
+
+
+      /*
+       * API products
+       */
 
       await loadProducts();
 
@@ -2556,4 +3471,4 @@
   </script>
 
 </body>
-    </html>
+        </html>
