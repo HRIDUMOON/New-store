@@ -2,414 +2,1220 @@
 <html lang="en">
 <head>
 <meta charset="UTF-8">
-<meta name="viewport" content="width=device-width,initial-scale=1">
-<title>Reseller Store</title>
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+<title>Stock Cevix Bazar — Premium Digital Products</title>
+<meta name="description" content="Stock Cevix Bazar - Premium AI, VPN, OTT, Education, Development and Productivity products.">
+<meta name="theme-color" content="#0b0b0d">
+
 <style>
-*{box-sizing:border-box;margin:0;padding:0}
-body{font-family:Arial,sans-serif;background:#f5f6f8;color:#111}
-header{background:#111;color:#fff;padding:16px 5%;display:flex;justify-content:space-between;align-items:center;position:sticky;top:0;z-index:10}
-.logo{font-size:23px;font-weight:800}.logo span{color:#ffd400}
-.balance{background:#222;padding:10px 14px;border-radius:10px;font-size:13px}
-.hero{background:linear-gradient(135deg,#111,#292929);color:#fff;padding:55px 5%}
-.hero h1{font-size:42px}.hero h1 span{color:#ffd400}
-.hero p{color:#bbb;margin-top:10px}
-.controls{max-width:1200px;margin:-25px auto 0;padding:0 20px;display:flex;gap:10px}
-input,select{border:1px solid #ddd;border-radius:10px;padding:14px;outline:0;background:#fff}
-#search{flex:1}#category{width:200px}
-.container{max-width:1200px;margin:auto;padding:40px 20px}
-.top{display:flex;justify-content:space-between;margin-bottom:20px}
-.products{display:grid;grid-template-columns:repeat(4,1fr);gap:18px}
-.card{background:#fff;border:1px solid #e5e5e5;border-radius:16px;overflow:hidden;transition:.2s}
-.card:hover{transform:translateY(-4px);box-shadow:0 12px 30px #0001}
-.image{height:140px;background:linear-gradient(135deg,#111,#333);display:flex;align-items:center;justify-content:center;color:#ffd400;font-size:42px;font-weight:900}
-.info{padding:17px}.cat{font-size:11px;color:#888;text-transform:uppercase;margin-bottom:8px}
-.name{font-weight:700;min-height:40px}.price{font-size:22px;font-weight:800;margin:12px 0}
-.stock{font-size:12px;color:#159447;margin-bottom:14px}
-button{border:0;border-radius:10px;padding:12px;width:100%;background:#111;color:#fff;font-weight:700;cursor:pointer}
-button:hover{background:#ffd400;color:#111}
-.loading{text-align:center;grid-column:1/-1;padding:60px;color:#777}
-.modal{display:none;position:fixed;inset:0;background:#0009;z-index:100;align-items:center;justify-content:center;padding:20px}
-.modal.show{display:flex}.box{background:#fff;width:100%;max-width:450px;padding:25px;border-radius:18px;position:relative}
-.close{position:absolute;right:15px;top:15px;width:35px;background:#eee;color:#111}
-.box h2{padding-right:40px}.box h3{margin:15px 0}
-.field{margin:12px 0}.field label{display:block;font-size:13px;font-weight:bold;margin-bottom:6px}
-.field input{width:100%}
-footer{text-align:center;background:#111;color:#aaa;padding:30px;margin-top:30px}
-@media(max-width:900px){.products{grid-template-columns:repeat(3,1fr)}}
-@media(max-width:650px){.products{grid-template-columns:repeat(2,1fr)}.controls{flex-direction:column}#category{width:100%}.hero h1{font-size:32px}}
-@media(max-width:430px){.products{grid-template-columns:1fr}}
+*{
+    margin:0;
+    padding:0;
+    box-sizing:border-box;
+}
+
+body{
+    font-family:Inter,Arial,sans-serif;
+    background:#08090b;
+    color:#fff;
+}
+
+button,input{
+    font:inherit;
+}
+
+.container{
+    width:min(1200px,92%);
+    margin:auto;
+}
+
+/* HEADER */
+header{
+    position:sticky;
+    top:0;
+    z-index:100;
+    background:rgba(8,9,11,.88);
+    backdrop-filter:blur(18px);
+    border-bottom:1px solid #1e2025;
+}
+
+.nav{
+    min-height:72px;
+    display:flex;
+    align-items:center;
+    justify-content:space-between;
+    gap:20px;
+}
+
+.logo{
+    font-size:21px;
+    font-weight:800;
+    letter-spacing:-.5px;
+}
+
+.logo span{
+    color:#7c5cff;
+}
+
+.status{
+    display:flex;
+    align-items:center;
+    gap:8px;
+    color:#9ea3ad;
+    font-size:13px;
+}
+
+.dot{
+    width:8px;
+    height:8px;
+    border-radius:50%;
+    background:#20d879;
+    box-shadow:0 0 12px #20d879;
+}
+
+/* HERO */
+.hero{
+    padding:55px 0 35px;
+    text-align:center;
+}
+
+.badge{
+    display:inline-flex;
+    padding:7px 13px;
+    border:1px solid #292b31;
+    border-radius:30px;
+    color:#a9adb6;
+    background:#111216;
+    font-size:12px;
+    margin-bottom:18px;
+}
+
+.hero h1{
+    font-size:clamp(32px,6vw,58px);
+    line-height:1;
+    letter-spacing:-2px;
+    margin-bottom:15px;
+}
+
+.hero h1 span{
+    color:#8b6cff;
+}
+
+.hero p{
+    color:#969ba5;
+    max-width:620px;
+    margin:auto;
+    line-height:1.7;
+    font-size:15px;
+}
+
+/* CONTROLS */
+.controls{
+    display:flex;
+    gap:10px;
+    flex-wrap:wrap;
+    margin:25px 0;
+}
+
+.search{
+    flex:1;
+    min-width:230px;
+    background:#111216;
+    border:1px solid #24262c;
+    color:#fff;
+    border-radius:12px;
+    padding:13px 15px;
+    outline:none;
+}
+
+.search:focus{
+    border-color:#7256ff;
+}
+
+.categories{
+    display:flex;
+    gap:8px;
+    flex-wrap:wrap;
+}
+
+.cat{
+    border:1px solid #282a30;
+    background:#111216;
+    color:#b6bac3;
+    border-radius:10px;
+    padding:11px 14px;
+    cursor:pointer;
+    transition:.2s;
+}
+
+.cat:hover,
+.cat.active{
+    background:#7256ff;
+    color:#fff;
+    border-color:#7256ff;
+}
+
+/* INFO */
+.info{
+    display:flex;
+    justify-content:space-between;
+    align-items:center;
+    gap:10px;
+    margin:18px 0;
+    color:#858a94;
+    font-size:13px;
+}
+
+.refresh{
+    border:1px solid #292b31;
+    background:#111216;
+    color:#fff;
+    padding:9px 13px;
+    border-radius:9px;
+    cursor:pointer;
+}
+
+.refresh:hover{
+    border-color:#7256ff;
+}
+
+/* PRODUCTS */
+.grid{
+    display:grid;
+    grid-template-columns:repeat(4,1fr);
+    gap:13px;
+    padding-bottom:60px;
+}
+
+.card{
+    background:#101115;
+    border:1px solid #22242a;
+    border-radius:14px;
+    padding:14px;
+    transition:.2s;
+    min-width:0;
+}
+
+.card:hover{
+    transform:translateY(-3px);
+    border-color:#393345;
+    box-shadow:0 10px 35px rgba(0,0,0,.28);
+}
+
+.card-top{
+    display:flex;
+    justify-content:space-between;
+    gap:10px;
+    margin-bottom:12px;
+}
+
+.category{
+    font-size:10px;
+    color:#927dff;
+    background:#19152d;
+    padding:5px 8px;
+    border-radius:6px;
+    white-space:nowrap;
+}
+
+.stock{
+    font-size:10px;
+    padding:5px 8px;
+    border-radius:6px;
+    background:#102519;
+    color:#4ee58d;
+    white-space:nowrap;
+}
+
+.stock.empty{
+    background:#291417;
+    color:#ff6974;
+}
+
+.icon{
+    width:42px;
+    height:42px;
+    border-radius:11px;
+    background:#181a20;
+    display:flex;
+    align-items:center;
+    justify-content:center;
+    font-size:21px;
+    margin-bottom:12px;
+}
+
+.name{
+    font-size:14px;
+    font-weight:700;
+    line-height:1.4;
+    min-height:40px;
+}
+
+.duration{
+    color:#777c86;
+    font-size:11px;
+    margin-top:5px;
+    min-height:17px;
+}
+
+.bottom{
+    display:flex;
+    justify-content:space-between;
+    align-items:end;
+    gap:8px;
+    margin-top:15px;
+}
+
+.price{
+    font-size:16px;
+    font-weight:800;
+}
+
+.price small{
+    color:#858a94;
+    font-size:10px;
+    font-weight:500;
+}
+
+.buy{
+    border:0;
+    background:#7256ff;
+    color:#fff;
+    padding:8px 11px;
+    border-radius:8px;
+    font-size:11px;
+    cursor:pointer;
+}
+
+.buy:hover{
+    background:#856dff;
+}
+
+.buy:disabled{
+    background:#292b31;
+    color:#6f737c;
+    cursor:not-allowed;
+}
+
+/* LOADING */
+.loading{
+    grid-column:1/-1;
+    text-align:center;
+    padding:70px 10px;
+    color:#858a94;
+}
+
+.spinner{
+    width:30px;
+    height:30px;
+    border:3px solid #272931;
+    border-top-color:#7b60ff;
+    border-radius:50%;
+    animation:spin .8s linear infinite;
+    margin:0 auto 15px;
+}
+
+@keyframes spin{
+    to{transform:rotate(360deg)}
+}
+
+/* MODAL */
+.modal{
+    position:fixed;
+    inset:0;
+    background:rgba(0,0,0,.72);
+    backdrop-filter:blur(8px);
+    display:none;
+    align-items:center;
+    justify-content:center;
+    padding:20px;
+    z-index:500;
+}
+
+.modal.show{
+    display:flex;
+}
+
+.modal-box{
+    width:min(470px,100%);
+    background:#111216;
+    border:1px solid #292b31;
+    border-radius:18px;
+    padding:22px;
+}
+
+.modal-head{
+    display:flex;
+    justify-content:space-between;
+    align-items:center;
+    margin-bottom:20px;
+}
+
+.close{
+    border:0;
+    background:#202228;
+    color:#fff;
+    width:32px;
+    height:32px;
+    border-radius:8px;
+    cursor:pointer;
+}
+
+.detail-row{
+    padding:12px 0;
+    border-bottom:1px solid #22242a;
+    display:flex;
+    justify-content:space-between;
+    gap:15px;
+}
+
+.detail-row span:first-child{
+    color:#858a94;
+}
+
+.detail-row span:last-child{
+    text-align:right;
+}
+
+.modal-note{
+    color:#858a94;
+    font-size:12px;
+    line-height:1.6;
+    margin-top:18px;
+}
+
+/* FOOTER */
+footer{
+    border-top:1px solid #1e2025;
+    padding:25px 0;
+    text-align:center;
+    color:#696e78;
+    font-size:12px;
+}
+
+/* RESPONSIVE */
+@media(max-width:1000px){
+    .grid{
+        grid-template-columns:repeat(3,1fr);
+    }
+}
+
+@media(max-width:700px){
+    .grid{
+        grid-template-columns:repeat(2,1fr);
+        gap:10px;
+    }
+
+    .hero{
+        padding:40px 0 25px;
+    }
+
+    .hero h1{
+        letter-spacing:-1px;
+    }
+
+    .info{
+        align-items:flex-start;
+        flex-direction:column;
+    }
+}
+
+@media(max-width:430px){
+    .grid{
+        grid-template-columns:repeat(2,1fr);
+    }
+
+    .card{
+        padding:11px;
+    }
+
+    .name{
+        font-size:12px;
+    }
+
+    .price{
+        font-size:14px;
+    }
+
+    .buy{
+        padding:7px 8px;
+        font-size:10px;
+    }
+
+    .category,
+    .stock{
+        font-size:9px;
+    }
+}
 </style>
 </head>
 
 <body>
 
 <header>
-<div class="logo">Reseller<span>Store</span></div>
-<div class="balance">Balance: <b id="balance">Loading...</b></div>
+    <div class="container nav">
+        <div class="logo">Stock <span>Cevix</span> Bazar</div>
+
+        <div class="status">
+            <span class="dot"></span>
+            Live Stock
+        </div>
+    </div>
 </header>
 
+<main class="container">
+
 <section class="hero">
-<h1>Premium <span>Products</span></h1>
-<p>Live products, custom pricing and instant ordering.</p>
+    <div class="badge">PREMIUM DIGITAL PRODUCTS</div>
+
+    <h1>Stock <span>Cevix Bazar</span></h1>
+
+    <p>
+        Premium AI, VPN, OTT, Education, Development
+        & Productivity products with live stock availability.
+    </p>
 </section>
 
 <div class="controls">
-<input id="search" placeholder="Search products...">
-<select id="category">
-<option value="all">All Categories</option>
-</select>
-</div>
 
-<main class="container">
-<div class="top">
-<h2>Products</h2>
-<small id="count">Loading...</small>
-</div>
-<div class="products" id="products">
-<div class="loading">Loading products...</div>
-</div>
-</main>
+    <input
+        id="search"
+        class="search"
+        type="search"
+        placeholder="Search products..."
+    >
 
-<footer>© 2026 ResellerStore</footer>
+    <div class="categories">
+        <button class="cat active" data-cat="ALL">All</button>
+        <button class="cat" data-cat="AI">AI</button>
+        <button class="cat" data-cat="VPN">VPN</button>
+        <button class="cat" data-cat="OTT">OTT</button>
+        <button class="cat" data-cat="EDUCATION">Education</button>
+        <button class="cat" data-cat="DEVELOPMENT">Development</button>
+        <button class="cat" data-cat="DESIGN">Design</button>
+    </div>
 
-<div class="modal" id="modal">
-<div class="box">
-<button class="close" onclick="closeModal()">×</button>
-<h2 id="modalName">Product</h2>
-<h3 id="modalPrice">৳0</h3>
-
-<div class="field">
-<label>Quantity</label>
-<input id="quantity" type="number" min="1" value="1">
-</div>
-
-<div class="field">
-<label>Customer Information</label>
-<input id="customer" placeholder="Email / Username / Number">
-</div>
-
-<div class="field">
-<label>Note</label>
-<input id="note" placeholder="Optional">
-</div>
-
-<button onclick="placeOrder()">Place Order</button>
-</div>
-</div>
-
-<script>
-const API_BASE="https://safwantigershopbot-production.up.railway.app/api";
-
-const API_KEY="stapi_9c66d7871f68c9b8e06f2f785ca1906595b2be0f83108daf1cd2b09055e62e14";
-
-/* Google Sheet CSV URL */
-const SHEET_URL="";
-
-/* API price USD → BDT */
-const USD_TO_BDT=120;
-
-let products=[];
-let sheet={};
-let selected=null;
-
-function headers(){
-return{
-"Content-Type":"application/json",
-"Authorization":"Bearer "+API_KEY,
-"X-API-Key":API_KEY
-};
-}
-
-async function loadProducts(){
-try{
-const r=await fetch(API_BASE+"/products",{headers:headers()});
-if(!r.ok)throw new Error("Products API Error: "+r.status);
-
-const data=await r.json();
-
-products=Array.isArray(data)?data:
-Array.isArray(data.products)?data.products:
-Array.isArray(data.data)?data.data:[];
-
-await loadSheet();
-categories();
-render();
-
-}catch(e){
-console.error(e);
-document.getElementById("products").innerHTML=
-`<div class="loading">${e.message}</div>`;
-}
-}
-
-async function loadBalance(){
-try{
-const r=await fetch(API_BASE+"/balance",{headers:headers()});
-if(!r.ok)return;
-
-const d=await r.json();
-
-const b=d.balance??
-d.data?.balance??
-d.wallet??
-d.data?.wallet;
-
-if(b!==undefined)
-document.getElementById("balance").textContent=b+" USDT";
-
-}catch(e){
-console.log(e);
-}
-}
-
-async function loadSheet(){
-if(!SHEET_URL)return;
-
-try{
-const r=await fetch(SHEET_URL);
-const csv=await r.text();
-
-const rows=csv.trim().split("\n").map(x=>x.split(","));
-if(rows.length<2)return;
-
-const h=rows[0].map(x=>x.trim().toLowerCase());
-
-const idIndex=h.indexOf("product_id");
-const priceIndex=h.indexOf("custom_price");
-const visibleIndex=h.indexOf("visible");
-
-for(let i=1;i<rows.length;i++){
-const row=rows[i];
-const pid=row[idIndex]?.trim();
-if(!pid)continue;
-
-sheet[pid]={
-price:priceIndex>=0?row[priceIndex]?.trim():"",
-visible:visibleIndex>=0?
-row[visibleIndex]?.trim().toLowerCase():"true"
-};
-}
-}catch(e){
-console.log("Sheet error",e);
-}
-}
-
-function id(p){
-return String(p.id??p.product_id??p.pid??"");
-}
-
-function name(p){
-return p.name??p.product_name??p.title??"Product";
-}
-
-function category(p){
-return p.category??p.type??"Other";
-}
-
-function apiPrice(p){
-return Number(
-p.price??
-p.amount??
-p.rate??
-p.cost??0
-);
-}
-
-function price(p){
-const s=sheet[id(p)];
-
-if(s&&s.price!==""&&!isNaN(s.price))
-return Number(s.price);
-
-return apiPrice(p)*USD_TO_BDT;
-}
-
-function visible(p){
-const s=sheet[id(p)];
-return !s||s.visible!=="false";
-}
-
-function stock(p){
-return p.stock??p.quantity??p.available??"Available";
-}
-
-function categories(){
-const select=document.getElementById("category");
-
-const cats=[...new Set(
-products.map(p=>category(p))
-)];
-
-select.innerHTML=
-`<option value="all">All Categories</option>`;
-
-cats.forEach(c=>{
-select.innerHTML+=
-`<option value="${esc(c)}">${esc(c)}</option>`;
-});
-}
-
-function render(){
-
-const search=
-document.getElementById("search")
-.value.toLowerCase();
-
-const cat=
-document.getElementById("category").value;
-
-const list=products.filter(p=>{
-if(!visible(p))return false;
-
-return name(p).toLowerCase().includes(search)&&
-(cat==="all"||category(p)===cat);
-});
-
-document.getElementById("count").textContent=
-list.length+" products";
-
-if(!list.length){
-document.getElementById("products").innerHTML=
-`<div class="loading">No products found.</div>`;
-return;
-}
-
-document.getElementById("products").innerHTML=
-list.map(p=>`
-
-<div class="card">
-
-<div class="image">
-${esc(name(p).charAt(0).toUpperCase())}
 </div>
 
 <div class="info">
+    <div id="resultInfo">Loading products...</div>
 
-<div class="cat">${esc(category(p))}</div>
-
-<div class="name">${esc(name(p))}</div>
-
-<div class="price">
-৳${money(price(p))}
+    <button class="refresh" onclick="loadProducts()">
+        ↻ Refresh Stock
+    </button>
 </div>
 
-<div class="stock">
-● ${esc(String(stock(p)))}
+<section id="products" class="grid">
+
+    <div class="loading">
+        <div class="spinner"></div>
+        Loading live stock...
+    </div>
+
+</section>
+
+</main>
+
+<footer>
+    © 2026 Stock Cevix Bazar — Digital Products
+</footer>
+
+
+<!-- PRODUCT MODAL -->
+
+<div id="modal" class="modal">
+
+    <div class="modal-box">
+
+        <div class="modal-head">
+            <strong id="modalTitle">Product</strong>
+
+            <button
+                class="close"
+                onclick="closeModal()"
+            >×</button>
+        </div>
+
+        <div class="detail-row">
+            <span>Product</span>
+            <span id="modalProduct">-</span>
+        </div>
+
+        <div class="detail-row">
+            <span>Price</span>
+            <span id="modalPrice">-</span>
+        </div>
+
+        <div class="detail-row">
+            <span>Live Stock</span>
+            <span id="modalStock">-</span>
+        </div>
+
+        <div class="detail-row">
+            <span>Category</span>
+            <span id="modalCategory">-</span>
+        </div>
+
+        <div class="modal-note">
+            This page is for viewing product price and live stock.
+            Ordering/payment is not enabled on this storefront.
+        </div>
+
+    </div>
+
 </div>
 
-<button onclick="openOrder('${esc(id(p))}')">
-Buy Now
-</button>
 
-</div>
-</div>
+<script>
 
-`).join("");
-}
+/* =========================================================
+   API CONFIG
+========================================================= */
 
-function openOrder(pid){
+const API_BASE =
+"https://safwantigershopbot-production.up.railway.app/api";
 
-selected=products.find(
-p=>id(p)===String(pid)
-);
+/*
+ IMPORTANT:
+ This API key is exposed because this is a browser test version.
+ Do NOT use this method for production.
+ Move the API request to a Cloudflare Worker.
+*/
 
-if(!selected)return;
+const API_KEY =
+"stapi_9c66d7871f68c9b8e06f2f785ca1906595b2be0f83108daf1cd2b09055e62e14";
 
-document.getElementById("modalName").textContent=
-name(selected);
 
-document.getElementById("modalPrice").textContent=
-"৳"+money(price(selected));
+/* =========================================================
+   YOUR SELLING PRICES
+========================================================= */
 
-document.getElementById("modal").classList.add("show");
-}
+const PRICE_LIST = {
 
-function closeModal(){
-document.getElementById("modal")
-.classList.remove("show");
-}
+    /* AI */
+    "Gemini Pro 18M":195,
+    "ChatGPT Plus (No Warranty) 1M":933,
+    "ChatGPT K12 Account (10HW) 2 Year":975,
+    "ChatGPT Plus Shared Via Extension (NW) 1M":291,
+    "Grok Super (6DW) 9-10D":377,
+    "Grok Super (3DW) 9-10D":365,
+    "Leonardo Seedance 2.5 (8500 Crd, FW) 1M":350,
+    "QuillBot Premium (FW) 1M":393,
+    "Codex API All Plans":299,
+    "Claude API All Plans":299,
+    "Wispr Flow Pro 12M":1651,
+    "Warp Build 1 Year":1144,
+    "Gamma Pro 1 Year":3172,
+    "Factory 12M":5707,
+    "ElevenLabs Creator 1 Year":6045,
+    "Runway Pro 12M":5200,
+    "Lovable Lite Account 12M":1482,
+    "Google Pro AI 1 Year":1651,
+    "Higgsfield Pro 1 Year":15340,
+    "Lovable Pro 1 Year":4186,
+    "Cursor Pro Plus + Grok Bot 1M":5200,
+    "Manus Pro 1 Year":5200,
+    "ChatGPT Business (NW) 1M":1076,
 
-async function placeOrder(){
+    /* VPN */
+    "NordVPN Coupon 3M":553,
+    "Surfshark Account (FW) 2M":519,
+    "Surfshark VPN Coupon 2M":274,
 
-if(!selected)return;
+    /* OTT */
+    "Amazon Prime Video 6M":333,
+    "YouTube 3M Link":417,
+    "YouTube Premium Admin (FW) 1M":443,
 
-const quantity=
-Number(document.getElementById("quantity").value);
+    /* EDUCATION */
+    "Super Duolingo Redeem Link 12M":215,
+    "Coursera Premium (1DW) 12M":468,
+    "Figma Edu (1MW) 2 Year":755,
+    "EdX Premium (7DW) 12M":417,
 
-const customer=
-document.getElementById("customer").value.trim();
+    /* DEVELOPMENT */
+    "Cursor Pro (FW) 12M":16900,
+    "Resend Pro 1 Year":975,
+    "Replit Core 1 Year":4355,
+    "n8n Starter 12M":1820,
+    "Supabase Pro 12M":3341,
+    "Railway Hobby 12M":1482,
 
-const note=
-document.getElementById("note").value.trim();
-
-if(quantity<1){
-alert("Invalid quantity");
-return;
-}
-
-if(!customer){
-alert("Enter customer information");
-return;
-}
-
-const payload={
-product_id:id(selected),
-quantity:quantity,
-customer:customer,
-note:note
+    /* DESIGN */
+    "CapCut Pro (FW) 1M":400,
+    "CapCut Pro (FW) 6M":1617,
+    "CapCut Pro (FW) 7D":117,
+    "Canva Admin (2MW) 3 Year":722,
+    "Notion Business 3M":417,
+    "Notion Business 1 Year":2074,
+    "MS365 Admin (FW) 1 Year":1989,
+    "Outlook Ready Mails":117,
+    "LinkedIn All Plans":299
 };
 
-try{
 
-const r=await fetch(API_BASE+"/order",{
-method:"POST",
-headers:headers(),
-body:JSON.stringify(payload)
-});
+/* =========================================================
+   CATEGORY DETECTION
+========================================================= */
 
-const data=await r.json();
+function detectCategory(name){
 
-if(!r.ok)
-throw new Error(
-data.message||
-data.error||
-"Order failed"
-);
+    const n = name.toLowerCase();
 
-alert("Order placed successfully!");
+    if(
+        n.includes("gemini") ||
+        n.includes("chatgpt") ||
+        n.includes("grok") ||
+        n.includes("leonardo") ||
+        n.includes("quillbot") ||
+        n.includes("codex") ||
+        n.includes("claude") ||
+        n.includes("wispr") ||
+        n.includes("warp") ||
+        n.includes("gamma") ||
+        n.includes("factory") ||
+        n.includes("elevenlabs") ||
+        n.includes("runway") ||
+        n.includes("lovable") ||
+        n.includes("higgsfield") ||
+        n.includes("manus")
+    ){
+        return "AI";
+    }
 
-closeModal();
-loadBalance();
+    if(
+        n.includes("vpn") ||
+        n.includes("nordvpn") ||
+        n.includes("surfshark")
+    ){
+        return "VPN";
+    }
 
-}catch(e){
-console.error(e);
-alert("Order failed: "+e.message);
+    if(
+        n.includes("prime") ||
+        n.includes("youtube")
+    ){
+        return "OTT";
+    }
+
+    if(
+        n.includes("duolingo") ||
+        n.includes("coursera") ||
+        n.includes("figma edu") ||
+        n.includes("edx")
+    ){
+        return "EDUCATION";
+    }
+
+    if(
+        n.includes("cursor") ||
+        n.includes("resend") ||
+        n.includes("replit") ||
+        n.includes("n8n") ||
+        n.includes("supabase") ||
+        n.includes("railway")
+    ){
+        return "DEVELOPMENT";
+    }
+
+    if(
+        n.includes("capcut") ||
+        n.includes("canva") ||
+        n.includes("notion") ||
+        n.includes("ms365") ||
+        n.includes("outlook") ||
+        n.includes("linkedin")
+    ){
+        return "DESIGN";
+    }
+
+    return "OTHER";
 }
+
+
+/* =========================================================
+   NORMALIZE API RESPONSE
+========================================================= */
+
+function normalizeProducts(response){
+
+    if(Array.isArray(response)){
+        return response;
+    }
+
+    if(Array.isArray(response.products)){
+        return response.products;
+    }
+
+    if(Array.isArray(response.data)){
+        return response.data;
+    }
+
+    if(
+        response.data &&
+        Array.isArray(response.data.products)
+    ){
+        return response.data.products;
+    }
+
+    return [];
 }
+
+
+/* =========================================================
+   NORMALIZE PRODUCT
+========================================================= */
+
+function normalizeProduct(item){
+
+    const name =
+        item.name ??
+        item.product_name ??
+        item.title ??
+        item.product ??
+        "Unknown Product";
+
+    const id =
+        item.id ??
+        item.product_id ??
+        item.pid ??
+        name;
+
+    let stock =
+        item.stock ??
+        item.quantity ??
+        item.available ??
+        item.qty ??
+        0;
+
+    if(typeof stock === "string"){
+        const number = parseInt(stock.replace(/[^\d-]/g,""));
+        stock = isNaN(number) ? 0 : number;
+    }
+
+    const apiPrice =
+        Number(
+            item.price ??
+            item.amount ??
+            item.rate ??
+            item.cost ??
+            0
+        );
+
+    const category =
+        detectCategory(name);
+
+    /*
+       First try exact price match.
+       If API returns a slightly different name,
+       fallback to API price.
+    */
+
+    let customPrice = PRICE_LIST[name];
+
+    if(customPrice === undefined){
+
+        const key = Object.keys(PRICE_LIST)
+            .find(
+                x =>
+                x.toLowerCase() ===
+                String(name).toLowerCase()
+            );
+
+        if(key){
+            customPrice = PRICE_LIST[key];
+        }
+    }
+
+    return {
+        id,
+        name,
+        stock,
+        apiPrice,
+        price:
+            customPrice !== undefined
+            ? customPrice
+            : apiPrice,
+        category
+    };
+}
+
+
+/* =========================================================
+   STATE
+========================================================= */
+
+let allProducts = [];
+let currentCategory = "ALL";
+
+
+/* =========================================================
+   LOAD PRODUCTS
+========================================================= */
+
+async function loadProducts(){
+
+    const container =
+        document.getElementById("products");
+
+    container.innerHTML = `
+        <div class="loading">
+            <div class="spinner"></div>
+            Loading live stock...
+        </div>
+    `;
+
+    document.getElementById("resultInfo")
+        .textContent = "Connecting to stock API...";
+
+    try{
+
+        const response = await fetch(
+            API_BASE + "/products",
+            {
+                method:"GET",
+                headers:{
+                    "Authorization":
+                    "Bearer " + API_KEY,
+
+                    "X-API-Key":
+                    API_KEY,
+
+                    "Content-Type":
+                    "application/json"
+                }
+            }
+        );
+
+        if(!response.ok){
+            throw new Error(
+                "API Error " + response.status
+            );
+        }
+
+        const data =
+            await response.json();
+
+        const raw =
+            normalizeProducts(data);
+
+        allProducts =
+            raw.map(normalizeProduct);
+
+        renderProducts();
+
+    }catch(error){
+
+        console.error(error);
+
+        container.innerHTML = `
+            <div class="loading">
+                <strong>
+                    Unable to load live stock
+                </strong>
+                <br><br>
+                <small>
+                    Check the API endpoint, API key,
+                    CORS configuration or network connection.
+                </small>
+            </div>
+        `;
+
+        document.getElementById("resultInfo")
+            .textContent =
+            "Stock unavailable";
+    }
+}
+
+
+/* =========================================================
+   RENDER
+========================================================= */
+
+function renderProducts(){
+
+    const search =
+        document.getElementById("search")
+        .value
+        .toLowerCase()
+        .trim();
+
+    const filtered =
+        allProducts.filter(product => {
+
+            const matchCategory =
+                currentCategory === "ALL" ||
+                product.category === currentCategory;
+
+            const matchSearch =
+                product.name
+                    .toLowerCase()
+                    .includes(search);
+
+            return (
+                matchCategory &&
+                matchSearch
+            );
+        });
+
+    const container =
+        document.getElementById("products");
+
+    document.getElementById("resultInfo")
+        .textContent =
+        `${filtered.length} products • Live stock`;
+
+    if(!filtered.length){
+
+        container.innerHTML = `
+            <div class="loading">
+                No matching products found.
+            </div>
+        `;
+
+        return;
+    }
+
+    container.innerHTML =
+        filtered.map(
+            productCard
+        ).join("");
+}
+
+
+/* =========================================================
+   PRODUCT CARD
+========================================================= */
+
+function productCard(product){
+
+    const inStock =
+        Number(product.stock) > 0;
+
+    const stockText =
+        inStock
+        ? `${product.stock} in stock`
+        : "Out of stock";
+
+    const icon =
+        getIcon(product.category);
+
+    return `
+        <article class="card">
+
+            <div class="card-top">
+
+                <span class="category">
+                    ${product.category}
+                </span>
+
+                <span
+                    class="stock
+                    ${inStock ? "" : "empty"}"
+                >
+                    ${stockText}
+                </span>
+
+            </div>
+
+            <div class="icon">
+                ${icon}
+            </div>
+
+            <div class="name">
+                ${escapeHTML(product.name)}
+            </div>
+
+            <div class="duration">
+                Product ID: ${escapeHTML(String(product.id))}
+            </div>
+
+            <div class="bottom">
+
+                <div class="price">
+                    ৳${formatPrice(product.price)}
+                    <small> BDT</small>
+                </div>
+
+                <button
+                    class="buy"
+                    onclick="showDetails('${escapeAttr(product.id)}')"
+                    ${!inStock ? "disabled" : ""}
+                >
+                    ${inStock ? "View Stock" : "Unavailable"}
+                </button>
+
+            </div>
+
+        </article>
+    `;
+}
+
+
+/* =========================================================
+   ICONS
+========================================================= */
+
+function getIcon(category){
+
+    const icons = {
+        AI:"✦",
+        VPN:"⌁",
+        OTT:"▶",
+        EDUCATION:"◆",
+        DEVELOPMENT:"</>",
+        DESIGN:"◈",
+        OTHER:"●"
+    };
+
+    return icons[category] || "●";
+}
+
+
+/* =========================================================
+   PRODUCT DETAILS
+========================================================= */
+
+function showDetails(id){
+
+    const product =
+        allProducts.find(
+            x => String(x.id) === String(id)
+        );
+
+    if(!product) return;
+
+    document.getElementById("modalTitle")
+        .textContent = product.name;
+
+    document.getElementById("modalProduct")
+        .textContent = product.name;
+
+    document.getElementById("modalPrice")
+        .textContent =
+        "৳" + formatPrice(product.price);
+
+    document.getElementById("modalStock")
+        .textContent =
+        product.stock > 0
+        ? product.stock + " Available"
+        : "Out of Stock";
+
+    document.getElementById("modalCategory")
+        .textContent = product.category;
+
+    document.getElementById("modal")
+        .classList.add("show");
+}
+
+
+function closeModal(){
+
+    document.getElementById("modal")
+        .classList.remove("show");
+}
+
+
+/* =========================================================
+   SEARCH
+========================================================= */
 
 document.getElementById("search")
-.addEventListener("input",render);
+    .addEventListener(
+        "input",
+        renderProducts
+    );
 
-document.getElementById("category")
-.addEventListener("change",render);
 
-function money(n){
-return Number(n||0).toLocaleString("en-BD",{
-maximumFractionDigits:2
-});
+/* =========================================================
+   CATEGORY
+========================================================= */
+
+document.querySelectorAll(".cat")
+    .forEach(button => {
+
+        button.addEventListener(
+            "click",
+            () => {
+
+                document
+                    .querySelectorAll(".cat")
+                    .forEach(
+                        x => x.classList.remove("active")
+                    );
+
+                button.classList.add("active");
+
+                currentCategory =
+                    button.dataset.cat;
+
+                renderProducts();
+            }
+        );
+
+    });
+
+
+/* =========================================================
+   HELPERS
+========================================================= */
+
+function formatPrice(value){
+
+    const number =
+        Number(value);
+
+    if(!isFinite(number)){
+        return "0";
+    }
+
+    return number.toLocaleString("en-BD");
 }
 
-function esc(v){
-return String(v)
-.replaceAll("&","&amp;")
-.replaceAll("<","&lt;")
-.replaceAll(">","&gt;")
-.replaceAll('"',"&quot;")
-.replaceAll("'","&#039;");
+
+function escapeHTML(value){
+
+    return String(value)
+        .replaceAll("&","&amp;")
+        .replaceAll("<","&lt;")
+        .replaceAll(">","&gt;")
+        .replaceAll('"',"&quot;")
+        .replaceAll("'","&#039;");
 }
+
+
+function escapeAttr(value){
+
+    return String(value)
+        .replaceAll("\\","\\\\")
+        .replaceAll("'","\\'");
+}
+
+
+/* =========================================================
+   CLOSE MODAL OUTSIDE
+========================================================= */
+
+document.getElementById("modal")
+    .addEventListener(
+        "click",
+        function(e){
+
+            if(e.target === this){
+                closeModal();
+            }
+
+        }
+    );
+
+
+/* =========================================================
+   INITIAL LOAD
+========================================================= */
 
 loadProducts();
-loadBalance();
+
 </script>
 
 </body>
