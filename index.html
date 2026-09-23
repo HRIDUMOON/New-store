@@ -1,58 +1,1558 @@
-<!doctype html>
+<!DOCTYPE html>
 <html lang="en">
 <head>
 <meta charset="UTF-8">
-<meta name="viewport" content="width=device-width,initial-scale=1">
-<meta name="description" content="BEST DEAL - Premium digital products at affordable prices.">
-<meta property="og:title" content="BEST DEAL">
-<meta property="og:description" content="Premium digital products at affordable prices.">
-<meta property="og:image" content="https://yourdomain.com/best-deal-logo.png">
-<title>BEST DEAL</title>
-<link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'%3E%3Crect width='100' height='100' rx='20' fill='%23101114'/%3E%3Ctext x='50' y='62' text-anchor='middle' font-size='42' font-family='Arial' font-weight='700' fill='%23f5c400'%3EBD%3C/text%3E%3C/svg%3E">
-<link rel="preconnect" href="https://fonts.googleapis.com">
-<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
-<link rel="stylesheet" href="style.css">
-<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.7.2/css/all.min.css">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+<title>Best Deal</title>
+<meta name="description" content="Best Deal — Premium digital products, subscriptions and online services. Selling since 2024.">
+<meta name="keywords" content="Best Deal, digital products, premium accounts, subscriptions, AI products, VPN, OTT">
+<meta name="author" content="Best Deal">
+
+<meta property="og:type" content="website">
+<meta property="og:title" content="Best Deal — Premium Digital Products">
+<meta property="og:description" content="Premium digital products and subscriptions at Best Deal.">
+<meta property="og:image" content="https://YOUR-LOGO-LINK-HERE/logo.png">
+<meta property="og:url" content="https://YOUR-WEBSITE-LINK-HERE">
+
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:title" content="Best Deal — Premium Digital Products">
+<meta name="twitter:description" content="Premium digital products and subscriptions.">
+<meta name="twitter:image" content="https://YOUR-LOGO-LINK-HERE/logo.png">
+
+<link rel="icon" href="https://YOUR-LOGO-LINK-HERE/logo.png">
+
+<style>
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap');
+
+:root{
+    --green:#18e681;
+    --green2:#0bd477;
+    --dark:#06100c;
+    --dark2:#091811;
+    --card:#0d1d16;
+    --card2:#10241b;
+    --text:#f4fff9;
+    --muted:#8da99b;
+    --border:rgba(24,230,129,.14);
+    --danger:#ff5d6c;
+}
+
+*{
+    margin:0;
+    padding:0;
+    box-sizing:border-box;
+    scroll-behavior:smooth;
+}
+
+body{
+    font-family:Inter,Arial,sans-serif;
+    background:
+        radial-gradient(circle at 10% 0%,rgba(24,230,129,.13),transparent 28%),
+        radial-gradient(circle at 90% 20%,rgba(24,230,129,.07),transparent 25%),
+        var(--dark);
+    color:var(--text);
+    min-height:100vh;
+}
+
+body:before{
+    content:"";
+    position:fixed;
+    inset:0;
+    pointer-events:none;
+    background-image:
+        linear-gradient(rgba(255,255,255,.012) 1px,transparent 1px),
+        linear-gradient(90deg,rgba(255,255,255,.012) 1px,transparent 1px);
+    background-size:45px 45px;
+    z-index:-1;
+}
+
+/* Scrollbar */
+::-webkit-scrollbar{
+    width:8px;
+}
+::-webkit-scrollbar-track{
+    background:#06100c;
+}
+::-webkit-scrollbar-thumb{
+    background:linear-gradient(var(--green),#079d58);
+    border-radius:20px;
+}
+
+/* Header */
+header{
+    position:sticky;
+    top:0;
+    z-index:1000;
+    height:74px;
+    background:rgba(5,15,11,.82);
+    backdrop-filter:blur(18px);
+    border-bottom:1px solid var(--border);
+}
+
+.nav{
+    width:min(1180px,92%);
+    height:100%;
+    margin:auto;
+    display:flex;
+    align-items:center;
+    justify-content:space-between;
+}
+
+.brand{
+    display:flex;
+    align-items:center;
+    gap:11px;
+    color:white;
+    text-decoration:none;
+    font-weight:800;
+    font-size:21px;
+}
+
+.brand img{
+    width:38px;
+    height:38px;
+    object-fit:contain;
+    border-radius:10px;
+}
+
+.brand-logo-fallback{
+    width:38px;
+    height:38px;
+    border-radius:10px;
+    display:grid;
+    place-items:center;
+    color:#041009;
+    background:var(--green);
+    font-weight:900;
+}
+
+.nav-links{
+    display:flex;
+    gap:28px;
+}
+
+.nav-links a{
+    color:#a9c1b5;
+    text-decoration:none;
+    font-size:14px;
+    transition:.25s;
+}
+
+.nav-links a:hover{
+    color:var(--green);
+}
+
+/* Hero */
+.hero{
+    width:min(1180px,92%);
+    margin:auto;
+    min-height:500px;
+    display:grid;
+    place-items:center;
+    text-align:center;
+    padding:75px 0 55px;
+}
+
+.hero-content{
+    max-width:850px;
+}
+
+.badge{
+    display:inline-flex;
+    align-items:center;
+    gap:8px;
+    padding:9px 14px;
+    border:1px solid rgba(24,230,129,.25);
+    background:rgba(24,230,129,.06);
+    border-radius:999px;
+    color:var(--green);
+    font-size:12px;
+    font-weight:700;
+    margin-bottom:22px;
+}
+
+.badge-dot{
+    width:7px;
+    height:7px;
+    border-radius:50%;
+    background:var(--green);
+    box-shadow:0 0 14px var(--green);
+}
+
+.hero h1{
+    font-size:clamp(42px,7vw,78px);
+    line-height:1;
+    letter-spacing:-4px;
+    margin-bottom:22px;
+}
+
+.hero h1 span{
+    color:var(--green);
+}
+
+.hero p{
+    max-width:650px;
+    margin:auto;
+    color:var(--muted);
+    line-height:1.8;
+    font-size:15px;
+}
+
+.hero-buttons{
+    margin-top:30px;
+    display:flex;
+    justify-content:center;
+    gap:12px;
+    flex-wrap:wrap;
+}
+
+.btn{
+    border:0;
+    cursor:pointer;
+    text-decoration:none;
+    padding:13px 20px;
+    border-radius:11px;
+    font-weight:700;
+    font-size:13px;
+    transition:.25s;
+    display:inline-flex;
+    align-items:center;
+    gap:9px;
+}
+
+.btn-primary{
+    background:var(--green);
+    color:#031009;
+    box-shadow:0 8px 30px rgba(24,230,129,.17);
+}
+
+.btn-primary:hover{
+    transform:translateY(-2px);
+    box-shadow:0 12px 38px rgba(24,230,129,.28);
+}
+
+.btn-secondary{
+    background:#102019;
+    border:1px solid var(--border);
+    color:white;
+}
+
+.btn-secondary:hover{
+    border-color:rgba(24,230,129,.4);
+    color:var(--green);
+}
+
+/* Stats */
+.stats{
+    width:min(1000px,92%);
+    margin:0 auto 70px;
+    display:grid;
+    grid-template-columns:repeat(3,1fr);
+    gap:15px;
+}
+
+.stat{
+    background:rgba(13,29,22,.7);
+    border:1px solid var(--border);
+    border-radius:17px;
+    padding:23px;
+    text-align:center;
+}
+
+.stat strong{
+    display:block;
+    color:var(--green);
+    font-size:25px;
+    margin-bottom:7px;
+}
+
+.stat span{
+    color:var(--muted);
+    font-size:12px;
+}
+
+/* Products */
+.section{
+    width:min(1180px,92%);
+    margin:0 auto 90px;
+}
+
+.section-heading{
+    display:flex;
+    align-items:end;
+    justify-content:space-between;
+    gap:20px;
+    margin-bottom:25px;
+}
+
+.section-heading h2{
+    font-size:30px;
+    letter-spacing:-1px;
+}
+
+.section-heading p{
+    color:var(--muted);
+    font-size:13px;
+    margin-top:7px;
+}
+
+.search-box{
+    width:260px;
+    position:relative;
+}
+
+.search-box input{
+    width:100%;
+    background:#0b1913;
+    border:1px solid var(--border);
+    outline:none;
+    color:white;
+    padding:13px 15px 13px 42px;
+    border-radius:11px;
+}
+
+.search-icon{
+    position:absolute;
+    left:14px;
+    top:50%;
+    transform:translateY(-50%);
+    color:var(--muted);
+}
+
+.products-grid{
+    display:grid;
+    grid-template-columns:repeat(3,1fr);
+    gap:15px;
+}
+
+.product-card{
+    background:
+        linear-gradient(145deg,rgba(255,255,255,.025),transparent 45%),
+        var(--card);
+    border:1px solid var(--border);
+    border-radius:17px;
+    padding:19px;
+    min-height:220px;
+    display:flex;
+    flex-direction:column;
+    position:relative;
+    overflow:hidden;
+    transition:.3s ease;
+}
+
+.product-card:before{
+    content:"";
+    position:absolute;
+    width:150px;
+    height:150px;
+    right:-80px;
+    top:-80px;
+    background:var(--green);
+    opacity:.04;
+    border-radius:50%;
+}
+
+.product-card:hover{
+    transform:translateY(-5px);
+    border-color:rgba(24,230,129,.3);
+    box-shadow:0 18px 45px rgba(0,0,0,.25);
+}
+
+.product-number{
+    color:#507263;
+    font-size:11px;
+    font-weight:800;
+    margin-bottom:12px;
+}
+
+.product-name{
+    font-size:15px;
+    font-weight:700;
+    line-height:1.5;
+    padding-right:5px;
+}
+
+.product-bottom{
+    margin-top:auto;
+    padding-top:18px;
+    display:flex;
+    justify-content:space-between;
+    align-items:end;
+    gap:10px;
+}
+
+.price{
+    color:var(--green);
+    font-size:18px;
+    font-weight:800;
+}
+
+.stock{
+    font-size:11px;
+    margin-top:5px;
+}
+
+.stock.available{
+    color:#69dfa0;
+}
+
+.stock.empty{
+    color:var(--danger);
+}
+
+.order-btn{
+    background:var(--green);
+    color:#031009;
+    border:0;
+    border-radius:9px;
+    padding:10px 13px;
+    cursor:pointer;
+    font-weight:800;
+    font-size:11px;
+    transition:.2s;
+}
+
+.order-btn:hover{
+    transform:scale(1.04);
+}
+
+.order-btn.disabled{
+    background:#27332e;
+    color:#728078;
+    cursor:not-allowed;
+}
+
+.loader{
+    grid-column:1/-1;
+    min-height:250px;
+    display:grid;
+    place-items:center;
+    color:var(--muted);
+}
+
+.loader-circle{
+    width:38px;
+    height:38px;
+    border:3px solid rgba(24,230,129,.12);
+    border-top-color:var(--green);
+    border-radius:50%;
+    animation:spin .8s linear infinite;
+}
+
+@keyframes spin{
+    to{transform:rotate(360deg)}
+}
+
+/* About */
+.about-grid{
+    display:grid;
+    grid-template-columns:1.2fr .8fr;
+    gap:18px;
+}
+
+.about-card{
+    background:var(--card);
+    border:1px solid var(--border);
+    border-radius:18px;
+    padding:28px;
+}
+
+.about-card h3{
+    font-size:21px;
+    margin-bottom:14px;
+}
+
+.about-card p{
+    color:var(--muted);
+    line-height:1.8;
+    font-size:13px;
+}
+
+.features{
+    margin-top:20px;
+    display:grid;
+    grid-template-columns:1fr 1fr;
+    gap:10px;
+}
+
+.feature{
+    padding:13px;
+    background:#0a1912;
+    border:1px solid var(--border);
+    border-radius:10px;
+    color:#c8d9d1;
+    font-size:12px;
+}
+
+.feature svg{
+    color:var(--green);
+    vertical-align:middle;
+    margin-right:7px;
+}
+
+/* Payment */
+.payment-list{
+    display:grid;
+    gap:10px;
+    margin-top:18px;
+}
+
+.payment{
+    display:flex;
+    align-items:center;
+    gap:11px;
+    padding:12px;
+    background:#0a1912;
+    border:1px solid var(--border);
+    border-radius:10px;
+    font-size:13px;
+}
+
+.payment-icon{
+    width:32px;
+    height:32px;
+    display:grid;
+    place-items:center;
+    border-radius:8px;
+    background:rgba(24,230,129,.08);
+    color:var(--green);
+}
+
+/* Footer */
+footer{
+    border-top:1px solid var(--border);
+    background:#040b08;
+    padding:45px 0 25px;
+}
+
+.footer-inner{
+    width:min(1180px,92%);
+    margin:auto;
+    display:flex;
+    justify-content:space-between;
+    gap:30px;
+}
+
+.footer-brand{
+    max-width:390px;
+}
+
+.footer-brand h3{
+    margin-bottom:10px;
+}
+
+.footer-brand p{
+    color:var(--muted);
+    font-size:12px;
+    line-height:1.7;
+}
+
+.footer-links{
+    display:flex;
+    gap:20px;
+}
+
+.footer-links a{
+    color:#8fa99c;
+    text-decoration:none;
+    font-size:12px;
+}
+
+.copyright{
+    width:min(1180px,92%);
+    margin:35px auto 0;
+    padding-top:20px;
+    border-top:1px solid rgba(255,255,255,.05);
+    color:#536a60;
+    font-size:11px;
+}
+
+/* Modal */
+.modal{
+    position:fixed;
+    inset:0;
+    z-index:3000;
+    background:rgba(0,0,0,.72);
+    backdrop-filter:blur(10px);
+    display:none;
+    align-items:center;
+    justify-content:center;
+    padding:20px;
+}
+
+.modal.active{
+    display:flex;
+    animation:fadeIn .2s ease;
+}
+
+@keyframes fadeIn{
+    from{opacity:0}
+    to{opacity:1}
+}
+
+.modal-box{
+    width:min(450px,100%);
+    background:#0b1913;
+    border:1px solid rgba(24,230,129,.22);
+    border-radius:20px;
+    padding:25px;
+    position:relative;
+    box-shadow:0 30px 80px rgba(0,0,0,.5);
+}
+
+.close{
+    position:absolute;
+    top:14px;
+    right:15px;
+    width:32px;
+    height:32px;
+    border:0;
+    border-radius:50%;
+    background:#17271f;
+    color:#9eb4a8;
+    cursor:pointer;
+    font-size:20px;
+}
+
+.modal-title{
+    padding-right:40px;
+    font-size:20px;
+    line-height:1.45;
+}
+
+.modal-desc{
+    margin-top:12px;
+    color:var(--muted);
+    font-size:13px;
+    line-height:1.7;
+}
+
+.modal-price{
+    margin-top:18px;
+    color:var(--green);
+    font-weight:800;
+    font-size:22px;
+}
+
+.modal-stock{
+    color:#74d9a2;
+    font-size:12px;
+    margin-top:5px;
+}
+
+.order-title{
+    margin-top:25px;
+    margin-bottom:13px;
+    font-size:12px;
+    color:#8fa99c;
+}
+
+.order-options{
+    display:grid;
+    gap:10px;
+}
+
+.order-option{
+    display:flex;
+    align-items:center;
+    gap:12px;
+    width:100%;
+    padding:13px;
+    background:#102119;
+    border:1px solid var(--border);
+    border-radius:11px;
+    color:white;
+    cursor:pointer;
+    text-decoration:none;
+    transition:.2s;
+}
+
+.order-option:hover{
+    border-color:rgba(24,230,129,.4);
+    transform:translateX(3px);
+}
+
+.icon-box{
+    width:36px;
+    height:36px;
+    display:grid;
+    place-items:center;
+    background:rgba(24,230,129,.08);
+    border-radius:9px;
+    color:var(--green);
+}
+
+.option-text strong{
+    display:block;
+    font-size:13px;
+}
+
+.option-text span{
+    color:#71897e;
+    font-size:10px;
+}
+
+/* Reveal */
+.reveal{
+    opacity:0;
+    transform:translateY(25px);
+    transition:opacity .7s ease,transform .7s ease;
+}
+
+.reveal.show{
+    opacity:1;
+    transform:none;
+}
+
+/* Responsive */
+@media(max-width:900px){
+    .products-grid{
+        grid-template-columns:repeat(2,1fr);
+    }
+
+    .about-grid{
+        grid-template-columns:1fr;
+    }
+}
+
+@media(max-width:650px){
+    .nav-links{
+        display:none;
+    }
+
+    .hero{
+        min-height:440px;
+        padding-top:55px;
+    }
+
+    .hero h1{
+        letter-spacing:-2.5px;
+    }
+
+    .stats{
+        grid-template-columns:1fr;
+    }
+
+    .section-heading{
+        display:block;
+    }
+
+    .search-box{
+        width:100%;
+        margin-top:18px;
+    }
+
+    .products-grid{
+        grid-template-columns:1fr;
+    }
+
+    .features{
+        grid-template-columns:1fr;
+    }
+
+    .footer-inner{
+        flex-direction:column;
+    }
+}
+</style>
 </head>
+
 <body>
-<header class="header"><div class="container nav">
-<a class="logo" href="#home"><b>BEST</b> DEAL</a>
-<button id="menuBtn" class="menu"><i class="fa-solid fa-bars"></i></button>
-<nav id="nav"><a href="#home">Home</a><a href="#products">Products</a><a href="#about">About</a><a href="#contact">Contact</a></nav>
-</div></header>
 
-<section class="hero" id="home"><div class="container hero-inner reveal">
-<span class="eyebrow"><i class="fa-solid fa-bolt"></i> PREMIUM DIGITAL STORE</span>
-<h1>Everything You Need.<br><span>BEST DEAL.</span></h1>
-<p>Premium digital products, subscriptions and services at affordable prices with a simple ordering experience.</p>
-<div class="actions"><a class="btn primary" href="#products">Explore Products <i class="fa-solid fa-arrow-right"></i></a><a class="btn secondary" href="#about">Learn More</a></div>
-</div></section>
+<header>
+    <nav class="nav">
+        <a href="#" class="brand">
+            <!-- CHANGE YOUR LOGO URL HERE -->
+            <img src="https://YOUR-LOGO-LINK-HERE/logo.png"
+                 alt="Best Deal Logo"
+                 onerror="this.style.display='none';document.querySelector('.brand-logo-fallback').style.display='grid'">
+            <span class="brand-logo-fallback" style="display:none">BD</span>
+            <span>Best Deal</span>
+        </a>
 
-<section class="stats"><div class="container stats-grid">
-<div><strong id="productCount">0</strong><small>Products</small></div><div><strong>24/7</strong><small>Support</small></div><div><strong>100%</strong><small>Digital Delivery</small></div><div><strong>BDT</strong><small>Simple Pricing</small></div>
-</div></section>
+        <div class="nav-links">
+            <a href="#products">Products</a>
+            <a href="#about">About</a>
+            <a href="#payment">Payment</a>
+        </div>
+    </nav>
+</header>
 
-<section class="section" id="products"><div class="container">
-<div class="section-title reveal"><div><span class="eyebrow">OUR PRODUCTS</span><h2>Choose Your <span>Product</span></h2></div><p>Browse available digital products and select the one you need.</p></div>
-<div class="toolbar reveal"><div class="search"><i class="fa-solid fa-magnifying-glass"></i><input id="search" placeholder="Search products..."></div>
-<div class="filters" id="filters"><button class="active" data-cat="All">All</button><button data-cat="AI">AI</button><button data-cat="VPN">VPN</button><button data-cat="OTT">OTT</button><button data-cat="Other">Other</button></div></div>
-<div class="grid" id="grid"><div class="loading"><i class="fa-solid fa-circle-notch fa-spin"></i> Loading products...</div></div>
-</div></section>
+<main>
 
-<section class="section about" id="about"><div class="container about-grid">
-<div class="reveal"><span class="eyebrow">ABOUT BEST DEAL</span><h2>Your trusted place for <span>digital products.</span></h2>
-<p>BEST DEAL is built to make premium digital services easier to find and order. Choose a product, check availability, view details and contact us to order.</p>
-<div class="points"><div><i class="fa-solid fa-circle-check"></i> Simple and transparent pricing</div><div><i class="fa-solid fa-circle-check"></i> Live product stock from API</div><div><i class="fa-solid fa-circle-check"></i> Fast support through social channels</div></div></div>
-<div class="about-card reveal"><i class="fa-solid fa-bag-shopping"></i><h3>Shop Smart</h3><p>Find the right digital product without unnecessary complexity.</p></div>
-</div></section>
+<section class="hero">
+    <div class="hero-content reveal">
+        <div class="badge">
+            <span class="badge-dot"></span>
+            LIVE PRODUCT STOCK
+        </div>
 
-<section class="section" id="contact"><div class="container contact-box reveal"><div><span class="eyebrow">CONTACT US</span><h2>Ready to place an order?</h2><p>Choose a product and contact us through your preferred platform.</p></div><a class="btn primary" href="#products">View Products <i class="fa-solid fa-arrow-right"></i></a></div></section>
+        <h1>Premium Digital<br><span>Deals.</span></h1>
 
-<footer><div class="container foot"><div><a class="logo" href="#home"><b>BEST</b> DEAL</a><p>Premium digital products, made simple.</p></div><div class="footlinks"><a href="#home">Home</a><a href="#products">Products</a><a href="#about">About</a><a href="#contact">Contact</a></div></div><div class="copy">© 2026 BEST DEAL. All rights reserved.</div></footer>
+        <p>
+            Premium digital products, subscriptions and online services
+            at Best Deal. Serving customers since 2024 with fast delivery
+            and reliable service.
+        </p>
 
-<div class="modal" id="details"><div class="modal-card detail-card"><button class="close" data-close="details"><i class="fa-solid fa-xmark"></i></button><div class="modal-img"><img id="dimg"></div><div class="modal-body"><span class="tag" id="dcat"></span><h2 id="dname"></h2><div class="price-row"><strong id="dprice"></strong><span id="dstock"></span></div><p id="ddesc"></p><button id="orderBtn" class="btn primary full">Order Now <i class="fa-solid fa-cart-shopping"></i></button></div></div></div>
+        <div class="hero-buttons">
+            <a href="#products" class="btn btn-primary">
+                Browse Products
+            </a>
 
-<div class="modal" id="order"><div class="modal-card order-card"><button class="close" data-close="order"><i class="fa-solid fa-xmark"></i></button><span class="eyebrow">ORDER PRODUCT</span><h2>Contact us to order</h2><p id="orderName"></p><div class="socials"><a id="discord" class="social discord" target="_blank"><i class="fa-brands fa-discord"></i> Discord</a><a id="telegram" class="social telegram" target="_blank"><i class="fa-brands fa-telegram"></i> Telegram</a><a id="whatsapp" class="social whatsapp" target="_blank"><i class="fa-brands fa-whatsapp"></i> WhatsApp</a></div></div></div>
-<script src="script.js"></script>
-</body></html>
+            <a href="#about" class="btn btn-secondary">
+                About Best Deal
+            </a>
+        </div>
+    </div>
+</section>
+
+<section class="stats reveal">
+    <div class="stat">
+        <strong>2024+</strong>
+        <span>Serving Since</span>
+    </div>
+
+    <div class="stat">
+        <strong>LIVE</strong>
+        <span>Stock System</span>
+    </div>
+
+    <div class="stat">
+        <strong>24/7</strong>
+        <span>Order Support</span>
+    </div>
+</section>
+
+<section class="section" id="products">
+
+    <div class="section-heading reveal">
+        <div>
+            <h2>Products</h2>
+            <p>Live stock and products from our reseller API.</p>
+        </div>
+
+        <div class="search-box">
+            <span class="search-icon">
+                <svg width="17" height="17" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                    <circle cx="11" cy="11" r="7"></circle>
+                    <path d="m20 20-4-4"></path>
+                </svg>
+            </span>
+            <input id="search" type="text" placeholder="Search products...">
+        </div>
+    </div>
+
+    <div class="products-grid" id="productsGrid">
+        <div class="loader">
+            <div class="loader-circle"></div>
+        </div>
+    </div>
+
+</section>
+
+<section class="section" id="about">
+
+    <div class="section-heading reveal">
+        <div>
+            <h2>About Best Deal</h2>
+            <p>Simple, reliable and premium digital services.</p>
+        </div>
+    </div>
+
+    <div class="about-grid">
+
+        <div class="about-card reveal">
+            <h3>Built for Digital Deals</h3>
+
+            <p>
+                Best Deal has been selling digital products and online
+                services since 2024. We focus on providing premium
+                subscriptions, AI services, software products and other
+                digital solutions with an easy ordering experience.
+            </p>
+
+            <div class="features">
+
+                <div class="feature">
+                    <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                        <path d="M12 2 4 5v6c0 5 3.4 9.4 8 11 4.6-1.6 8-6 8-11V5l-8-3Z"/>
+                        <path d="m8 12 2.5 2.5L16 9"/>
+                    </svg>
+                    Live Stock
+                </div>
+
+                <div class="feature">
+                    <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                        <path d="M12 3v18M3 12h18"/>
+                    </svg>
+                    Premium Products
+                </div>
+
+                <div class="feature">
+                    <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                        <path d="M20 11a8 8 0 1 1-2.34-5.66"/>
+                        <path d="M20 4v7h-7"/>
+                    </svg>
+                    Fast Delivery
+                </div>
+
+                <div class="feature">
+                    <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                        <path d="M12 2a10 10 0 1 0 10 10"/>
+                        <path d="M12 6v6l4 2"/>
+                    </svg>
+                    Support
+                </div>
+
+            </div>
+        </div>
+
+        <div class="about-card reveal" id="payment">
+            <h3>Payment Methods</h3>
+
+            <p>
+                Payment can be completed using the available methods below.
+                Contact us before payment for the exact order instructions.
+            </p>
+
+            <div class="payment-list">
+
+                <div class="payment">
+                    <div class="payment-icon">
+                        <svg width="17" height="17" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                            <rect x="3" y="5" width="18" height="14" rx="2"/>
+                            <path d="M3 10h18"/>
+                        </svg>
+                    </div>
+                    <span>bKash</span>
+                </div>
+
+                <div class="payment">
+                    <div class="payment-icon">
+                        <svg width="17" height="17" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                            <rect x="3" y="5" width="18" height="14" rx="2"/>
+                            <path d="M3 10h18"/>
+                        </svg>
+                    </div>
+                    <span>Nagad</span>
+                </div>
+
+                <div class="payment">
+                    <div class="payment-icon">
+                        <svg width="17" height="17" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                            <circle cx="12" cy="12" r="9"/>
+                            <path d="M8 12h8M12 8v8"/>
+                        </svg>
+                    </div>
+                    <span>Crypto / USDT</span>
+                </div>
+
+            </div>
+        </div>
+
+    </div>
+
+</section>
+
+</main>
+
+<footer>
+    <div class="footer-inner">
+
+        <div class="footer-brand">
+            <h3>Best Deal</h3>
+            <p>
+                Premium digital products and online services.
+                Selling since 2024 with a focus on simple ordering,
+                live stock and reliable customer support.
+            </p>
+        </div>
+
+        <div class="footer-links">
+            <a href="#products">Products</a>
+            <a href="#about">About</a>
+            <a href="#payment">Payment</a>
+        </div>
+
+    </div>
+
+    <div class="copyright">
+        © 2024–2026 Best Deal. All rights reserved.
+    </div>
+</footer>
+
+
+<!-- PRODUCT DETAILS / ORDER MODAL -->
+<div class="modal" id="modal">
+
+    <div class="modal-box">
+
+        <button class="close" onclick="closeModal()">×</button>
+
+        <div class="modal-title" id="modalTitle"></div>
+
+        <div class="modal-desc" id="modalDescription"></div>
+
+        <div class="modal-price" id="modalPrice"></div>
+
+        <div class="modal-stock" id="modalStock"></div>
+
+        <div class="order-title">
+            Choose where you want to place your order
+        </div>
+
+        <div class="order-options">
+
+            <!-- CHANGE THESE LINKS -->
+            <a class="order-option" id="discordLink"
+               href="https://discord.com/"
+               target="_blank">
+
+                <div class="icon-box">
+                    <svg width="19" height="19" viewBox="0 0 24 24" fill="none">
+                        <path fill="currentColor" d="M19.5 5.1A16.1 16.1 0 0 0 15.6 4l-.5 1a14 14 0 0 0-6.2 0l-.5-1a16.1 16.1 0 0 0-3.9 1.1C2 8.8 1.3 12.4 1.7 16c1.6 1.2 3.2 2 4.9 2.5l1.2-1.7c-.7-.3-1.4-.7-2-1.1l.5-.4c3.9 1.8 8.5 1.8 12.4 0l.5.4c-.6.4-1.3.8-2 1.1l1.2 1.7c1.7-.5 3.3-1.3 4.9-2.5.5-4.2-.7-7.8-3.8-10.9ZM8.7 14.4c-1.2 0-2.1-1.1-2.1-2.4s.9-2.4 2.1-2.4 2.1 1.1 2.1 2.4-.9 2.4-2.1 2.4Zm6.6 0c-1.2 0-2.1-1.1-2.1-2.4s.9-2.4 2.1-2.4 2.1 1.1 2.1 2.4-.9 2.4-2.1 2.4Z"/>
+                    </svg>
+                </div>
+
+                <div class="option-text">
+                    <strong>Discord</strong>
+                    <span>Order through Discord</span>
+                </div>
+            </a>
+
+
+            <a class="order-option" id="whatsappLink"
+               href="https://wa.me/"
+               target="_blank">
+
+                <div class="icon-box">
+                    <svg width="19" height="19" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                        <path d="M20 11.5a8.5 8.5 0 0 1-12.9 7.3L4 20l1.3-3A8.5 8.5 0 1 1 20 11.5Z"/>
+                        <path d="M9 9.2c.2-.4.4-.4.7-.4h.4c.2 0 .4.1.5.4l.5 1.2c.1.2.1.4 0 .6l-.4.5c.6 1.1 1.5 1.9 2.7 2.4l.5-.5c.2-.2.4-.2.6-.1l1.2.5c.3.1.4.3.3.6-.2.8-.7 1.3-1.4 1.4-1.3.2-3.3-.8-4.7-2.2S7.7 10.7 8 9.5c.1-.1.2-.2.3-.3l.7 0Z"/>
+                    </svg>
+                </div>
+
+                <div class="option-text">
+                    <strong>WhatsApp</strong>
+                    <span>Order through WhatsApp</span>
+                </div>
+            </a>
+
+
+            <a class="order-option" id="telegramLink"
+               href="https://t.me/"
+               target="_blank">
+
+                <div class="icon-box">
+                    <svg width="19" height="19" viewBox="0 0 24 24" fill="none">
+                        <path fill="currentColor" d="M21.8 4.4 18.5 20c-.2 1.1-.8 1.4-1.6.9l-4.5-3.3-2.2 2.1c-.2.2-.4.4-.8.4l.3-4.6 8.4-7.6c.4-.4-.1-.6-.6-.2L7.1 14.2l-4.5-1.4c-1-.3-1-1 .2-1.5L20.4 5c.9-.3 1.7-.1 1.4-.6Z"/>
+                    </svg>
+                </div>
+
+                <div class="option-text">
+                    <strong>Telegram</strong>
+                    <span>Order through Telegram</span>
+                </div>
+            </a>
+
+        </div>
+
+    </div>
+</div>
+
+
+<script>
+
+/* ============================================================
+   BEST DEAL CONFIG
+   ============================================================ */
+
+/*
+IMPORTANT:
+This API key is visible to anyone who can inspect frontend
+JavaScript. For a real production website, put the API request
+behind your own backend/server.
+
+Replace API_KEY if your key changes.
+*/
+
+const API_BASE = "https://safwantigershopbot-production.up.railway.app/api";
+
+const API_KEY = "stapi_66cd9e68fd71aab918455a2a8720008ea37c201e7704aa4eb9075873b814df33";
+
+/*
+130 BDT conversion is intentionally kept internal.
+It is NOT displayed anywhere on the website.
+*/
+const USD_RATE = 130;
+
+
+/* ============================================================
+   PRODUCT PRICE LIST
+   ============================================================ */
+
+const PRICE_LIST = [
+["Gemini Pro 18M",1.50],
+["ChatGPT Plus (No Warranty) 1M",7.18],
+["ChatGPT K12 Account (10HW) 2 Year",7.50],
+["ChatGPT Plus Shared Via Extension (NW) 1M",2.24],
+["CapCut Pro (FW) 1M",3.08],
+["CapCut Pro (FW) 6M",12.44],
+["Grok Super (6DW) 9-10D",2.90],
+["Super Duolingo Redeem Link 12M",1.65],
+["Grok Super (3DW) 9-10D",2.81],
+["Leonardo Seedance 2.5 (8500 Crd, FW) 1M",2.69],
+["Amazon Prime Video 6M",2.56],
+["Coursera Premium (1DW) 12M",3.60],
+["Cursor Pro (FW) 12M",130.00],
+["Canva Admin (2MW) 3 Year",5.55],
+["Figma Edu (1MW) 2 Year",5.81],
+["EdX Premium (7DW) 12M",3.21],
+["NordVPN Coupon 3M",4.25],
+["MS365 Admin (FW) 1 Year",15.30],
+["QuillBot Premium (FW) 1M",3.02],
+["Surfshark Account (FW) 2M",3.99],
+["CapCut Pro (FW) 7D",0.90],
+["Codex API All Plans",2.30],
+["Claude API All Plans",2.30],
+["LinkedIn All Plans",2.30],
+["Resend Pro 1 Year",7.50],
+["Wispr Flow Pro 12M",12.70],
+["Surfshark VPN Coupon 2M",2.11],
+["Notion Business 3M",3.21],
+["Notion Business 1 Year",15.95],
+["Warp Build 1 Year",8.80],
+["Gamma Pro 1 Year",24.40],
+["Factory 12M",43.90],
+["ElevenLabs Creator 1 Year",46.50],
+["Replit Core 1 Year",33.50],
+["n8n Starter 12M",14.00],
+["Runway Pro 12M",40.00],
+["YouTube 3M Link",3.21],
+["Supabase Pro 12M",25.70],
+["Railway Hobby 12M",11.40],
+["Outlook Ready Mails",0.90],
+["Lovable Lite Account 12M",11.40],
+["ChatGPT Business (NW) 1M",8.28],
+["Google Pro AI 1 Year",12.70],
+["Higgsfield Pro 1 Year",118.00],
+["Lovable Pro 1 Year",32.20],
+["YouTube Premium Admin (FW) 1M",3.41],
+["Cursor Pro Plus + Grok Bot 1M",40.00],
+["Manus Pro 1 Year",40.00]
+];
+
+
+/* ============================================================
+   DESCRIPTION GENERATOR
+   ============================================================ */
+
+function makeDescription(name){
+
+    const lower = name.toLowerCase();
+
+    if(lower.includes("chatgpt"))
+        return "Premium ChatGPT access according to the listed plan and duration.";
+
+    if(lower.includes("gemini"))
+        return "Premium AI access with the listed Gemini plan and duration.";
+
+    if(lower.includes("capcut"))
+        return "Premium CapCut features according to the listed plan and duration.";
+
+    if(lower.includes("vpn"))
+        return "VPN service or coupon according to the listed plan and duration.";
+
+    if(lower.includes("youtube"))
+        return "YouTube Premium service according to the listed plan and duration.";
+
+    if(lower.includes("api"))
+        return "API access according to the selected service and available plan.";
+
+    if(lower.includes("canva"))
+        return "Canva premium access according to the listed plan and duration.";
+
+    if(lower.includes("notion"))
+        return "Notion Business access according to the listed plan and duration.";
+
+    if(lower.includes("figma"))
+        return "Figma premium/education access according to the listed plan.";
+
+    if(lower.includes("replit"))
+        return "Replit service according to the listed plan and duration.";
+
+    if(lower.includes("lovable"))
+        return "Lovable access according to the listed plan and duration.";
+
+    return "Premium digital product according to the listed plan and duration.";
+}
+
+
+/* ============================================================
+   API PRODUCT FETCH
+   ============================================================ */
+
+async function fetchProducts(){
+
+    const grid = document.getElementById("productsGrid");
+
+    try{
+
+        const response = await fetch(`${API_BASE}/products`,{
+            method:"GET",
+            headers:{
+                "Accept":"application/json",
+                "Authorization":`Bearer ${API_KEY}`,
+                "X-API-Key":API_KEY
+            }
+        });
+
+        if(!response.ok){
+            throw new Error("API request failed");
+        }
+
+        const data = await response.json();
+
+        /*
+        Supports common API response formats.
+        */
+        let apiProducts = [];
+
+        if(Array.isArray(data)){
+            apiProducts = data;
+        }
+        else if(Array.isArray(data.products)){
+            apiProducts = data.products;
+        }
+        else if(Array.isArray(data.data)){
+            apiProducts = data.data;
+        }
+        else if(data.data && Array.isArray(data.data.products)){
+            apiProducts = data.data.products;
+        }
+
+        renderProducts(apiProducts);
+
+    }catch(error){
+
+        console.error("Product API:",error);
+
+        /*
+        If API cannot be reached, the fixed product list still
+        displays. Stock will show as unavailable instead of
+        inventing a stock number.
+        */
+
+        renderProducts([]);
+    }
+}
+
+
+/* ============================================================
+   NORMALIZE API DATA
+   ============================================================ */
+
+function normalizeProduct(apiProduct){
+
+    const name =
+        apiProduct.name ??
+        apiProduct.product_name ??
+        apiProduct.title ??
+        apiProduct.product ??
+        "";
+
+    const stock =
+        apiProduct.stock ??
+        apiProduct.quantity ??
+        apiProduct.qty ??
+        apiProduct.available ??
+        apiProduct.inventory ??
+        0;
+
+    return {
+        name:String(name).trim(),
+        stock:Number(stock) || 0
+    };
+}
+
+
+/* ============================================================
+   MATCH API PRODUCTS TO YOUR EXACT PRICE LIST
+   ============================================================ */
+
+function findApiProduct(apiProducts, wantedName){
+
+    const normalizedWanted = wantedName
+        .toLowerCase()
+        .replace(/[^a-z0-9]+/g," ")
+        .trim();
+
+    let exact = apiProducts.find(p=>{
+
+        const n = normalizeProduct(p).name
+            .toLowerCase()
+            .replace(/[^a-z0-9]+/g," ")
+            .trim();
+
+        return n === normalizedWanted;
+    });
+
+    if(exact) return exact;
+
+    /*
+    Fallback matching.
+    This keeps your 1–48 order fixed.
+    */
+    return apiProducts.find(p=>{
+
+        const n = normalizeProduct(p).name
+            .toLowerCase()
+            .replace(/[^a-z0-9]+/g," ")
+            .trim();
+
+        return n.includes(normalizedWanted) ||
+               normalizedWanted.includes(n);
+    });
+}
+
+
+/* ============================================================
+   RENDER PRODUCTS
+   ============================================================ */
+
+let allProducts = [];
+
+function renderProducts(apiProducts){
+
+    allProducts = PRICE_LIST.map((item,index)=>{
+
+        const name = item[0];
+        const usd = item[1];
+
+        const matched = findApiProduct(apiProducts,name);
+
+        return {
+            id:index+1,
+            name:name,
+            usd:usd,
+            bdt:Math.round(usd * USD_RATE),
+            stock:matched ? normalizeProduct(matched).stock : 0,
+            apiFound:!!matched
+        };
+
+    });
+
+    drawProducts(allProducts);
+}
+
+
+/* ============================================================
+   DRAW CARDS
+   ============================================================ */
+
+function drawProducts(products){
+
+    const grid = document.getElementById("productsGrid");
+
+    if(!products.length){
+        grid.innerHTML = `
+            <div class="loader">
+                No products found.
+            </div>
+        `;
+        return;
+    }
+
+    grid.innerHTML = products.map(product=>{
+
+        const available = product.stock > 0;
+
+        return `
+        <article class="product-card reveal">
+
+            <div class="product-number">
+                PRODUCT ${String(product.id).padStart(2,"0")}
+            </div>
+
+            <div class="product-name">
+                ${escapeHTML(product.name)}
+            </div>
+
+            <div class="product-bottom">
+
+                <div>
+                    <div class="price">
+                        ৳${product.bdt.toLocaleString("en-BD")}
+                    </div>
+
+                    <div class="stock ${available ? "available":"empty"}">
+                        ${available
+                            ? `${product.stock} in stock`
+                            : "Out of stock"}
+                    </div>
+                </div>
+
+                <button
+                    class="order-btn ${available ? "":"disabled"}"
+                    ${available ? `onclick="openModal(${product.id})"`:"disabled"}>
+                    ${available ? "Order":"Unavailable"}
+                </button>
+
+            </div>
+
+        </article>
+        `;
+
+    }).join("");
+
+    observeReveal();
+}
+
+
+/* ============================================================
+   SEARCH
+   ============================================================ */
+
+document.getElementById("search").addEventListener("input",function(){
+
+    const query = this.value.toLowerCase().trim();
+
+    const filtered = allProducts.filter(product=>
+        product.name.toLowerCase().includes(query)
+    );
+
+    drawProducts(filtered);
+});
+
+
+/* ============================================================
+   MODAL
+   ============================================================ */
+
+function openModal(id){
+
+    const product = allProducts.find(p=>p.id === id);
+
+    if(!product || product.stock <= 0) return;
+
+    document.getElementById("modalTitle").textContent =
+        product.name;
+
+    document.getElementById("modalDescription").textContent =
+        makeDescription(product.name);
+
+    document.getElementById("modalPrice").textContent =
+        "৳" + product.bdt.toLocaleString("en-BD");
+
+    document.getElementById("modalStock").textContent =
+        product.stock + " available";
+
+    /*
+    Replace these 3 links with your actual contacts.
+    */
+
+    const message =
+        encodeURIComponent(
+            `Hello Best Deal, I want to order: ${product.name}`
+        );
+
+    document.getElementById("whatsappLink").href =
+        "https://wa.me/YOUR_WHATSAPP_NUMBER?text=" + message;
+
+    document.getElementById("telegramLink").href =
+        "https://t.me/YOUR_TELEGRAM_USERNAME";
+
+    document.getElementById("discordLink").href =
+        "https://discord.gg/YOUR_DISCORD_INVITE";
+
+    document.getElementById("modal").classList.add("active");
+
+    document.body.style.overflow="hidden";
+}
+
+
+function closeModal(){
+
+    document.getElementById("modal").classList.remove("active");
+
+    document.body.style.overflow="";
+}
+
+
+document.getElementById("modal").addEventListener("click",function(e){
+
+    if(e.target === this){
+        closeModal();
+    }
+
+});
+
+
+document.addEventListener("keydown",function(e){
+
+    if(e.key === "Escape"){
+        closeModal();
+    }
+
+});
+
+
+/* ============================================================
+   HTML ESCAPE
+   ============================================================ */
+
+function escapeHTML(value){
+
+    return value
+        .replace(/&/g,"&amp;")
+        .replace(/</g,"&lt;")
+        .replace(/>/g,"&gt;")
+        .replace(/"/g,"&quot;")
+        .replace(/'/g,"&#039;");
+}
+
+
+/* ============================================================
+   SCROLL REVEAL
+   ============================================================ */
+
+function observeReveal(){
+
+    const elements =
+        document.querySelectorAll(".reveal:not(.observed)");
+
+    const observer =
+        new IntersectionObserver(entries=>{
+
+            entries.forEach(entry=>{
+
+                if(entry.isIntersecting){
+
+                    entry.target.classList.add("show");
+                    entry.target.classList.add("observed");
+
+                }
+
+            });
+
+        },{
+            threshold:.08
+        });
+
+    elements.forEach(el=>observer.observe(el));
+}
+
+
+/* ============================================================
+   START
+   ============================================================ */
+
+observeReveal();
+fetchProducts();
+
+</script>
+
+</body>
+  </html>
