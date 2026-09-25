@@ -3,13 +3,22 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover">
-  <meta name="theme-color" content="#ffffff">
-  <meta name="description" content="OTT Subscriptions, software, digital products and services.">
-  <meta name="robots" content="index,follow">
-  <meta property="og:title" content="OTT Subscriptions BD">
-  <meta property="og:description" content="Digital subscriptions, software and services.">
+  <meta name="theme-color" content="#40bea5">
+  
+  <!-- SEO & Advanced Meta Tags -->
+  <meta name="description" content="Vaultify - Buy premium digital subscriptions, software, digital products and services at the best price in BD.">
+  <meta name="keywords" content="Vaultify, OTT, Digital Subscriptions, Software, Bangladesh, Premium Services">
+  <meta name="author" content="Vaultify">
+  <meta name="robots" content="index, follow">
+  
+  <!-- Open Graph (Facebook/WhatsApp/Discord Preview) -->
+  <meta property="og:title" content="Vaultify | Best Digital Services">
+  <meta property="og:description" content="Buy premium digital subscriptions, software and services instantly from Vaultify.">
   <meta property="og:type" content="website">
-  <title>OTT Subscriptions BD</title>
+  <meta property="og:url" content="https://vaultify.com"> <!-- Ekhane apnar asol domain diben -->
+  <meta property="og:image" content="https://via.placeholder.com/1200x630.png?text=Vaultify+Preview"> <!-- Ekhane banner image link diben -->
+  
+  <title>Vaultify | Fast & Trusted Digital Services</title>
 
   <style>
     :root {
@@ -161,6 +170,31 @@
     .logo-text b {
       color: #f14b2d;
     }
+    
+    /* SIDEBAR CSS (New feature for Hamburger button) */
+    .sidebar-overlay {
+      position: fixed; inset: 0; background: rgba(0,0,0,0.5);
+      z-index: 10001; opacity: 0; pointer-events: none; transition: 0.3s;
+    }
+    .sidebar-overlay.show { opacity: 1; pointer-events: auto; }
+    .sidebar {
+      position: fixed; top: 0; left: -300px; width: 280px; height: 100vh;
+      background: #fff; z-index: 10002; transition: 0.3s; 
+      box-shadow: 2px 0 10px rgba(0,0,0,0.1); display: flex; flex-direction: column;
+    }
+    .sidebar.open { left: 0; }
+    .sidebar-header {
+      display: flex; justify-content: space-between; align-items: center;
+      padding: 20px; border-bottom: 1px solid #eee;
+    }
+    .sidebar-header h3 { margin: 0; font-size: 22px; color: var(--ink); }
+    .close-sidebar { background: none; border: none; font-size: 28px; cursor: pointer; color: #777; }
+    .sidebar-links { padding: 20px; display: flex; flex-direction: column; gap: 15px; }
+    .sidebar-link {
+      font-size: 18px; font-weight: 600; color: var(--ink); text-decoration: none;
+      padding: 10px; border-radius: 8px; transition: 0.2s;
+    }
+    .sidebar-link:hover { background: #f5f5f5; color: var(--primary); }
 
     .notice {
       background: var(--orange);
@@ -506,6 +540,10 @@
       padding: 0;
       margin: 0;
       list-style: none;
+    }
+    
+    .footer ul li a:hover {
+      color: var(--primary);
     }
 
     .copyright {
@@ -1002,14 +1040,29 @@
         <span class="hamburger"><span></span><span></span><span></span></span>
       </button>
       <div class="logo-wrap">
-        <img id="siteLogo" class="logo" alt="OTT Subscriptions BD" style="display:none">
-        <div id="logoText" class="logo-text">otts<b>bd</b></div>
+        <img id="siteLogo" class="logo" alt="Vaultify" style="display:none">
+        <div id="logoText" class="logo-text">Vault<b>ify</b></div>
       </div>
       <button class="icon-btn" id="searchBtn" aria-label="Search">
         <span class="search-icon"></span>
       </button>
     </div>
   </header>
+
+  <!-- SIDEBAR MENU HTML (New feature) -->
+  <div class="sidebar-overlay" id="sidebarOverlay"></div>
+  <div class="sidebar" id="sidebar">
+    <div class="sidebar-header">
+      <h3>Vaultify</h3>
+      <button class="close-sidebar" id="closeSidebar">&times;</button>
+    </div>
+    <div class="sidebar-links">
+      <a href="#" class="sidebar-link" onclick="window.scrollTo({top:0,behavior:'smooth'}); return false;">Home</a>
+      <a href="#productsSection" class="sidebar-link">All Products</a>
+      <a href="#" class="sidebar-link" id="sidebarCategoryLink">Categories</a>
+      <a href="https://wa.me/8801700000000" target="_blank" class="sidebar-link">Contact Support</a>
+    </div>
+  </div>
 
   <div class="notice">
     <div class="notice-inner">
@@ -1066,7 +1119,7 @@
     <div class="container">
       <div class="footer-grid">
         <div>
-          <h3>OTT Subscriptions BD</h3>
+          <h3>Vaultify</h3>
           <p>Trusted digital subscriptions, software and online services. We aim to provide simple ordering and fast customer support.</p>
         </div>
         <div>
@@ -1074,7 +1127,7 @@
           <ul>
             <li><a href="#productsSection">Products</a></li>
             <li><a href="#productsSection">Categories</a></li>
-            <li href="#">Contact</li>
+            <li><a href="https://wa.me/8801700000000" target="_blank">Contact Us</a></li>
           </ul>
         </div>
         <div>
@@ -1082,7 +1135,7 @@
           <p>For order and account information, contact us through WhatsApp.</p>
         </div>
       </div>
-      <div class="copyright">© <span id="year"></span> OTT Subscriptions BD. All rights reserved.</div>
+      <div class="copyright">© <span id="year"></span> Vaultify. All rights reserved.</div>
     </div>
   </footer>
 
@@ -1190,32 +1243,21 @@
   <script>
     /* ============================================================
        EASY CONFIGURATION
-       ============================================================
-       1) Replace the Google Sheet CSV links.
-       2) Replace payment numbers.
-       3) Replace WhatsApp number.
-       4) For Discord:
-          - Preferred: put a secure server/proxy URL in orderEndpoint.
-          - Optional direct webhook: put Discord webhook in
-            discordWebhookUrl. This exposes the webhook to visitors,
-            so it is NOT recommended for a production store.
        ============================================================ */
     const CONFIG = {
-      siteName: "OTT Subscriptions BD",
-      logoUrl: "",
-      whatsappNumber: "8801XXXXXXXXX",
+      siteName: "Vaultify",
+      logoUrl: "", // URL of your logo image here
+      whatsappNumber: "8801947119248", // Apna asol WhatsApp number ekhane diben
       payment: {
-        bkash: "01XXXXXXXXX",
-        nagad: "01XXXXXXXXX"
+        bkash: "01719221925", // Apnar bkash number
+        nagad: "01719221925"  // Apnar nagad number
       },
       sheets: {
         categoriesCsv: "YOUR_CATEGORY_GOOGLE_SHEET_CSV_URL",
         productsCsv: "YOUR_PRODUCT_GOOGLE_SHEET_CSV_URL",
         noticeCsv: "YOUR_NOTICE_GOOGLE_SHEET_CSV_URL"
       },
-      // Recommended: your own serverless/proxy endpoint.
       orderEndpoint: "",
-      // Optional direct Discord webhook. Do not use on a public production site.
       discordWebhookUrl: ""
     };
 
@@ -1243,30 +1285,15 @@
       for (let i = 0; i < text.length; i++) {
         const c = text[i], n = text[i + 1];
         
-        if (c === '"' && quote && n === '"') {
-          cell += '"';
-          i++;
-          continue;
-        }
-        
-        if (c === '"') {
-          quote = !quote;
-          continue;
-        }
-        
-        if (c === ',' && !quote) {
-          row.push(cell);
-          cell = "";
-          continue;
-        }
+        if (c === '"' && quote && n === '"') { cell += '"'; i++; continue; }
+        if (c === '"') { quote = !quote; continue; }
+        if (c === ',' && !quote) { row.push(cell); cell = ""; continue; }
         
         if ((c === '\n' || c === '\r') && !quote) {
           if (c === '\r' && n === '\n') i++;
-          row.push(cell);
-          cell = "";
+          row.push(cell); cell = "";
           if (row.some(v => v.trim() !== "")) rows.push(row);
-          row = [];
-          continue;
+          row = []; continue;
         }
         cell += c;
       }
@@ -1277,7 +1304,6 @@
       }
       
       if (!rows.length) return [];
-      
       const headers = rows.shift().map(h => h.trim().toLowerCase());
       
       return rows.map(r => {
@@ -1336,6 +1362,29 @@
         });
       }
     }
+
+    /* === SIDEBAR LOGIC === */
+    $("#menuBtn").onclick = () => {
+      $("#sidebar").classList.add("open");
+      $("#sidebarOverlay").classList.add("show");
+    };
+
+    function closeSidebar() {
+      $("#sidebar").classList.remove("open");
+      $("#sidebarOverlay").classList.remove("show");
+    }
+
+    $("#closeSidebar").onclick = closeSidebar;
+    $("#sidebarOverlay").onclick = closeSidebar;          $$(".sidebar-link").forEach(link => {
+      link.addEventListener("click", closeSidebar);
+    });
+
+    $("#sidebarCategoryLink").onclick = (e) => {
+      e.preventDefault();
+      closeSidebar();
+      window.scrollTo({top:0, behavior:"smooth"});
+    };
+    /* ===================== */
 
     function renderCategories() {
       const box = $("#categoryGrid");
@@ -1516,7 +1565,7 @@
       const d = new Date();
       const date = d.toISOString().slice(0, 10).replaceAll("-", "");
       const rand = Math.random().toString(36).slice(2, 7).toUpperCase();
-      return `OT-${date}-${rand}`;
+      return `VL-${date}-${rand}`; // Changed prefix to VL for Vaultify
     }
 
     async function sendOrder(order) {
@@ -1543,7 +1592,6 @@
         createdAt: order.createdAt
       };
 
-      // Preferred secure route.
       if (CONFIG.orderEndpoint && !CONFIG.orderEndpoint.includes("YOUR_")) {
         const res = await fetch(CONFIG.orderEndpoint, {
           method: "POST",
@@ -1554,11 +1602,9 @@
         return;
       }
 
-      // Optional direct Discord webhook.
-      // WARNING: the webhook URL is visible to website visitors.
       if (CONFIG.discordWebhookUrl && !CONFIG.discordWebhookUrl.includes("YOUR_")) {
         const embed = {
-          title: "NEW ORDER",
+          title: "NEW ORDER - Vaultify",
           color: 4201381,
           fields: [
             { name: "Order ID", value: String(order.orderId), inline: true },
@@ -1584,8 +1630,7 @@
         if (!res.ok) throw new Error("Discord webhook rejected the order.");
         return;
       }
-
-      // Demo mode so the site still works before configuration.
+      
       console.log("DEMO ORDER", payload);
     }
 
@@ -1635,15 +1680,10 @@
       if ($("#searchPanel").classList.contains("open")) $("#searchInput").focus();
     };
     
-    $("#menuBtn").onclick = () => window.scrollTo({ top: 0, behavior: "smooth" });
-
     $("#searchInput").addEventListener("input", e => {
       const q = e.target.value.trim().toLowerCase();
       const box = $("#searchResults");
-      if (!q) {
-        box.innerHTML = "";
-        return;
-      }
+      if (!q) { box.innerHTML = ""; return; }
       
       const found = products.filter(p =>
         `${p.name} ${p.description} ${p.note}`.toLowerCase().includes(q)
@@ -1665,9 +1705,10 @@
     $("#homeNav").onclick = () => window.scrollTo({ top: 0, behavior: "smooth" });
     $("#ottNav").onclick = () => filterCategory(categories[0]?.id || "all");
     $("#shopNav").onclick = () => $("#productsSection").scrollIntoView({ behavior: "smooth" });
+    
+    // Bottom cart navigation fixed (alert removed)
     $("#cartNav").onclick = () => {
       $("#productsSection").scrollIntoView({ behavior: "smooth" });
-      alert("Cart is disabled. You can place a Direct Order from any product.");
     };
 
     async function loadSite() {
@@ -1704,4 +1745,4 @@
     loadSite();
   </script>
 </body>
-    </html>
+  </html>
