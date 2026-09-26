@@ -20,6 +20,9 @@
   
   <title>Vaultify | Fast & Trusted Digital Services</title>
 
+  <!-- SweetAlert2 for Beautiful Popups -->
+  <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
+
   <style>
     :root {
       --primary: #40bea5;
@@ -1199,6 +1202,12 @@
           <input id="customerMobile" required inputmode="tel" placeholder="01XXXXXXXXX">
         </div>
 
+        <!-- NEW QUANTITY FIELD -->
+        <div class="form-group">
+          <label>Quantity (কয়টি কিনবেন) *</label>
+          <input id="productQuantity" type="number" min="1" value="1" required>
+        </div>
+
         <div class="form-group">
           <label>Email (Optional)</label>
           <input id="customerEmail" type="email" placeholder="you@example.com">
@@ -1233,6 +1242,7 @@
         </div>
 
         <button class="submit-order" type="submit">Submit Order</button>
+        <!-- Old status div (kept untouched as requested) -->
         <div class="status" id="orderStatus"></div>
       </form>
     </div>
@@ -1246,11 +1256,11 @@
        ============================================================ */
     const CONFIG = {
       siteName: "Vaultify",
-      logoUrl: "", // URL of your logo image here
-      whatsappNumber: "8801947119248", // Apna asol WhatsApp number ekhane diben
+      logoUrl: "", 
+      whatsappNumber: "8801947119248", 
       payment: {
-        bkash: "01719221925", // Apnar bkash number
-        nagad: "01719221925"  // Apnar nagad number
+        bkash: "01719221925", 
+        nagad: "01719221925"  
       },
       sheets: {
         categoriesCsv: "https://docs.google.com/spreadsheets/d/e/2PACX-1vSYgqqHWW1VJuco7UJpgvrDb055HIhRT3xiqI4EhKpv05ckasUentb0yah-FI245hhXJ9Cu0h9ugt5M/pub?gid=1337870049&single=true&output=csv",
@@ -1258,7 +1268,9 @@
         noticeCsv: "https://docs.google.com/spreadsheets/d/e/2PACX-1vSYgqqHWW1VJuco7UJpgvrDb055HIhRT3xiqI4EhKpv05ckasUentb0yah-FI245hhXJ9Cu0h9ugt5M/pub?gid=1268335665&single=true&output=csv"
       },
       orderEndpoint: "",
-      discordWebhookUrl: "https://discord.com/api/webhooks/1553275760536453130/_b_owh3rx1Oeg4GMh2XpI87-58tV3yHsGTp-G8LRWeEe1pPuTi0KpchwCwebGDTi1buZ"
+      discordWebhookUrl: "https://discord.com/api/webhooks/1553275760536453130/_b_owh3rx1Oeg4GMh2XpI87-58tV3yHsGTp-G8LRWeEe1pPuTi0KpchwCwebGDTi1buZ",
+      // NEW PUBLIC WEBHOOK URL (Change this to your new Discord Webhook)
+      publicDiscordWebhookUrl: "YOUR_PUBLIC_WEBHOOK_URL_HERE" 
     };
 
     let categories = [];
@@ -1375,7 +1387,7 @@
     }
 
     $("#closeSidebar").onclick = closeSidebar;
-    $("#sidebarOverlay").onclick = closeSidebar;          $$(".sidebar-link").forEach(link => {
+    $("#sidebarOverlay").onclick = closeSidebar;               $$(".sidebar-link").forEach(link => {
       link.addEventListener("click", closeSidebar);
     });
 
@@ -1416,9 +1428,10 @@
       });
     }
 
+    // CATEGORY FIX (Now checks both name and ID robustly)
     function categoryName(id) {
-      const c = categories.find(x => String(x.id) === String(id));
-      return c?.name || "Digital Service";
+      const c = categories.find(x => String(x.id) === String(id) || String(x.name) === String(id));
+      return c?.name || id || "Digital Service";
     }
 
     function renderProducts(list = products) {
@@ -1468,9 +1481,13 @@
       });
     }
 
+    // CATEGORY FILTER FIX (Handles mismatch names correctly)
     function filterCategory(id) {
       $("#categoryFilter").value = id;
-      const list = id === "all" ? products : products.filter(p => String(p.category_id) === String(id));
+      const list = id === "all" ? products : products.filter(p => {
+        const c = categories.find(x => String(x.id) === String(id));
+        return String(p.category_id) === String(id) || (c && String(p.category_id) === String(c.name));
+      });
       renderProducts(list);
       $("#productsSection").scrollIntoView({ behavior: "smooth", block: "start" });
     }
@@ -1537,12 +1554,24 @@
       document.body.style.overflow = "";
     }
 
+    function updateOrderSummary() {
+      if (!currentProduct) return;
+      const qty = parseInt($("#productQuantity").value) || 1;
+      const priceNum = Number(String(currentProduct.price).replace(/[^\d.]/g, ""));
+      const totalStr = Number.isFinite(priceNum) ? money(priceNum * qty) : escapeHtml(currentProduct.price);
+      
+      $("#orderSummary").innerHTML = `
+        <strong>${escapeHtml(currentProduct.name)}</strong><br>
+        <span>${money(currentProduct.price)} x ${qty} = <b style="color:var(--primary-dark)">${totalStr}</b></span>
+      `;
+    }
+
+    $("#productQuantity").addEventListener("input", updateOrderSummary);
+
     function openOrderModal(p) {
       currentProduct = p;
-      $("#orderSummary").innerHTML = `
-        <strong>${escapeHtml(p.name)}</strong><br>
-        <span>${money(p.price)}</span>
-      `;
+      $("#productQuantity").value = 1; // reset quantity
+      updateOrderSummary();
       $("#orderModal").classList.add("open");
       updatePaymentNumber();
     }
@@ -1565,43 +1594,21 @@
       const d = new Date();
       const date = d.toISOString().slice(0, 10).replaceAll("-", "");
       const rand = Math.random().toString(36).slice(2, 7).toUpperCase();
-      return `VL-${date}-${rand}`; // Changed prefix to VL for Vaultify
+      return `VL-${date}-${rand}`; 
     }
 
     async function sendOrder(order) {
-      const payload = {
-        orderId: order.orderId,
-        product: {
-          id: order.productId,
-          name: order.productName,
-          price: order.price,
-          category: order.category
-        },
-        customer: {
-          name: order.customerName,
-          mobile: order.customerMobile,
-          email: order.customerEmail
-        },
-        payment: {
-          method: order.paymentMethod,
-          receiverNumber: order.paymentReceiver,
-          senderNumber: order.senderNumber,
-          transactionId: order.transactionId
-        },
-        note: order.customerNote,
-        createdAt: order.createdAt
-      };
-
+      // 1. Send Data to Endpoint (If Configured)
       if (CONFIG.orderEndpoint && !CONFIG.orderEndpoint.includes("YOUR_")) {
         const res = await fetch(CONFIG.orderEndpoint, {
           method: "POST",
           headers: { "Content-Type": "application/json" },
-          body: JSON.stringify(payload)
+          body: JSON.stringify(order)
         });
         if (!res.ok) throw new Error("Order server rejected the order.");
-        return;
       }
 
+      // 2. Send to Admin Discord (Private with Details)
       if (CONFIG.discordWebhookUrl && !CONFIG.discordWebhookUrl.includes("YOUR_")) {
         const embed = {
           title: "NEW ORDER - Vaultify",
@@ -1609,7 +1616,8 @@
           fields: [
             { name: "Order ID", value: String(order.orderId), inline: true },
             { name: "Product", value: String(order.productName || "N/A"), inline: false },
-            { name: "Price", value: String(money(order.price) || "N/A"), inline: true },
+            { name: "Quantity", value: String(order.quantity || "1"), inline: true },
+            { name: "Price (Per Item)", value: String(money(order.price) || "N/A"), inline: true },
             { name: "Category", value: String(order.category || "N/A"), inline: true },
             { name: "Customer", value: String(order.customerName || "N/A"), inline: true },
             { name: "Mobile", value: String(order.customerMobile || "N/A"), inline: true },
@@ -1628,26 +1636,37 @@
           body: JSON.stringify({ username: CONFIG.siteName, embeds: [embed] })
         });
         if (!res.ok) throw new Error("Discord webhook rejected the order.");
-        return;
       }
-      
-      console.log("DEMO ORDER", payload);
+
+      // 3. NEW: Send to Public Discord Webhook
+      if (CONFIG.publicDiscordWebhookUrl && !CONFIG.publicDiscordWebhookUrl.includes("YOUR_")) {
+        const publicContent = `**Customer Name:** ${order.customerName}\n**Products name:** ${order.productName}\n**Koita kinche:** ${order.quantity}\n**Price:** ${money(order.price)}`;
+        
+        fetch(CONFIG.publicDiscordWebhookUrl, {
+          method: "POST",
+          headers: { "Content-Type": "application/json" },
+          body: JSON.stringify({
+            username: "Vaultify Alerts",
+            content: publicContent
+          })
+        }).catch(e => console.error("Public webhook failed", e)); // We catch error here to not block the main process
+      }
     }
 
     $("#orderForm").addEventListener("submit", async e => {
       e.preventDefault();
       if (!currentProduct) return;
 
-      const status = $("#orderStatus");
-      status.className = "status";
-      status.textContent = "";
       $("#loader").classList.add("show");
+
+      const qty = parseInt($("#productQuantity").value) || 1;
 
       const order = {
         orderId: makeOrderId(),
         productId: currentProduct.id,
         productName: currentProduct.name,
         price: currentProduct.price,
+        quantity: qty,
         category: categoryName(currentProduct.category_id),
         customerName: $("#customerName").value.trim(),
         customerMobile: $("#customerMobile").value.trim(),
@@ -1662,13 +1681,26 @@
 
       try {
         await sendOrder(order);
-        status.className = "status show success";
-        status.innerHTML = `Order submitted successfully.<br><strong>Order ID: ${escapeHtml(order.orderId)}</strong><br>অর্ডারের তথ্য WhatsApp/Support থেকে জানতে পারবেন।`;
-        $("#orderForm").reset();         selectedPayment = "bKash";         $$(".payment-option").forEach((x, i) => x.classList.toggle("selected", i === 0));
+        
+        // SWEETALERT POPUP - SUCCESS
+        Swal.fire({
+          icon: 'success',
+          title: 'Order Successful!',
+          html: `Thank you, <b>${escapeHtml(order.customerName)}</b>.<br>Your Order ID: <b>${escapeHtml(order.orderId)}</b><br><br>অর্ডারের তথ্য WhatsApp বা Support থেকে জানতে পারবেন।`,
+          confirmButtonColor: '#40bea5'
+        });
+
+        $("#orderForm").reset();
+        $("#orderModal").classList.remove("open");         selectedPayment = "bKash";                  $$(".payment-option").forEach((x, i) => x.classList.toggle("selected", i === 0));
         updatePaymentNumber();
       } catch (err) {
-        status.className = "status show error";
-        status.textContent = "Order পাঠানো যায়নি। আপনার তথ্য ঠিক আছে কিনা দেখে আবার চেষ্টা করুন।";
+        // SWEETALERT POPUP - ERROR
+        Swal.fire({
+          icon: 'error',
+          title: 'Oops...',
+          text: 'Order পাঠানো যায়নি। আপনার তথ্য ঠিক আছে কিনা দেখে আবার চেষ্টা করুন।',
+          confirmButtonColor: '#ff4a2f'
+        });
         console.error(err);
       } finally {
         $("#loader").classList.remove("show");
@@ -1706,7 +1738,6 @@
     $("#ottNav").onclick = () => filterCategory(categories[0]?.id || "all");
     $("#shopNav").onclick = () => $("#productsSection").scrollIntoView({ behavior: "smooth" });
     
-    // Bottom cart navigation fixed (alert removed)
     $("#cartNav").onclick = () => {
       $("#productsSection").scrollIntoView({ behavior: "smooth" });
     };
@@ -1722,8 +1753,16 @@
           fetchCsv(CONFIG.sheets.noticeCsv)
         ]);
         
-        categories = cat.filter(x => String(x.status || "yes").toLowerCase() !== "no");
-        products = prod.filter(x => String(x.status || "yes").toLowerCase() !== "no");
+        // FIX: Ensure ID fallback mappings
+        categories = cat.map((c, i) => ({
+          ...c,
+          id: c.id || c.name || `cat_${i}`
+        })).filter(x => String(x.status || "yes").toLowerCase() !== "no");
+
+        products = prod.map(p => ({
+          ...p,
+          category_id: p.category_id || p.category || p.categoryid || ""
+        })).filter(x => String(x.status || "yes").toLowerCase() !== "no");
         
         renderCategories();
         renderProducts();
