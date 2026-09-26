@@ -55,6 +55,11 @@
       background: #f7f7f7;
     }
 
+    /* Fixed SweetAlert Z-Index Issue */
+    .swal2-container {
+      z-index: 9999 !important;
+    }
+
     button, input, textarea, select {
       font: inherit;
     }
@@ -174,7 +179,7 @@
       color: #f14b2d;
     }
     
-    /* SIDEBAR CSS (New feature for Hamburger button) */
+    /* SIDEBAR CSS */
     .sidebar-overlay {
       position: fixed; inset: 0; background: rgba(0,0,0,0.5);
       z-index: 10001; opacity: 0; pointer-events: none; transition: 0.3s;
@@ -1060,7 +1065,8 @@
       <button class="close-sidebar" id="closeSidebar">&times;</button>
     </div>
     <div class="sidebar-links">
-      <a href="#" class="sidebar-link" onclick="window.scrollTo({top:0,behavior:'smooth'}); return false;">Home</a>
+      <!-- Fixed Home Link ID -->
+      <a href="#" class="sidebar-link" id="sidebarHomeLink">Home</a>
       <a href="#productsSection" class="sidebar-link">All Products</a>
       <a href="#" class="sidebar-link" id="sidebarCategoryLink">Categories</a>
       <a href="https://wa.me/8801947119248" target="_blank" class="sidebar-link">Contact Support</a>
@@ -1269,7 +1275,6 @@
       },
       orderEndpoint: "",
       discordWebhookUrl: "https://discord.com/api/webhooks/1553275760536453130/_b_owh3rx1Oeg4GMh2XpI87-58tV3yHsGTp-G8LRWeEe1pPuTi0KpchwCwebGDTi1buZ",
-      // NEW PUBLIC WEBHOOK URL (Change this to your new Discord Webhook)
       publicDiscordWebhookUrl: "https://discord.com/api/webhooks/1553284468184317992/p3pxwjSyQcMtSfYP1VVnXLY-rBPcHrC-1WoYXS0_e1PGKrjsm1r51Tq3oZj_fKXBfxrM" 
     };
 
@@ -1387,12 +1392,23 @@
     }
 
     $("#closeSidebar").onclick = closeSidebar;
-    $("#sidebarOverlay").onclick = closeSidebar;               $$(".sidebar-link").forEach(link => {
-      link.addEventListener("click", closeSidebar);
+    $("#sidebarOverlay").onclick = closeSidebar;                         $$(".sidebar-link").forEach(link => {
+      // Except home link, others close sidebar directly
+      if(link.id !== "sidebarHomeLink"){
+        link.addEventListener("click", closeSidebar);
+      }
     });
 
     $("#sidebarCategoryLink").onclick = (e) => {
       e.preventDefault();
+      closeSidebar();
+      window.scrollTo({top:0, behavior:"smooth"});
+    };
+
+    // Sidebar Home click logic (Filter reset)
+    $("#sidebarHomeLink").onclick = (e) => {
+      e.preventDefault();
+      filterCategory("all");
       closeSidebar();
       window.scrollTo({top:0, behavior:"smooth"});
     };
@@ -1428,7 +1444,6 @@
       });
     }
 
-    // CATEGORY FIX (Now checks both name and ID robustly)
     function categoryName(id) {
       const c = categories.find(x => String(x.id) === String(id) || String(x.name) === String(id));
       return c?.name || id || "Digital Service";
@@ -1481,7 +1496,6 @@
       });
     }
 
-    // CATEGORY FILTER FIX (Handles mismatch names correctly)
     function filterCategory(id) {
       $("#categoryFilter").value = id;
       const list = id === "all" ? products : products.filter(p => {
@@ -1571,6 +1585,13 @@
     function openOrderModal(p) {
       currentProduct = p;
       $("#productQuantity").value = 1; // reset quantity
+      
+      // Load saved customer data from local storage
+      $("#customerName").value = localStorage.getItem("vaultify_name") || "";
+      $("#customerMobile").value = localStorage.getItem("vaultify_mobile") || "";
+      $("#customerEmail").value = localStorage.getItem("vaultify_email") || "";
+      $("#senderNumber").value = localStorage.getItem("vaultify_sender") || "";
+      
       updateOrderSummary();
       $("#orderModal").classList.add("open");
       updatePaymentNumber();
@@ -1578,7 +1599,7 @@
     
     $("#closeOrderModal").onclick = () => $("#orderModal").classList.remove("open");
 
-    $$(".payment-option").forEach(el => {       el.onclick = () => {         $$
+    $$(".payment-option").forEach(el => {              el.onclick = () => {                  $$
 (".payment-option").forEach(x => x.classList.remove("selected"));
         el.classList.add("selected");
         selectedPayment = el.dataset.method;
@@ -1598,7 +1619,6 @@
     }
 
     async function sendOrder(order) {
-      // 1. Send Data to Endpoint (If Configured)
       if (CONFIG.orderEndpoint && !CONFIG.orderEndpoint.includes("YOUR_")) {
         const res = await fetch(CONFIG.orderEndpoint, {
           method: "POST",
@@ -1608,16 +1628,16 @@
         if (!res.ok) throw new Error("Order server rejected the order.");
       }
 
-      // 2. Send to Admin Discord (Private with Details)
+      // Private Admin Discord Webhook with @here and Total Price
       if (CONFIG.discordWebhookUrl && !CONFIG.discordWebhookUrl.includes("YOUR_")) {
         const embed = {
-          title: "@here NEW ORDER - Vaultify",
+          title: "NEW ORDER - Vaultify",
           color: 4201381,
           fields: [
             { name: "Order ID", value: String(order.orderId), inline: true },
             { name: "Product", value: String(order.productName || "N/A"), inline: false },
             { name: "Quantity", value: String(order.quantity || "1"), inline: true },
-            { name: "Price (Per Item)", value: String(money(order.price) || "N/A"), inline: true },
+            { name: "Total Price", value: String(money(order.totalPrice) || "N/A"), inline: true },
             { name: "Category", value: String(order.category || "N/A"), inline: true },
             { name: "Customer", value: String(order.customerName || "N/A"), inline: true },
             { name: "Mobile", value: String(order.customerMobile || "N/A"), inline: true },
@@ -1633,23 +1653,37 @@
         const res = await fetch(CONFIG.discordWebhookUrl, {
           method: "POST",
           headers: { "Content-Type": "application/json" },
-          body: JSON.stringify({ username: CONFIG.siteName, embeds: [embed] })
+          body: JSON.stringify({ 
+            username: CONFIG.siteName, 
+            content: "@here 🚨 **New Order Received!**", 
+            embeds: [embed] 
+          })
         });
         if (!res.ok) throw new Error("Discord webhook rejected the order.");
       }
 
-      // 3. NEW: Send to Public Discord Webhook
+      // Public Discord Webhook (Beautiful Embed Format)
       if (CONFIG.publicDiscordWebhookUrl && !CONFIG.publicDiscordWebhookUrl.includes("YOUR_")) {
-        const publicContent = `**Customer Name:** ${order.customerName}\n**Products name:** ${order.productName}\n**Koita kinche:** ${order.quantity}\n**Price:** ${money(order.price)}`;
+        const publicEmbed = {
+          title: "🎉 নতুন একটি অর্ডার এসেছে!",
+          color: 4243109, // primary color #40bea5
+          fields: [
+            { name: "👤 Customer Name", value: String(order.customerName), inline: true },
+            { name: "🛒 Product", value: String(order.productName), inline: true },
+            { name: "📦 Quantity", value: String(order.quantity), inline: true },
+            { name: "💰 Total Price", value: money(order.totalPrice), inline: true }
+          ],
+          timestamp: order.createdAt
+        };
         
         fetch(CONFIG.publicDiscordWebhookUrl, {
           method: "POST",
           headers: { "Content-Type": "application/json" },
           body: JSON.stringify({
-            username: "Vaultify Alerts",
-            content: publicContent
+            username: "Vaultify Live Orders",
+            embeds: [publicEmbed]
           })
-        }).catch(e => console.error("Public webhook failed", e)); // We catch error here to not block the main process
+        }).catch(e => console.error("Public webhook failed", e)); 
       }
     }
 
@@ -1660,6 +1694,10 @@
       $("#loader").classList.add("show");
 
       const qty = parseInt($("#productQuantity").value) || 1;
+      
+      // Calculate numeric total price for passing to webhook
+      const priceNum = Number(String(currentProduct.price).replace(/[^\d.]/g, ""));
+      const totalPrice = Number.isFinite(priceNum) ? (priceNum * qty) : currentProduct.price;
 
       const order = {
         orderId: makeOrderId(),
@@ -1667,6 +1705,7 @@
         productName: currentProduct.name,
         price: currentProduct.price,
         quantity: qty,
+        totalPrice: totalPrice, // Added total price for webhook
         category: categoryName(currentProduct.category_id),
         customerName: $("#customerName").value.trim(),
         customerMobile: $("#customerMobile").value.trim(),
@@ -1682,6 +1721,16 @@
       try {
         await sendOrder(order);
         
+        // Save user details to local storage after successful order
+        localStorage.setItem("vaultify_name", order.customerName);
+        localStorage.setItem("vaultify_mobile", order.customerMobile);
+        localStorage.setItem("vaultify_email", order.customerEmail);
+        localStorage.setItem("vaultify_sender", order.senderNumber);
+
+        // Close order modal and product detail view first, so popup floats clearly on home
+        $("#orderModal").classList.remove("open");
+        closeProduct();         
+
         // SWEETALERT POPUP - SUCCESS
         Swal.fire({
           icon: 'success',
@@ -1690,10 +1739,11 @@
           confirmButtonColor: '#40bea5'
         });
 
-        $("#orderForm").reset();
-        $("#orderModal").classList.remove("open");         selectedPayment = "bKash";                  $$(".payment-option").forEach((x, i) => x.classList.toggle("selected", i === 0));
+        $("#orderForm").reset();         selectedPayment = "bKash";                           $$(".payment-option").forEach((x, i) => x.classList.toggle("selected", i === 0));
         updatePaymentNumber();
       } catch (err) {
+        $("#orderModal").classList.remove("open");
+        
         // SWEETALERT POPUP - ERROR
         Swal.fire({
           icon: 'error',
@@ -1734,7 +1784,12 @@
       });
     });
 
-    $("#homeNav").onclick = () => window.scrollTo({ top: 0, behavior: "smooth" });
+    // Home nav now resets category filter
+    $("#homeNav").onclick = () => {
+      filterCategory("all");
+      window.scrollTo({ top: 0, behavior: "smooth" });
+    };
+
     $("#ottNav").onclick = () => filterCategory(categories[0]?.id || "all");
     $("#shopNav").onclick = () => $("#productsSection").scrollIntoView({ behavior: "smooth" });
     
@@ -1753,7 +1808,6 @@
           fetchCsv(CONFIG.sheets.noticeCsv)
         ]);
         
-        // FIX: Ensure ID fallback mappings
         categories = cat.map((c, i) => ({
           ...c,
           id: c.id || c.name || `cat_${i}`
@@ -1784,4 +1838,4 @@
     loadSite();
   </script>
 </body>
-  </html>
+      </html>
