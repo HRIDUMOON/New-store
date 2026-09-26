@@ -1270,7 +1270,7 @@
       orderEndpoint: "",
       discordWebhookUrl: "https://discord.com/api/webhooks/1553275760536453130/_b_owh3rx1Oeg4GMh2XpI87-58tV3yHsGTp-G8LRWeEe1pPuTi0KpchwCwebGDTi1buZ",
       // NEW PUBLIC WEBHOOK URL (Change this to your new Discord Webhook)
-      publicDiscordWebhookUrl: "YOUR_PUBLIC_WEBHOOK_URL_HERE" 
+      publicDiscordWebhookUrl: "https://discord.com/api/webhooks/1553284468184317992/p3pxwjSyQcMtSfYP1VVnXLY-rBPcHrC-1WoYXS0_e1PGKrjsm1r51Tq3oZj_fKXBfxrM" 
     };
 
     let categories = [];
@@ -1611,7 +1611,7 @@
       // 2. Send to Admin Discord (Private with Details)
       if (CONFIG.discordWebhookUrl && !CONFIG.discordWebhookUrl.includes("YOUR_")) {
         const embed = {
-          title: "NEW ORDER - Vaultify",
+          title: "@here NEW ORDER - Vaultify",
           color: 4201381,
           fields: [
             { name: "Order ID", value: String(order.orderId), inline: true },
