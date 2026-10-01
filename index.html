@@ -5,26 +5,21 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     
     <!-- FULL SEO META TAGS -->
-    <title id="site-title">CRONIX STORE | Premium Digital Assets & Discord Enhancements</title>
-    <meta id="meta-description" name="description" content="CRONIX STORE offers the cheapest prices on the market for Premium Discord Services, Nitro, Server Boosts, Profile Decorations, and Aged Accounts with instant delivery and 24/7 support.">
+    <title id="site-title">CRONIX STORE | Premium Digital Assets & Enhancements</title>
+    <meta id="meta-description" name="description" content="CRONIX STORE offers the cheapest prices on the market for Premium Discord Services, Nitro, Server Boosts, Profile Decorations, and Aged Accounts with instant delivery.">
     <meta name="keywords" content="Discord Nitro, Server Boosts, Aged Discord Accounts, Cheap Nitro, Profile Decorations, Game Top-ups, OTT Subscriptions, CRONIX STORE">
-    <meta name="author" content="CRONIX STORE">
-    <meta name="robots" content="index, follow">
-    <meta name="theme-color" content="#b300ff">
     
-    <meta property="og:type" content="website">
-    <meta property="og:url" content="https://cronix.store/">
     <meta property="og:title" content="CRONIX STORE | Premium Digital Assets">
     <meta property="og:description" content="Cheapest prices for Premium Discord Services, Nitro, Server Boosts, and more.">
     <meta property="og:image" content="https://via.placeholder.com/1200x630.png?text=CRONIX+STORE">
     
-    <!-- Tailwind CSS (CDN) -->
+    <!-- Tailwind CSS -->
     <script src="https://cdn.tailwindcss.com"></script>
     
     <!-- PapaParse (Google Sheet Data Load) -->
     <script src="https://cdnjs.cloudflare.com/ajax/libs/PapaParse/5.3.2/papaparse.min.js"></script>
     
-    <!-- Font Awesome for All Icons -->
+    <!-- Font Awesome -->
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
     
     <!-- Google Fonts -->
@@ -71,7 +66,7 @@
             box-shadow: 0 10px 30px -10px rgba(168, 85, 247, 0.2);
         }
         .text-gradient {
-            background: linear-gradient(to right, #d946ef, #ec4899);
+            background: linear-gradient(to right, #d946ef, #a855f7);
             -webkit-background-clip: text;
             -webkit-text-fill-color: transparent;
         }
@@ -101,19 +96,33 @@
         @keyframes slideUpFade { from { opacity: 0; transform: translateY(20px); } to { opacity: 1; transform: translateY(0); } }
         @keyframes slideDownFade { from { opacity: 1; transform: translateY(0); } to { opacity: 0; transform: translateY(20px); } }
         
-        /* Custom Select Styling */
-        select option {
-            background-color: #0f0f13;
-            color: white;
+        /* Custom Select UI Animations */
+        .dropdown-menu {
+            transition: opacity 0.2s ease, transform 0.2s ease;
+            transform-origin: top;
+        }
+        .dropdown-menu.hidden {
+            opacity: 0;
+            transform: scaleY(0.9);
+            pointer-events: none;
+            display: block; /* To keep transition working */
+            visibility: hidden;
+        }
+        .dropdown-menu.active {
+            opacity: 1;
+            transform: scaleY(1);
+            pointer-events: auto;
+            visibility: visible;
         }
     </style>
 </head>
 <body class="relative min-h-screen flex flex-col">
 
+    <!-- Background effects -->
     <div class="bg-glow"></div>
     <div class="bg-glow-2"></div>
 
-    <div class="w-full bg-[#5865F2] text-white text-center text-xs py-2 font-semibold tracking-wide">
+    <div class="w-full bg-[#5865F2] text-white text-center text-xs py-2 font-semibold tracking-wide border-b border-[#5865F2]/50 shadow-[0_0_15px_rgba(88,101,242,0.3)]">
         <i class="fa-solid fa-credit-card mr-2"></i> Credit/Debit Card and Crypto payments are active
     </div>
 
@@ -122,23 +131,22 @@
         <div class="max-w-7xl mx-auto flex justify-between items-center relative">
             <div class="flex items-center gap-3">
                 <img id="store-logo" src="" alt="Cronix" class="h-8 w-8 rounded-full object-cover hidden">
-                <h1 class="text-xl md:text-2xl font-extrabold tracking-wider text-white">
+                <h1 class="text-2xl font-extrabold tracking-wider text-white">
                     <span class="text-gradient">CRONIX</span> STORE
                 </h1>
             </div>
             
-            <div class="hidden md:flex gap-8 text-sm font-medium text-gray-300">
+            <div class="hidden md:flex gap-8 text-sm font-semibold text-gray-300">
                 <a href="#products" class="hover:text-pink-400 transition"><i class="fa-solid fa-box-open mr-1"></i> Products</a>
                 <a href="#why-us" class="hover:text-pink-400 transition"><i class="fa-solid fa-star mr-1"></i> Reviews</a>
-                <a href="#" class="hover:text-pink-400 transition"><i class="fa-solid fa-circle-question mr-1"></i> FAQ</a>
+                <a href="#contact" class="hover:text-pink-400 transition"><i class="fa-solid fa-headset mr-1"></i> Support</a>
             </div>
             
             <div class="flex items-center gap-4">
-                <button class="hidden md:flex bg-white/5 hover:bg-white/10 border border-white/10 px-4 py-2 rounded-xl text-sm font-semibold transition items-center gap-2">
+                <button class="hidden md:flex glass-panel hover:bg-white/5 border border-white/10 px-5 py-2 rounded-xl text-sm font-semibold transition items-center gap-2 text-white">
                     <i class="fa-solid fa-cart-shopping text-pink-500"></i> Cart 
                     <span class="bg-pink-500 text-white text-[10px] px-1.5 rounded-full">0</span>
                 </button>
-                <!-- Hamburger Button Fix -->
                 <button onclick="toggleMobileMenu()" class="md:hidden text-gray-300 text-xl hover:text-white transition p-2">
                     <i class="fa-solid fa-bars"></i>
                 </button>
@@ -149,31 +157,30 @@
         <div id="mobile-menu" class="hidden md:hidden absolute top-full left-0 w-full glass-panel border-b border-white/10 p-4 flex flex-col gap-4 text-sm font-medium">
             <a href="#products" onclick="toggleMobileMenu()" class="text-gray-300 hover:text-pink-400"><i class="fa-solid fa-box-open w-6 text-center"></i> Products</a>
             <a href="#why-us" onclick="toggleMobileMenu()" class="text-gray-300 hover:text-pink-400"><i class="fa-solid fa-star w-6 text-center"></i> Reviews</a>
-            <a href="#" onclick="toggleMobileMenu()" class="text-gray-300 hover:text-pink-400"><i class="fa-solid fa-circle-question w-6 text-center"></i> FAQ</a>
             <hr class="border-white/10">
-            <button class="bg-white/5 hover:bg-white/10 border border-white/10 px-4 py-3 rounded-xl text-sm font-semibold transition flex items-center justify-center gap-2">
+            <button class="bg-white/5 hover:bg-white/10 border border-white/10 px-4 py-3 rounded-xl text-sm font-semibold transition flex items-center justify-center gap-2 text-white">
                 <i class="fa-solid fa-cart-shopping text-pink-500"></i> View Cart (0)
             </button>
         </div>
     </nav>
 
     <!-- Hero Section -->
-    <header class="max-w-4xl mx-auto px-6 py-16 text-center">
+    <header class="max-w-4xl mx-auto px-6 py-20 text-center">
         <div class="inline-flex items-center gap-2 px-4 py-1.5 rounded-full bg-pink-500/10 text-pink-400 border border-pink-500/20 text-xs font-bold mb-6">
-            <div class="live-dot"></div> Premium Enhancements
+            <div class="live-dot"></div> Cheapest Prices
         </div>
-        <h2 class="text-4xl md:text-6xl font-extrabold mb-4 leading-tight">
+        <h2 class="text-5xl md:text-7xl font-extrabold mb-6 leading-tight">
             BoostBuddy Style <br><span class="text-gradient">Discord Nitro</span>
         </h2>
-        <p class="text-gray-400 text-base md:text-lg mb-8 leading-relaxed">
-            Premium Discord Services at the Lowest Prices. Instant delivery on Discord Nitro, Server Boosts, Profile Decorations, and Aged Accounts—all backed by fast support and reliable service.
+        <p class="text-gray-400 text-base md:text-lg mb-10 leading-relaxed max-w-2xl mx-auto">
+            Premium Discord Services at the Lowest Prices. Instant delivery on Discord Nitro, Server Boosts, Profile Decorations, and Aged Accounts—all backed by reliable service.
         </p>
         <div class="flex flex-col sm:flex-row justify-center gap-4">
-            <button class="bg-gradient-btn text-white font-bold px-8 py-3 rounded-xl shadow-lg flex items-center justify-center gap-2">
+            <a href="#products" class="bg-gradient-btn text-white font-bold px-8 py-3.5 rounded-xl shadow-lg flex items-center justify-center gap-2">
                 <i class="fa-solid fa-bolt"></i> Explore Services
-            </button>
-            <a href="#" class="glass-panel hover:bg-white/10 text-white font-bold px-8 py-3 rounded-xl flex items-center justify-center gap-2 transition">
-                <i class="fa-brands fa-discord text-[#5865F2]"></i> Join Discord
+            </a>
+            <a href="#" class="glass-panel hover:bg-white/10 text-white font-bold px-8 py-3.5 rounded-xl flex items-center justify-center gap-2 transition">
+                <i class="fa-brands fa-discord text-[#5865F2] text-xl"></i> Join Discord
             </a>
         </div>
     </header>
@@ -181,49 +188,104 @@
     <!-- Products Section -->
     <main class="max-w-7xl mx-auto px-6 pb-20 w-full" id="products">
         <div class="flex items-center justify-between mb-8">
-            <h3 class="text-2xl font-bold border-l-4 border-pink-500 pl-3">Featured Services</h3>
+            <h3 class="text-2xl font-bold border-l-4 border-pink-500 pl-3">Top Services</h3>
         </div>
         
         <!-- Products Grid -->
         <div id="products-container" class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6">
             <div class="col-span-full text-center text-gray-400 py-10">
                 <i class="fa-solid fa-circle-notch fa-spin text-3xl mb-3 text-pink-500"></i>
-                <p>Loading catalog...</p>
+                <p>Loading catalog from Google Sheets...</p>
             </div>
         </div>
     </main>
 
     <!-- Why Choose Us -->
-    <section id="why-us" class="border-t border-white/5 bg-black/30 py-16">
+    <section id="why-us" class="border-t border-white/5 bg-black/40 py-16 relative">
         <div class="max-w-7xl mx-auto px-6">
-            <div class="text-center mb-10">
-                <h2 class="text-3xl font-bold">Why Choose Us?</h2>
-                <p class="text-gray-500 mt-2">We deliver the best service in the industry.</p>
+            <div class="text-center mb-12">
+                <h2 class="text-3xl font-bold text-white">Why Choose <span class="text-gradient">Us?</span></h2>
+                <p class="text-gray-500 mt-2">We deliver the most reliable service in the industry.</p>
             </div>
             <div class="grid grid-cols-1 md:grid-cols-3 gap-6">
-                <div class="glass-panel p-6 rounded-2xl border-white/5">
-                    <i class="fa-solid fa-headset text-pink-500 text-3xl mb-4"></i>
-                    <h4 class="text-xl font-bold mb-2">24/7 Support</h4>
-                    <p class="text-gray-400 text-sm">We have a support team ready to help you whenever needed.</p>
+                <div class="glass-panel p-8 rounded-2xl border-white/5 text-center group">
+                    <div class="w-16 h-16 rounded-full bg-pink-500/10 flex items-center justify-center mx-auto mb-6 group-hover:bg-pink-500/20 transition">
+                        <i class="fa-solid fa-headset text-pink-500 text-2xl"></i>
+                    </div>
+                    <h4 class="text-xl font-bold mb-3 text-white">24/7 Support</h4>
+                    <p class="text-gray-400 text-sm leading-relaxed">Our dedicated support team is ready to help you whenever needed. Fast response guaranteed.</p>
                 </div>
-                <div class="glass-panel p-6 rounded-2xl border-white/5">
-                    <i class="fa-solid fa-bolt text-purple-500 text-3xl mb-4"></i>
-                    <h4 class="text-xl font-bold mb-2">Instant Delivery</h4>
-                    <p class="text-gray-400 text-sm">Automated system delivers your products instantly.</p>
+                <div class="glass-panel p-8 rounded-2xl border-white/5 text-center group">
+                    <div class="w-16 h-16 rounded-full bg-purple-500/10 flex items-center justify-center mx-auto mb-6 group-hover:bg-purple-500/20 transition">
+                        <i class="fa-solid fa-bolt text-purple-500 text-2xl"></i>
+                    </div>
+                    <h4 class="text-xl font-bold mb-3 text-white">Instant Delivery</h4>
+                    <p class="text-gray-400 text-sm leading-relaxed">Automated system delivers your products instantly right after your payment is confirmed.</p>
                 </div>
-                <div class="glass-panel p-6 rounded-2xl border-white/5">
-                    <i class="fa-solid fa-shield-halved text-blue-500 text-3xl mb-4"></i>
-                    <h4 class="text-xl font-bold mb-2">Full Warranty</h4>
-                    <p class="text-gray-400 text-sm">All our services come with a full replacement warranty.</p>
+                <div class="glass-panel p-8 rounded-2xl border-white/5 text-center group">
+                    <div class="w-16 h-16 rounded-full bg-blue-500/10 flex items-center justify-center mx-auto mb-6 group-hover:bg-blue-500/20 transition">
+                        <i class="fa-solid fa-shield-halved text-blue-500 text-2xl"></i>
+                    </div>
+                    <h4 class="text-xl font-bold mb-3 text-white">Full Warranty</h4>
+                    <p class="text-gray-400 text-sm leading-relaxed">All our services come with a full replacement warranty. We've got you completely covered.</p>
                 </div>
             </div>
         </div>
     </section>
 
-    <!-- Footer -->
-    <footer class="border-t border-white/10 bg-[#050505] py-10 mt-auto">
-        <div class="max-w-7xl mx-auto px-6 text-center text-gray-500 text-sm">
-            &copy; 2026 CRONIX STORE. All rights reserved.
+    <!-- Footer with Nicely Arranged Terms -->
+    <footer class="border-t border-white/5 bg-[#050505] pt-16 pb-8 mt-auto" id="contact">
+        <div class="max-w-7xl mx-auto px-6">
+            <div class="grid grid-cols-1 md:grid-cols-3 gap-10 mb-12">
+                <!-- Branding -->
+                <div>
+                    <h3 class="text-2xl font-extrabold text-white mb-4"><span class="text-gradient">CRONIX</span> STORE</h3>
+                    <p class="text-gray-500 text-sm mb-6 leading-relaxed">The ultimate premium marketplace for digital assets, server enhancements, and high-quality gaming products.</p>
+                    <div class="flex gap-4">
+                        <a href="#" class="w-10 h-10 rounded-full glass-panel flex items-center justify-center text-gray-400 hover:text-[#5865F2] hover:bg-white/10 transition"><i class="fa-brands fa-discord"></i></a>
+                        <a href="#" class="w-10 h-10 rounded-full glass-panel flex items-center justify-center text-gray-400 hover:text-[#0088cc] hover:bg-white/10 transition"><i class="fa-brands fa-telegram"></i></a>
+                    </div>
+                </div>
+                <!-- Links -->
+                <div>
+                    <h4 class="text-white font-bold mb-5 text-lg">Quick Navigation</h4>
+                    <ul class="space-y-3 text-sm text-gray-400 font-medium">
+                        <li><a href="#products" class="hover:text-pink-400 transition flex items-center gap-2"><i class="fa-solid fa-chevron-right text-[10px] text-pink-500"></i> Shop Products</a></li>
+                        <li><a href="#why-us" class="hover:text-pink-400 transition flex items-center gap-2"><i class="fa-solid fa-chevron-right text-[10px] text-pink-500"></i> Customer Reviews</a></li>
+                        <li><a href="#" class="hover:text-pink-400 transition flex items-center gap-2"><i class="fa-solid fa-chevron-right text-[10px] text-pink-500"></i> Contact Support</a></li>
+                    </ul>
+                </div>
+                <!-- Legal / Policies (BEAUTIFUL ARRANGEMENT) -->
+                <div>
+                    <h4 class="text-white font-bold mb-5 text-lg">Legal & Policies</h4>
+                    <div class="flex flex-col gap-3">
+                        <a href="#" class="glass-panel p-3 rounded-xl flex items-center gap-3 hover:bg-white/5 hover:border-pink-500/30 transition group">
+                            <div class="bg-white/5 w-8 h-8 rounded-lg flex items-center justify-center text-gray-400 group-hover:text-pink-500 transition"><i class="fa-solid fa-file-contract text-xs"></i></div>
+                            <div>
+                                <div class="text-sm font-bold text-gray-200 group-hover:text-white">Terms of Service</div>
+                                <div class="text-[10px] text-gray-500">Rules & Regulations</div>
+                            </div>
+                        </a>
+                        <a href="#" class="glass-panel p-3 rounded-xl flex items-center gap-3 hover:bg-white/5 hover:border-purple-500/30 transition group">
+                            <div class="bg-white/5 w-8 h-8 rounded-lg flex items-center justify-center text-gray-400 group-hover:text-purple-500 transition"><i class="fa-solid fa-user-shield text-xs"></i></div>
+                            <div>
+                                <div class="text-sm font-bold text-gray-200 group-hover:text-white">Privacy Policy</div>
+                                <div class="text-[10px] text-gray-500">Data Protection</div>
+                            </div>
+                        </a>
+                        <a href="#" class="glass-panel p-3 rounded-xl flex items-center gap-3 hover:bg-white/5 hover:border-blue-500/30 transition group">
+                            <div class="bg-white/5 w-8 h-8 rounded-lg flex items-center justify-center text-gray-400 group-hover:text-blue-500 transition"><i class="fa-solid fa-money-bill-transfer text-xs"></i></div>
+                            <div>
+                                <div class="text-sm font-bold text-gray-200 group-hover:text-white">Refund Policy</div>
+                                <div class="text-[10px] text-gray-500">Warranty details</div>
+                            </div>
+                        </a>
+                    </div>
+                </div>
+            </div>
+            <div class="border-t border-white/5 pt-8 text-center text-gray-600 text-xs font-medium">
+                &copy; 2026 CRONIX STORE. All rights reserved.
+            </div>
         </div>
     </footer>
 
@@ -231,77 +293,79 @@
     <!-- MODALS & POP-UPS -->
     <!-- ========================================== -->
 
-    <!-- 1. Product Details Modal (Description & Variants) -->
-    <div id="details-modal" class="hidden fixed inset-0 z-50 flex items-center justify-center bg-black/90 backdrop-blur-sm px-4 transition-opacity">
-        <div class="glass-panel w-full max-w-md rounded-2xl p-6 relative border border-white/10 shadow-2xl">
-            <button onclick="closeDetailsModal()" class="absolute top-4 right-4 text-gray-500 hover:text-white transition w-8 h-8 flex items-center justify-center rounded-full bg-white/5">
-                <i class="fa-solid fa-xmark"></i>
+    <!-- 1. Product Details Modal (With Custom Premium Dropdown) -->
+    <div id="details-modal" class="hidden fixed inset-0 z-50 flex items-center justify-center bg-black/90 backdrop-blur-md px-4 transition-opacity">
+        <div class="glass-panel w-full max-w-md rounded-2xl p-6 md:p-8 relative border border-white/10 shadow-[0_0_50px_rgba(217,70,239,0.1)]">
+            <button onclick="closeDetailsModal()" class="absolute top-4 right-4 text-gray-500 hover:text-white transition w-8 h-8 flex items-center justify-center rounded-full hover:bg-white/10">
+                <i class="fa-solid fa-xmark text-lg"></i>
             </button>
             
-            <div id="modal-category" class="text-[10px] bg-pink-500/20 text-pink-400 inline-block px-2 py-1 rounded font-bold uppercase tracking-wider mb-3 mt-2"></div>
-            <h3 id="modal-title" class="text-2xl font-bold text-white mb-2 leading-tight"></h3>
+            <div id="modal-category" class="text-[10px] bg-pink-500/10 text-pink-400 border border-pink-500/20 inline-block px-2.5 py-1 rounded font-bold uppercase tracking-wider mb-4 mt-2"></div>
+            <h3 id="modal-title" class="text-2xl font-extrabold text-white mb-3 leading-tight"></h3>
             
-            <p id="modal-desc" class="text-gray-400 text-sm mb-5 leading-relaxed"></p>
+            <p id="modal-desc" class="text-gray-400 text-sm mb-6 leading-relaxed"></p>
             
-            <!-- Variants Select Dropdown -->
-            <div id="variants-container" class="mb-5 hidden">
-                <label class="block text-xs font-bold text-gray-300 mb-2 uppercase tracking-wide">Select Option:</label>
-                <div class="relative">
-                    <select id="modal-select" onchange="updateVariantPrice()" class="w-full appearance-none bg-[#09090b] border border-white/10 rounded-xl px-4 py-3 text-white text-sm font-medium focus:outline-none focus:border-pink-500 transition cursor-pointer">
-                        <!-- Options injected by JS -->
-                    </select>
-                    <div class="pointer-events-none absolute inset-y-0 right-0 flex items-center px-4 text-gray-400">
-                        <i class="fa-solid fa-chevron-down text-xs"></i>
-                    </div>
-                </div>
+            <!-- CUSTOM VARIANT SELECTOR (Premium UI replacing default <select>) -->
+            <div id="custom-variants-container" class="mb-6 hidden relative">
+                <label class="block text-xs font-bold text-gray-400 mb-2 uppercase tracking-wider">Select Option:</label>
+                
+                <!-- Custom Button -->
+                <button id="custom-select-btn" onclick="toggleDropdown()" class="w-full glass-panel border border-white/10 rounded-xl px-4 py-3.5 text-white text-sm font-semibold flex justify-between items-center hover:border-pink-500/50 transition bg-[#0f0f13]">
+                    <span id="custom-select-text">Choose an option...</span>
+                    <i id="custom-select-icon" class="fa-solid fa-chevron-down text-gray-400 transition-transform duration-300"></i>
+                </button>
+                
+                <!-- Custom Dropdown List -->
+                <ul id="custom-dropdown-list" class="dropdown-menu hidden absolute top-full left-0 w-full mt-2 glass-panel border border-white/10 rounded-xl bg-[#0a0a0c] z-10 overflow-hidden shadow-2xl">
+                    <!-- Options injected via JS -->
+                </ul>
             </div>
             
-            <div class="flex items-center justify-between border-t border-white/10 pt-5 mt-2">
+            <div class="flex items-center justify-between border-t border-white/10 pt-6 mt-2">
                 <div>
-                    <div class="text-xs text-gray-400 font-semibold mb-1">Total Price</div>
-                    <div id="modal-price" class="text-3xl font-extrabold text-white"></div>
+                    <div class="text-xs text-gray-400 font-bold uppercase tracking-wider mb-1">Total Price</div>
+                    <div id="modal-price" class="text-3xl font-black text-white drop-shadow-md"></div>
                 </div>
-                <button onclick="proceedToContact()" class="bg-gradient-btn text-white text-sm font-bold px-6 py-3.5 rounded-xl flex items-center gap-2 shadow-lg">
+                <button onclick="proceedToContact()" class="bg-gradient-btn text-white text-sm font-bold px-7 py-3.5 rounded-xl flex items-center gap-2 shadow-[0_5px_20px_rgba(217,70,239,0.3)]">
                     Buy Now <i class="fa-solid fa-cart-arrow-down"></i>
                 </button>
             </div>
         </div>
     </div>
 
-    <!-- 2. Contact Modal (Discord/Telegram) -->
-    <div id="contact-modal" class="hidden fixed inset-0 z-50 flex items-center justify-center bg-black/90 backdrop-blur-sm px-4 transition-opacity">
-        <div class="glass-panel w-full max-w-sm rounded-2xl p-6 relative border border-white/10 shadow-[0_0_40px_rgba(236,72,153,0.15)]">
-            <button onclick="closeContactModal()" class="absolute top-4 right-4 text-gray-500 hover:text-white transition">
-                <i class="fa-solid fa-xmark text-xl"></i>
+    <!-- 2. Contact Modal -->
+    <div id="contact-modal" class="hidden fixed inset-0 z-50 flex items-center justify-center bg-black/90 backdrop-blur-md px-4 transition-opacity">
+        <div class="glass-panel w-full max-w-sm rounded-2xl p-8 relative border border-white/10 shadow-[0_0_40px_rgba(236,72,153,0.15)] text-center">
+            <button onclick="closeContactModal()" class="absolute top-4 right-4 text-gray-500 hover:text-white transition w-8 h-8 flex items-center justify-center rounded-full hover:bg-white/10">
+                <i class="fa-solid fa-xmark text-lg"></i>
             </button>
-            <div class="text-center mb-6 mt-4">
-                <i class="fa-solid fa-headset text-4xl text-pink-500 mb-3"></i>
-                <h3 class="text-2xl font-bold text-white">Complete Purchase</h3>
-                <p class="text-gray-400 text-xs mt-2">Contact our admin via any platform below to receive your product instantly.</p>
+            
+            <div class="w-16 h-16 rounded-full bg-pink-500/10 flex items-center justify-center mx-auto mb-4 border border-pink-500/20">
+                <i class="fa-solid fa-headset text-3xl text-pink-500"></i>
             </div>
+            <h3 class="text-2xl font-extrabold text-white mb-2">Complete Purchase</h3>
+            <p class="text-gray-400 text-xs mb-8">Contact our admin via any platform below to pay and receive your product instantly.</p>
+            
             <div class="space-y-3">
-                <a href="https://discord.gg/YOUR_LINK" target="_blank" class="w-full flex items-center justify-center gap-3 bg-[#5865F2]/10 hover:bg-[#5865F2] text-white border border-[#5865F2]/30 py-3 rounded-xl font-bold transition">
-                    <i class="fa-brands fa-discord text-lg"></i> Buy via Discord
+                <a href="https://discord.gg/YOUR_LINK" target="_blank" class="w-full flex items-center justify-center gap-3 bg-[#5865F2]/10 hover:bg-[#5865F2] text-white border border-[#5865F2]/30 py-3.5 rounded-xl font-bold transition group">
+                    <i class="fa-brands fa-discord text-xl group-hover:scale-110 transition"></i> Buy via Discord
                 </a>
-                <a href="https://t.me/YOUR_USERNAME" target="_blank" class="w-full flex items-center justify-center gap-3 bg-[#0088cc]/10 hover:bg-[#0088cc] text-white border border-[#0088cc]/30 py-3 rounded-xl font-bold transition">
-                    <i class="fa-brands fa-telegram text-lg"></i> Buy via Telegram
-                </a>
-                <a href="https://wa.me/YOUR_NUMBER" target="_blank" class="w-full flex items-center justify-center gap-3 bg-[#25D366]/10 hover:bg-[#25D366] text-white border border-[#25D366]/30 py-3 rounded-xl font-bold transition">
-                    <i class="fa-brands fa-whatsapp text-lg"></i> Buy via WhatsApp
+                <a href="https://t.me/YOUR_USERNAME" target="_blank" class="w-full flex items-center justify-center gap-3 bg-[#0088cc]/10 hover:bg-[#0088cc] text-white border border-[#0088cc]/30 py-3.5 rounded-xl font-bold transition group">
+                    <i class="fa-brands fa-telegram text-xl group-hover:scale-110 transition"></i> Buy via Telegram
                 </a>
             </div>
         </div>
     </div>
 
     <!-- 3. Live Purchase Toast -->
-    <div id="purchase-toast" class="fixed bottom-6 left-6 z-50 hidden glass-panel border border-white/10 p-4 rounded-xl max-w-[300px] shadow-lg flex items-center gap-4">
-        <div class="bg-pink-500/20 w-10 h-10 rounded-lg flex items-center justify-center">
-            <i class="fa-solid fa-bag-shopping text-pink-500"></i>
+    <div id="purchase-toast" class="fixed bottom-6 left-6 z-50 hidden glass-panel border border-white/10 p-4 rounded-xl max-w-[300px] shadow-2xl flex items-center gap-4 bg-[#09090b]/90">
+        <div class="bg-gradient-btn w-10 h-10 rounded-lg flex items-center justify-center shadow-lg">
+            <i class="fa-solid fa-bag-shopping text-white"></i>
         </div>
         <div>
-            <div class="text-[10px] text-gray-400 font-bold uppercase tracking-wide mb-0.5">Recent Purchase</div>
-            <div id="toast-msg" class="text-sm font-semibold text-white leading-tight"></div>
-            <div class="text-xs text-gray-500 mt-1"><i class="fa-regular fa-clock"></i> Just now</div>
+            <div class="text-[10px] text-pink-400 font-bold uppercase tracking-widest mb-0.5">Recent Purchase</div>
+            <div id="toast-msg" class="text-sm font-bold text-white leading-tight"></div>
+            <div class="text-xs text-gray-500 mt-1"><i class="fa-regular fa-clock mr-1"></i>Just now</div>
         </div>
     </div>
 
@@ -311,16 +375,21 @@
         const LOGO_URL = ''; 
         const GOOGLE_SHEET_CSV_URL = 'https://docs.google.com/spreadsheets/d/e/2PACX-1vT_Qf5Z3Z_9_0_Z_0_Z/pub?output=csv'; 
 
-        // Global Variable to store all loaded products
         let globalProducts = [];
+        let isDropdownOpen = false;
 
-        // Hamburger Menu Toggle
-        function toggleMobileMenu() {
-            const menu = document.getElementById('mobile-menu');
-            menu.classList.toggle('hidden');
+        // Setup Logo
+        if(LOGO_URL !== '') {
+            const logoEl = document.getElementById('store-logo');
+            logoEl.src = LOGO_URL;
+            logoEl.classList.remove('hidden');
         }
 
-        // Demo Data (Contains new 'description' and 'variants' logic)
+        function toggleMobileMenu() {
+            document.getElementById('mobile-menu').classList.toggle('hidden');
+        }
+
+        // Demo Data (Contains description & variants)
         const demoProducts = [
             { 
                 name: '14 Server Boosts 1 Month', category: 'Boosts', price: '$9.99', stock: 'Available',
@@ -344,32 +413,27 @@
 
         // Render Cards HTML
         function renderProducts(data) {
-            globalProducts = data; // Store data globally for modal
+            globalProducts = data;
             const container = document.getElementById('products-container');
             container.innerHTML = ''; 
 
             data.forEach((item, index) => {
                 if(!item.name) return; 
 
-                // If it has variants, show the base price (the price of the first variant or the sheet's base price)
                 let displayPrice = item.price;
-                if(item.variants && item.variants.includes(':')) {
-                     // Try to extract first price from variant string if base price is empty
-                     if(!displayPrice) {
-                         const firstVar = item.variants.split('|')[0];
-                         displayPrice = firstVar.split(':')[1];
-                     }
+                if(item.variants && item.variants.includes(':') && !displayPrice) {
+                     displayPrice = item.variants.split('|')[0].split(':')[1];
                 }
 
                 const cardHTML = `
-                    <div class="glass-panel product-card rounded-2xl p-5 flex flex-col relative">
-                        <div class="flex items-center gap-1.5 mb-3 text-xs font-bold text-gray-300">
+                    <div class="glass-panel product-card rounded-2xl p-6 flex flex-col relative group">
+                        <div class="flex items-center gap-1.5 mb-4 text-xs font-bold text-gray-300 bg-white/5 inline-flex px-2 py-1 rounded-md self-start border border-white/5">
                             <div class="live-dot"></div> ${item.stock || 'Available'}
                         </div>
-                        <div class="text-[10px] text-pink-500 font-bold uppercase tracking-wider mb-1">${item.category || 'Service'}</div>
-                        <h4 class="text-xl font-bold text-white mb-2 leading-snug">${item.name}</h4>
+                        <div class="text-[10px] text-pink-400 font-bold uppercase tracking-wider mb-2">${item.category || 'Service'}</div>
+                        <h4 class="text-xl font-extrabold text-white mb-2 leading-tight">${item.name}</h4>
                         
-                        <div class="flex items-center gap-1 mb-4 text-xs">
+                        <div class="flex items-center gap-1 mb-5 text-[10px]">
                             <i class="fa-solid fa-star text-pink-500"></i>
                             <i class="fa-solid fa-star text-pink-500"></i>
                             <i class="fa-solid fa-star text-pink-500"></i>
@@ -377,10 +441,10 @@
                             <i class="fa-solid fa-star text-pink-500"></i>
                         </div>
                         
-                        <div class="text-3xl font-extrabold text-white mb-4">${displayPrice}</div>
+                        <div class="text-3xl font-black text-white mb-5">${displayPrice}</div>
                         
-                        <button onclick="openDetailsModal(${index})" class="mt-auto bg-white/5 hover:bg-white/10 border border-white/10 w-full text-white text-sm font-bold py-3 rounded-xl flex justify-center items-center gap-2 transition">
-                            View Product <i class="fa-solid fa-eye"></i>
+                        <button onclick="openDetailsModal(${index})" class="mt-auto glass-panel border border-white/10 group-hover:border-pink-500/50 group-hover:bg-pink-500/10 w-full text-white text-sm font-bold py-3.5 rounded-xl flex justify-center items-center gap-2 transition-all">
+                            View Product <i class="fa-solid fa-eye text-pink-400"></i>
                         </button>
                     </div>
                 `;
@@ -389,8 +453,42 @@
         }
 
         // ==========================================
-        // DETAILS MODAL LOGIC (With Variants)
+        // CUSTOM DROPDOWN & MODAL LOGIC 
         // ==========================================
+        function toggleDropdown() {
+            const list = document.getElementById('custom-dropdown-list');
+            const icon = document.getElementById('custom-select-icon');
+            
+            isDropdownOpen = !isDropdownOpen;
+            
+            if(isDropdownOpen) {
+                list.classList.remove('hidden');
+                setTimeout(() => list.classList.add('active'), 10); // delay for animation
+                icon.style.transform = 'rotate(180deg)';
+            } else {
+                list.classList.remove('active');
+                setTimeout(() => list.classList.add('hidden'), 200);
+                icon.style.transform = 'rotate(0deg)';
+            }
+        }
+
+        function selectVariant(name, price) {
+            // Update button text
+            document.getElementById('custom-select-text').innerHTML = `<span class="text-white">${name}</span> <span class="text-pink-400 ml-2">${price}</span>`;
+            // Update big price
+            document.getElementById('modal-price').innerText = price;
+            // Close dropdown
+            toggleDropdown();
+        }
+
+        // Close dropdown if clicked outside
+        document.addEventListener('click', function(event) {
+            const container = document.getElementById('custom-variants-container');
+            if (isDropdownOpen && container && !container.contains(event.target)) {
+                toggleDropdown();
+            }
+        });
+
         function openDetailsModal(index) {
             const product = globalProducts[index];
             
@@ -398,15 +496,14 @@
             document.getElementById('modal-category').innerText = product.category || 'Product';
             document.getElementById('modal-desc').innerText = product.description || 'Premium quality service with instant delivery guarantee.';
             
-            const variantContainer = document.getElementById('variants-container');
-            const selectEl = document.getElementById('modal-select');
+            const variantContainer = document.getElementById('custom-variants-container');
+            const dropdownList = document.getElementById('custom-dropdown-list');
+            const selectBtnText = document.getElementById('custom-select-text');
             
-            // Check if product has variants
             if (product.variants && product.variants.trim() !== "") {
                 variantContainer.classList.remove('hidden');
-                selectEl.innerHTML = ''; // Clear old options
+                dropdownList.innerHTML = ''; 
                 
-                // Parse variants string: "2015 Account:$59.99|2016 Account:$10.99"
                 const options = product.variants.split('|');
                 
                 options.forEach((opt, i) => {
@@ -414,33 +511,39 @@
                     if(parts.length === 2) {
                         const optName = parts[0].trim();
                         const optPrice = parts[1].trim();
-                        selectEl.innerHTML += `<option value="${optPrice}">${optName} - ${optPrice}</option>`;
+                        
+                        // Setup first option as default
+                        if(i === 0) {
+                            selectBtnText.innerHTML = `<span class="text-white">${optName}</span> <span class="text-pink-400 ml-2">${optPrice}</span>`;
+                            document.getElementById('modal-price').innerText = optPrice;
+                        }
+                        
+                        // Custom List Item
+                        dropdownList.innerHTML += `
+                            <li onclick="selectVariant('${optName}', '${optPrice}')" class="px-4 py-3 hover:bg-white/10 cursor-pointer flex justify-between items-center transition border-b border-white/5 last:border-0">
+                                <span class="text-sm font-semibold text-gray-200">${optName}</span>
+                                <span class="text-sm font-bold text-pink-400">${optPrice}</span>
+                            </li>
+                        `;
                     }
                 });
-                // Set initial price to first variant's price
-                document.getElementById('modal-price').innerText = selectEl.value;
             } else {
-                // No variants
                 variantContainer.classList.add('hidden');
                 document.getElementById('modal-price').innerText = product.price;
             }
             
-            // Show Modal
             document.getElementById('details-modal').classList.remove('hidden');
-        }
-
-        function updateVariantPrice() {
-            // When dropdown changes, update the big price text
-            const selectEl = document.getElementById('modal-select');
-            document.getElementById('modal-price').innerText = selectEl.value;
+            
+            // Ensure dropdown is closed when opening modal
+            if(isDropdownOpen) toggleDropdown(); 
         }
 
         function closeDetailsModal() {
             document.getElementById('details-modal').classList.add('hidden');
+            if(isDropdownOpen) toggleDropdown(); 
         }
 
         function proceedToContact() {
-            // Close Details Modal, Open Contact Modal
             closeDetailsModal();
             document.getElementById('contact-modal').classList.remove('hidden');
         }
@@ -449,7 +552,7 @@
             document.getElementById('contact-modal').classList.add('hidden');
         }
 
-        // Fetch Data logic
+        // Sheet Logic
         if(GOOGLE_SHEET_CSV_URL.includes('docs.google.com')) {
              Papa.parse(GOOGLE_SHEET_CSV_URL, {
                 download: true,
@@ -476,7 +579,7 @@
             const msgEl = document.getElementById('toast-msg');
             const rName = toastNames[Math.floor(Math.random() * toastNames.length)];
             const rProd = toastProducts[Math.floor(Math.random() * toastProducts.length)];
-            msgEl.innerHTML = `${rName} bought <br><span class="text-pink-400">${rProd}</span>`;
+            msgEl.innerHTML = `${rName} bought <br><span class="text-white">${rProd}</span>`;
             
             toast.classList.remove('hidden', 'toast-exit');
             toast.classList.add('toast-enter');
@@ -492,4 +595,4 @@
         setTimeout(showRandomToast, 3000);
     </script>
 </body>
-</html>
+            </html>
