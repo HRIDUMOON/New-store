@@ -131,6 +131,54 @@
             pointer-events: auto;
             visibility: visible;
         }
+
+        /* Review Scrolling Animations */
+        .scroll-container {
+            overflow: hidden;
+            white-space: nowrap;
+            position: relative;
+            width: 100vw;
+            left: 50%;
+            transform: translateX(-50%);
+            margin-bottom: 2rem;
+        }
+
+        .scroll-content {
+            display: inline-block;
+            white-space: nowrap;
+            padding-left: 100%; 
+            animation: scroll-left 50s linear infinite; /* Slowed down for more cards */
+        }
+
+        .scroll-content-reverse {
+            display: inline-block;
+            white-space: nowrap;
+            animation: scroll-right 50s linear infinite;
+            transform: translateX(-100%); 
+        }
+
+        .scroll-container:hover .scroll-content,
+        .scroll-container:hover .scroll-content-reverse {
+            animation-play-state: paused;
+        }
+
+        @keyframes scroll-left {
+            0% { transform: translateX(0); }
+            100% { transform: translateX(-100%); }
+        }
+
+        @keyframes scroll-right {
+            0% { transform: translateX(-100%); }
+            100% { transform: translateX(0); }
+        }
+
+        .review-card {
+            display: inline-block;
+            width: 350px;
+            white-space: normal;
+            vertical-align: top;
+            margin-right: 1.5rem;
+        }
     </style>
 </head>
 <body class="relative min-h-screen flex flex-col">
@@ -155,8 +203,8 @@
             
             <div class="hidden md:flex gap-8 text-sm font-semibold text-gray-300">
                 <a href="#products" class="hover:text-pink-400 transition"><i class="fa-solid fa-box-open mr-1"></i> Products</a>
-                <a href="#why-us" class="hover:text-pink-400 transition"><i class="fa-solid fa-star mr-1"></i> Reviews</a>
-                <a href="#contact" class="hover:text-pink-400 transition"><i class="fa-solid fa-headset mr-1"></i> Support</a>
+                <a href="#reviews" class="hover:text-pink-400 transition"><i class="fa-solid fa-star mr-1"></i> Reviews</a>
+                <a href="#why-us" class="hover:text-pink-400 transition"><i class="fa-solid fa-shield-halved mr-1"></i> About</a>
             </div>
             
             <div class="flex items-center gap-4">
@@ -173,7 +221,7 @@
         <!-- Mobile Menu Dropdown -->
         <div id="mobile-menu" class="hidden md:hidden absolute top-full left-0 w-full glass-panel border-b border-white/10 p-4 flex flex-col gap-4 text-sm font-medium">
             <a href="#products" onclick="toggleMobileMenu()" class="text-gray-300 hover:text-pink-400"><i class="fa-solid fa-box-open w-6 text-center"></i> Products</a>
-            <a href="#why-us" onclick="toggleMobileMenu()" class="text-gray-300 hover:text-pink-400"><i class="fa-solid fa-star w-6 text-center"></i> Reviews</a>
+            <a href="#reviews" onclick="toggleMobileMenu()" class="text-gray-300 hover:text-pink-400"><i class="fa-solid fa-star w-6 text-center"></i> Reviews</a>
             <hr class="border-white/10">
             <button class="bg-white/5 hover:bg-white/10 border border-white/10 px-4 py-3 rounded-xl text-sm font-semibold transition flex items-center justify-center gap-2 text-white">
                 <i class="fa-solid fa-cart-shopping text-pink-500"></i> View Cart (0)
@@ -216,6 +264,346 @@
             </div>
         </div>
     </main>
+
+    <!-- Customer Reviews Section -->
+    <section id="reviews" class="py-16 bg-black/20 border-t border-white/5 overflow-hidden">
+        <div class="max-w-7xl mx-auto px-6 mb-12 text-center">
+            <h2 class="text-3xl font-bold text-white mb-2">What Our <span class="text-gradient">Customers Say</span></h2>
+            <p class="text-gray-400">Trusted by hundreds of Discord users.</p>
+        </div>
+
+        <!-- Right to Left Scroll (Row 1 - 10 Reviews) -->
+        <div class="scroll-container">
+            <div class="scroll-content">
+                <!-- 1 -->
+                <div class="review-card glass-panel p-6 rounded-2xl border-white/5">
+                    <div class="flex justify-between items-start mb-4">
+                        <div class="flex items-center gap-3">
+                            <div class="w-10 h-10 rounded-full bg-pink-500/20 flex items-center justify-center font-bold text-pink-400">S</div>
+                            <div>
+                                <h4 class="text-sm font-bold text-white">Sef**x</h4>
+                                <p class="text-xs text-gray-500">Bought: 14 Server Boosts</p>
+                            </div>
+                        </div>
+                        <div class="text-pink-500 text-xs">
+                            <i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i>
+                        </div>
+                    </div>
+                    <p class="text-gray-300 text-sm leading-relaxed">"Delivery was incredibly fast! Got my server to Level 3 in less than 5 minutes. Highly recommended!"</p>
+                </div>
+                <!-- 2 -->
+                <div class="review-card glass-panel p-6 rounded-2xl border-white/5">
+                    <div class="flex justify-between items-start mb-4">
+                        <div class="flex items-center gap-3">
+                            <div class="w-10 h-10 rounded-full bg-purple-500/20 flex items-center justify-center font-bold text-purple-400">A</div>
+                            <div>
+                                <h4 class="text-sm font-bold text-white">Al**x</h4>
+                                <p class="text-xs text-gray-500">Bought: Discord Nitro 1Y</p>
+                            </div>
+                        </div>
+                        <div class="text-pink-500 text-xs">
+                            <i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i>
+                        </div>
+                    </div>
+                    <p class="text-gray-300 text-sm leading-relaxed">"Cheapest nitro on the market. Admin was very helpful and guided me through the whole process."</p>
+                </div>
+                <!-- 3 -->
+                <div class="review-card glass-panel p-6 rounded-2xl border-white/5">
+                    <div class="flex justify-between items-start mb-4">
+                        <div class="flex items-center gap-3">
+                            <div class="w-10 h-10 rounded-full bg-blue-500/20 flex items-center justify-center font-bold text-blue-400">J</div>
+                            <div>
+                                <h4 class="text-sm font-bold text-white">Jo**n</h4>
+                                <p class="text-xs text-gray-500">Bought: 2018 Aged Account</p>
+                            </div>
+                        </div>
+                        <div class="text-pink-500 text-xs">
+                            <i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i>
+                        </div>
+                    </div>
+                    <p class="text-gray-300 text-sm leading-relaxed">"Clean account with original email just as promised. No issues logging in. Will buy again."</p>
+                </div>
+                <!-- 4 -->
+                <div class="review-card glass-panel p-6 rounded-2xl border-white/5">
+                    <div class="flex justify-between items-start mb-4">
+                        <div class="flex items-center gap-3">
+                            <div class="w-10 h-10 rounded-full bg-green-500/20 flex items-center justify-center font-bold text-green-400">M</div>
+                            <div>
+                                <h4 class="text-sm font-bold text-white">Mi**a</h4>
+                                <p class="text-xs text-gray-500">Bought: Anime Decoration</p>
+                            </div>
+                        </div>
+                        <div class="text-pink-500 text-xs">
+                            <i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i>
+                        </div>
+                    </div>
+                    <p class="text-gray-300 text-sm leading-relaxed">"Gift link worked perfectly. Applied it right away. Thank you for the smooth transaction!"</p>
+                </div>
+                <!-- 5 -->
+                 <div class="review-card glass-panel p-6 rounded-2xl border-white/5">
+                    <div class="flex justify-between items-start mb-4">
+                        <div class="flex items-center gap-3">
+                            <div class="w-10 h-10 rounded-full bg-yellow-500/20 flex items-center justify-center font-bold text-yellow-400">R</div>
+                            <div>
+                                <h4 class="text-sm font-bold text-white">Ry**n</h4>
+                                <p class="text-xs text-gray-500">Bought: 2 Server Boosts</p>
+                            </div>
+                        </div>
+                        <div class="text-pink-500 text-xs">
+                            <i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star-half-stroke"></i>
+                        </div>
+                    </div>
+                    <p class="text-gray-300 text-sm leading-relaxed">"Literally instant. Boosts are stable, hasn't dropped. Best shop I've used so far."</p>
+                </div>
+                <!-- 6 -->
+                 <div class="review-card glass-panel p-6 rounded-2xl border-white/5">
+                    <div class="flex justify-between items-start mb-4">
+                        <div class="flex items-center gap-3">
+                            <div class="w-10 h-10 rounded-full bg-cyan-500/20 flex items-center justify-center font-bold text-cyan-400">C</div>
+                            <div>
+                                <h4 class="text-sm font-bold text-white">Ch**s</h4>
+                                <p class="text-xs text-gray-500">Bought: Discord Nitro 1M</p>
+                            </div>
+                        </div>
+                        <div class="text-pink-500 text-xs">
+                            <i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i>
+                        </div>
+                    </div>
+                    <p class="text-gray-300 text-sm leading-relaxed">"Great service! Got my nitro activated in minutes. Will definitely come back next month."</p>
+                </div>
+                <!-- 7 -->
+                 <div class="review-card glass-panel p-6 rounded-2xl border-white/5">
+                    <div class="flex justify-between items-start mb-4">
+                        <div class="flex items-center gap-3">
+                            <div class="w-10 h-10 rounded-full bg-red-500/20 flex items-center justify-center font-bold text-red-400">D</div>
+                            <div>
+                                <h4 class="text-sm font-bold text-white">Da**n</h4>
+                                <p class="text-xs text-gray-500">Bought: 2020 Aged Account</p>
+                            </div>
+                        </div>
+                        <div class="text-pink-500 text-xs">
+                            <i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i>
+                        </div>
+                    </div>
+                    <p class="text-gray-300 text-sm leading-relaxed">"Account details were provided instantly. Works flawlessly without any verification locks."</p>
+                </div>
+                <!-- 8 -->
+                 <div class="review-card glass-panel p-6 rounded-2xl border-white/5">
+                    <div class="flex justify-between items-start mb-4">
+                        <div class="flex items-center gap-3">
+                            <div class="w-10 h-10 rounded-full bg-orange-500/20 flex items-center justify-center font-bold text-orange-400">E</div>
+                            <div>
+                                <h4 class="text-sm font-bold text-white">El**a</h4>
+                                <p class="text-xs text-gray-500">Bought: Cyberpunk Theme</p>
+                            </div>
+                        </div>
+                        <div class="text-pink-500 text-xs">
+                            <i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i>
+                        </div>
+                    </div>
+                    <p class="text-gray-300 text-sm leading-relaxed">"Love my new profile decoration! The process was so easy and the admin is super friendly."</p>
+                </div>
+                <!-- 9 -->
+                 <div class="review-card glass-panel p-6 rounded-2xl border-white/5">
+                    <div class="flex justify-between items-start mb-4">
+                        <div class="flex items-center gap-3">
+                            <div class="w-10 h-10 rounded-full bg-teal-500/20 flex items-center justify-center font-bold text-teal-400">P</div>
+                            <div>
+                                <h4 class="text-sm font-bold text-white">Pe**r</h4>
+                                <p class="text-xs text-gray-500">Bought: 14 Server Boosts</p>
+                            </div>
+                        </div>
+                        <div class="text-pink-500 text-xs">
+                            <i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i>
+                        </div>
+                    </div>
+                    <p class="text-gray-300 text-sm leading-relaxed">"My server is now Level 3! Thanks for the cheap boosts. Best investment for my community."</p>
+                </div>
+                <!-- 10 -->
+                 <div class="review-card glass-panel p-6 rounded-2xl border-white/5">
+                    <div class="flex justify-between items-start mb-4">
+                        <div class="flex items-center gap-3">
+                            <div class="w-10 h-10 rounded-full bg-indigo-500/20 flex items-center justify-center font-bold text-indigo-400">K</div>
+                            <div>
+                                <h4 class="text-sm font-bold text-white">Ky**e</h4>
+                                <p class="text-xs text-gray-500">Bought: Discord Nitro 1Y</p>
+                            </div>
+                        </div>
+                        <div class="text-pink-500 text-xs">
+                            <i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i>
+                        </div>
+                    </div>
+                    <p class="text-gray-300 text-sm leading-relaxed">"A full year of nitro for this price is insane. Fully legitimate, claiming it was very simple."</p>
+                </div>
+            </div>
+        </div>
+
+        <!-- Left to Right Scroll (Row 2 - 10 Reviews) -->
+        <div class="scroll-container">
+            <div class="scroll-content-reverse">
+                <!-- 11 -->
+                <div class="review-card glass-panel p-6 rounded-2xl border-white/5">
+                    <div class="flex justify-between items-start mb-4">
+                        <div class="flex items-center gap-3">
+                            <div class="w-10 h-10 rounded-full bg-orange-500/20 flex items-center justify-center font-bold text-orange-400">D</div>
+                            <div>
+                                <h4 class="text-sm font-bold text-white">Da**d</h4>
+                                <p class="text-xs text-gray-500">Bought: Discord Nitro 1M</p>
+                            </div>
+                        </div>
+                        <div class="text-pink-500 text-xs">
+                            <i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i>
+                        </div>
+                    </div>
+                    <p class="text-gray-300 text-sm leading-relaxed">"I was skeptical at first, but it's legit. Paid via bKash and got my Nitro in 2 mins."</p>
+                </div>
+                <!-- 12 -->
+                <div class="review-card glass-panel p-6 rounded-2xl border-white/5">
+                    <div class="flex justify-between items-start mb-4">
+                        <div class="flex items-center gap-3">
+                            <div class="w-10 h-10 rounded-full bg-cyan-500/20 flex items-center justify-center font-bold text-cyan-400">T</div>
+                            <div>
+                                <h4 class="text-sm font-bold text-white">Ty**r</h4>
+                                <p class="text-xs text-gray-500">Bought: 2016 Aged Account</p>
+                            </div>
+                        </div>
+                        <div class="text-pink-500 text-xs">
+                            <i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i>
+                        </div>
+                    </div>
+                    <p class="text-gray-300 text-sm leading-relaxed">"Account is exactly as described. Very old and sturdy. Thanks for the quick support!"</p>
+                </div>
+                <!-- 13 -->
+                <div class="review-card glass-panel p-6 rounded-2xl border-white/5">
+                    <div class="flex justify-between items-start mb-4">
+                        <div class="flex items-center gap-3">
+                            <div class="w-10 h-10 rounded-full bg-red-500/20 flex items-center justify-center font-bold text-red-400">K</div>
+                            <div>
+                                <h4 class="text-sm font-bold text-white">Ke**n</h4>
+                                <p class="text-xs text-gray-500">Bought: Halloween Theme</p>
+                            </div>
+                        </div>
+                        <div class="text-pink-500 text-xs">
+                            <i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i>
+                        </div>
+                    </div>
+                    <p class="text-gray-300 text-sm leading-relaxed">"Such a cool decoration. The admin replied fast on Telegram. Awesome service."</p>
+                </div>
+                <!-- 14 -->
+                <div class="review-card glass-panel p-6 rounded-2xl border-white/5">
+                    <div class="flex justify-between items-start mb-4">
+                        <div class="flex items-center gap-3">
+                            <div class="w-10 h-10 rounded-full bg-indigo-500/20 flex items-center justify-center font-bold text-indigo-400">L</div>
+                            <div>
+                                <h4 class="text-sm font-bold text-white">Lu**s</h4>
+                                <p class="text-xs text-gray-500">Bought: 14 Server Boosts</p>
+                            </div>
+                        </div>
+                        <div class="text-pink-500 text-xs">
+                            <i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star-half-stroke"></i>
+                        </div>
+                    </div>
+                    <p class="text-gray-300 text-sm leading-relaxed">"Good price, reliable delivery. Server looks great with the vanity URL unlocked!"</p>
+                </div>
+                <!-- 15 -->
+                 <div class="review-card glass-panel p-6 rounded-2xl border-white/5">
+                    <div class="flex justify-between items-start mb-4">
+                        <div class="flex items-center gap-3">
+                            <div class="w-10 h-10 rounded-full bg-yellow-500/20 flex items-center justify-center font-bold text-yellow-400">Z</div>
+                            <div>
+                                <h4 class="text-sm font-bold text-white">Za**k</h4>
+                                <p class="text-xs text-gray-500">Bought: Discord Nitro 1Y</p>
+                            </div>
+                        </div>
+                        <div class="text-pink-500 text-xs">
+                            <i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i>
+                        </div>
+                    </div>
+                    <p class="text-gray-300 text-sm leading-relaxed">"Honestly the best deal I've found. Support team is very responsive. Keep it up!"</p>
+                </div>
+                <!-- 16 -->
+                 <div class="review-card glass-panel p-6 rounded-2xl border-white/5">
+                    <div class="flex justify-between items-start mb-4">
+                        <div class="flex items-center gap-3">
+                            <div class="w-10 h-10 rounded-full bg-pink-500/20 flex items-center justify-center font-bold text-pink-400">S</div>
+                            <div>
+                                <h4 class="text-sm font-bold text-white">Sa**h</h4>
+                                <p class="text-xs text-gray-500">Bought: 2017 Aged Account</p>
+                            </div>
+                        </div>
+                        <div class="text-pink-500 text-xs">
+                            <i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i>
+                        </div>
+                    </div>
+                    <p class="text-gray-300 text-sm leading-relaxed">"Account works like a charm. No issues joining multiple servers. 10/10 quality."</p>
+                </div>
+                <!-- 17 -->
+                 <div class="review-card glass-panel p-6 rounded-2xl border-white/5">
+                    <div class="flex justify-between items-start mb-4">
+                        <div class="flex items-center gap-3">
+                            <div class="w-10 h-10 rounded-full bg-purple-500/20 flex items-center justify-center font-bold text-purple-400">N</div>
+                            <div>
+                                <h4 class="text-sm font-bold text-white">Ni**k</h4>
+                                <p class="text-xs text-gray-500">Bought: 2 Server Boosts</p>
+                            </div>
+                        </div>
+                        <div class="text-pink-500 text-xs">
+                            <i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i>
+                        </div>
+                    </div>
+                    <p class="text-gray-300 text-sm leading-relaxed">"Just needed a small boost for the extra emoji slots. Delivered exactly on time."</p>
+                </div>
+                <!-- 18 -->
+                 <div class="review-card glass-panel p-6 rounded-2xl border-white/5">
+                    <div class="flex justify-between items-start mb-4">
+                        <div class="flex items-center gap-3">
+                            <div class="w-10 h-10 rounded-full bg-blue-500/20 flex items-center justify-center font-bold text-blue-400">G</div>
+                            <div>
+                                <h4 class="text-sm font-bold text-white">Ga**y</h4>
+                                <p class="text-xs text-gray-500">Bought: Anime Decoration</p>
+                            </div>
+                        </div>
+                        <div class="text-pink-500 text-xs">
+                            <i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i>
+                        </div>
+                    </div>
+                    <p class="text-gray-300 text-sm leading-relaxed">"Got the gift link instantly in my DMs. Applied it and my profile looks amazing now!"</p>
+                </div>
+                <!-- 19 -->
+                 <div class="review-card glass-panel p-6 rounded-2xl border-white/5">
+                    <div class="flex justify-between items-start mb-4">
+                        <div class="flex items-center gap-3">
+                            <div class="w-10 h-10 rounded-full bg-green-500/20 flex items-center justify-center font-bold text-green-400">F</div>
+                            <div>
+                                <h4 class="text-sm font-bold text-white">Fa**d</h4>
+                                <p class="text-xs text-gray-500">Bought: Discord Nitro 1M</p>
+                            </div>
+                        </div>
+                        <div class="text-pink-500 text-xs">
+                            <i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i>
+                        </div>
+                    </div>
+                    <p class="text-gray-300 text-sm leading-relaxed">"First time buyer here. Everything went smooth, the admin is very polite. Will be back."</p>
+                </div>
+                <!-- 20 -->
+                 <div class="review-card glass-panel p-6 rounded-2xl border-white/5">
+                    <div class="flex justify-between items-start mb-4">
+                        <div class="flex items-center gap-3">
+                            <div class="w-10 h-10 rounded-full bg-red-500/20 flex items-center justify-center font-bold text-red-400">V</div>
+                            <div>
+                                <h4 class="text-sm font-bold text-white">Vi**r</h4>
+                                <p class="text-xs text-gray-500">Bought: 2015 Aged Account</p>
+                            </div>
+                        </div>
+                        <div class="text-pink-500 text-xs">
+                            <i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i>
+                        </div>
+                    </div>
+                    <p class="text-gray-300 text-sm leading-relaxed">"Needed a really old account for my main. This 2015 one is perfect, full access provided."</p>
+                </div>
+            </div>
+        </div>
+    </section>
 
     <!-- Why Choose Us -->
     <section id="why-us" class="border-t border-white/5 bg-black/40 py-16 relative">
@@ -268,7 +656,7 @@
                     <h4 class="text-white font-bold mb-5 text-lg">Quick Navigation</h4>
                     <ul class="space-y-3 text-sm text-gray-400 font-medium">
                         <li><a href="#products" class="hover:text-pink-400 transition flex items-center gap-2"><i class="fa-solid fa-chevron-right text-[10px] text-pink-500"></i> Shop Products</a></li>
-                        <li><a href="#why-us" class="hover:text-pink-400 transition flex items-center gap-2"><i class="fa-solid fa-chevron-right text-[10px] text-pink-500"></i> Customer Reviews</a></li>
+                        <li><a href="#reviews" class="hover:text-pink-400 transition flex items-center gap-2"><i class="fa-solid fa-chevron-right text-[10px] text-pink-500"></i> Customer Reviews</a></li>
                         <li><a href="#contact" class="hover:text-pink-400 transition flex items-center gap-2"><i class="fa-solid fa-chevron-right text-[10px] text-pink-500"></i> Contact Support</a></li>
                     </ul>
                 </div>
@@ -331,7 +719,6 @@
                     <i id="custom-select-icon" class="fa-solid fa-chevron-down text-gray-400 transition-transform duration-300"></i>
                 </button>
                 
-                <!-- SCROLLABLE LIST FIX: Added max-h-56, overflow-y-auto, and custom-scrollbar -->
                 <ul id="custom-dropdown-list" class="dropdown-menu hidden absolute top-full left-0 w-full mt-2 glass-panel border border-white/10 rounded-xl bg-[#0a0a0c] z-10 max-h-52 overflow-y-auto custom-scrollbar shadow-2xl">
                     <!-- Options injected via JS -->
                 </ul>
@@ -631,8 +1018,8 @@
         }
 
         // Toast Notification System
-        const toastNames = ['M. from US', 'A. from BD', 'S. from UK', 'J. from CA', 'K. from IN'];
-        const toastProducts = ['14 Server Boosts', 'Discord Nitro 1M', 'Aged Account 2018', 'Profile Decoration'];
+        const toastNames = ['Sef**x', 'Al**x', 'Jo**n', 'Mi**a', 'Ry**n', 'Ch**s', 'Da**n', 'El**a', 'Pe**r', 'Ky**e', 'Da**d', 'Ty**r', 'Ke**n', 'Lu**s', 'Za**k', 'Sa**h', 'Ni**k', 'Ga**y', 'Fa**d', 'Vi**r'];
+        const toastProducts = ['14 Server Boosts', 'Discord Nitro 1Y', '2018 Aged Account', 'Anime Decoration', '2 Server Boosts', 'Discord Nitro 1M', '2020 Aged Account', 'Cyberpunk Theme', '2016 Aged Account', 'Halloween Theme', '2017 Aged Account', '2015 Aged Account'];
 
         function showRandomToast() {
             const toast = document.getElementById('purchase-toast');
@@ -655,4 +1042,4 @@
         setTimeout(showRandomToast, 3000);
     </script>
 </body>
-    </html>
+                                                                                                          </html>
