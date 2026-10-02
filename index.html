@@ -91,6 +91,23 @@
             70% { box-shadow: 0 0 0 6px rgba(34, 197, 94, 0); }
             100% { box-shadow: 0 0 0 0 rgba(34, 197, 94, 0); }
         }
+        
+        /* Custom Scrollbar for Dropdown & Modals */
+        .custom-scrollbar::-webkit-scrollbar {
+            width: 6px;
+        }
+        .custom-scrollbar::-webkit-scrollbar-track {
+            background: rgba(255, 255, 255, 0.02);
+            border-radius: 10px;
+        }
+        .custom-scrollbar::-webkit-scrollbar-thumb {
+            background: rgba(236, 72, 153, 0.5);
+            border-radius: 10px;
+        }
+        .custom-scrollbar::-webkit-scrollbar-thumb:hover {
+            background: rgba(236, 72, 153, 0.8);
+        }
+
         .toast-enter { animation: slideUpFade 0.5s ease forwards; }
         .toast-exit { animation: slideDownFade 0.5s ease forwards; }
         @keyframes slideUpFade { from { opacity: 0; transform: translateY(20px); } to { opacity: 1; transform: translateY(0); } }
@@ -105,7 +122,7 @@
             opacity: 0;
             transform: scaleY(0.9);
             pointer-events: none;
-            display: block; /* To keep transition working */
+            display: block; 
             visibility: hidden;
         }
         .dropdown-menu.active {
@@ -195,7 +212,7 @@
         <div id="products-container" class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6">
             <div class="col-span-full text-center text-gray-400 py-10">
                 <i class="fa-solid fa-circle-notch fa-spin text-3xl mb-3 text-pink-500"></i>
-                <p>Loading...</p>
+                <p>Loading Products...</p>
             </div>
         </div>
     </main>
@@ -233,7 +250,7 @@
         </div>
     </section>
 
-    <!-- Footer with Nicely Arranged Terms -->
+    <!-- Footer with Policies -->
     <footer class="border-t border-white/5 bg-[#050505] pt-16 pb-8 mt-auto" id="contact">
         <div class="max-w-7xl mx-auto px-6">
             <div class="grid grid-cols-1 md:grid-cols-3 gap-10 mb-12">
@@ -252,28 +269,28 @@
                     <ul class="space-y-3 text-sm text-gray-400 font-medium">
                         <li><a href="#products" class="hover:text-pink-400 transition flex items-center gap-2"><i class="fa-solid fa-chevron-right text-[10px] text-pink-500"></i> Shop Products</a></li>
                         <li><a href="#why-us" class="hover:text-pink-400 transition flex items-center gap-2"><i class="fa-solid fa-chevron-right text-[10px] text-pink-500"></i> Customer Reviews</a></li>
-                        <li><a href="#" class="hover:text-pink-400 transition flex items-center gap-2"><i class="fa-solid fa-chevron-right text-[10px] text-pink-500"></i> Contact Support</a></li>
+                        <li><a href="#contact" class="hover:text-pink-400 transition flex items-center gap-2"><i class="fa-solid fa-chevron-right text-[10px] text-pink-500"></i> Contact Support</a></li>
                     </ul>
                 </div>
-                <!-- Legal / Policies (BEAUTIFUL ARRANGEMENT) -->
+                <!-- Legal / Policies -->
                 <div>
                     <h4 class="text-white font-bold mb-5 text-lg">Legal & Policies</h4>
                     <div class="flex flex-col gap-3">
-                        <a href="#" class="glass-panel p-3 rounded-xl flex items-center gap-3 hover:bg-white/5 hover:border-pink-500/30 transition group">
+                        <a href="#" onclick="openPolicyModal('tos'); return false;" class="glass-panel p-3 rounded-xl flex items-center gap-3 hover:bg-white/5 hover:border-pink-500/30 transition group">
                             <div class="bg-white/5 w-8 h-8 rounded-lg flex items-center justify-center text-gray-400 group-hover:text-pink-500 transition"><i class="fa-solid fa-file-contract text-xs"></i></div>
                             <div>
                                 <div class="text-sm font-bold text-gray-200 group-hover:text-white">Terms of Service</div>
                                 <div class="text-[10px] text-gray-500">Rules & Regulations</div>
                             </div>
                         </a>
-                        <a href="#" class="glass-panel p-3 rounded-xl flex items-center gap-3 hover:bg-white/5 hover:border-purple-500/30 transition group">
+                        <a href="#" onclick="openPolicyModal('privacy'); return false;" class="glass-panel p-3 rounded-xl flex items-center gap-3 hover:bg-white/5 hover:border-purple-500/30 transition group">
                             <div class="bg-white/5 w-8 h-8 rounded-lg flex items-center justify-center text-gray-400 group-hover:text-purple-500 transition"><i class="fa-solid fa-user-shield text-xs"></i></div>
                             <div>
                                 <div class="text-sm font-bold text-gray-200 group-hover:text-white">Privacy Policy</div>
                                 <div class="text-[10px] text-gray-500">Data Protection</div>
                             </div>
                         </a>
-                        <a href="#" class="glass-panel p-3 rounded-xl flex items-center gap-3 hover:bg-white/5 hover:border-blue-500/30 transition group">
+                        <a href="#" onclick="openPolicyModal('refund'); return false;" class="glass-panel p-3 rounded-xl flex items-center gap-3 hover:bg-white/5 hover:border-blue-500/30 transition group">
                             <div class="bg-white/5 w-8 h-8 rounded-lg flex items-center justify-center text-gray-400 group-hover:text-blue-500 transition"><i class="fa-solid fa-money-bill-transfer text-xs"></i></div>
                             <div>
                                 <div class="text-sm font-bold text-gray-200 group-hover:text-white">Refund Policy</div>
@@ -293,8 +310,8 @@
     <!-- MODALS & POP-UPS -->
     <!-- ========================================== -->
 
-    <!-- 1. Product Details Modal (With Custom Premium Dropdown) -->
-    <div id="details-modal" class="hidden fixed inset-0 z-50 flex items-center justify-center bg-black/90 backdrop-blur-md px-4 transition-opacity">
+    <!-- 1. Product Details Modal (With SCROLLABLE Dropdown) -->
+    <div id="details-modal" class="hidden fixed inset-0 z-[60] flex items-center justify-center bg-black/90 backdrop-blur-md px-4 transition-opacity">
         <div class="glass-panel w-full max-w-md rounded-2xl p-6 md:p-8 relative border border-white/10 shadow-[0_0_50px_rgba(217,70,239,0.1)]">
             <button onclick="closeDetailsModal()" class="absolute top-4 right-4 text-gray-500 hover:text-white transition w-8 h-8 flex items-center justify-center rounded-full hover:bg-white/10">
                 <i class="fa-solid fa-xmark text-lg"></i>
@@ -305,18 +322,17 @@
             
             <p id="modal-desc" class="text-gray-400 text-sm mb-6 leading-relaxed"></p>
             
-            <!-- CUSTOM VARIANT SELECTOR (Premium UI replacing default <select>) -->
+            <!-- CUSTOM VARIANT SELECTOR -->
             <div id="custom-variants-container" class="mb-6 hidden relative">
                 <label class="block text-xs font-bold text-gray-400 mb-2 uppercase tracking-wider">Select Option:</label>
                 
-                <!-- Custom Button -->
                 <button id="custom-select-btn" onclick="toggleDropdown()" class="w-full glass-panel border border-white/10 rounded-xl px-4 py-3.5 text-white text-sm font-semibold flex justify-between items-center hover:border-pink-500/50 transition bg-[#0f0f13]">
                     <span id="custom-select-text">Choose an option...</span>
                     <i id="custom-select-icon" class="fa-solid fa-chevron-down text-gray-400 transition-transform duration-300"></i>
                 </button>
                 
-                <!-- Custom Dropdown List -->
-                <ul id="custom-dropdown-list" class="dropdown-menu hidden absolute top-full left-0 w-full mt-2 glass-panel border border-white/10 rounded-xl bg-[#0a0a0c] z-10 overflow-hidden shadow-2xl">
+                <!-- SCROLLABLE LIST FIX: Added max-h-56, overflow-y-auto, and custom-scrollbar -->
+                <ul id="custom-dropdown-list" class="dropdown-menu hidden absolute top-full left-0 w-full mt-2 glass-panel border border-white/10 rounded-xl bg-[#0a0a0c] z-10 max-h-52 overflow-y-auto custom-scrollbar shadow-2xl">
                     <!-- Options injected via JS -->
                 </ul>
             </div>
@@ -334,7 +350,7 @@
     </div>
 
     <!-- 2. Contact Modal -->
-    <div id="contact-modal" class="hidden fixed inset-0 z-50 flex items-center justify-center bg-black/90 backdrop-blur-md px-4 transition-opacity">
+    <div id="contact-modal" class="hidden fixed inset-0 z-[60] flex items-center justify-center bg-black/90 backdrop-blur-md px-4 transition-opacity">
         <div class="glass-panel w-full max-w-sm rounded-2xl p-8 relative border border-white/10 shadow-[0_0_40px_rgba(236,72,153,0.15)] text-center">
             <button onclick="closeContactModal()" class="absolute top-4 right-4 text-gray-500 hover:text-white transition w-8 h-8 flex items-center justify-center rounded-full hover:bg-white/10">
                 <i class="fa-solid fa-xmark text-lg"></i>
@@ -357,7 +373,24 @@
         </div>
     </div>
 
-    <!-- 3. Live Purchase Toast -->
+    <!-- 3. Policy Modal (TOS, Privacy, Refund) -->
+    <div id="policy-modal" class="hidden fixed inset-0 z-[70] flex items-center justify-center bg-black/90 backdrop-blur-md px-4 py-10 transition-opacity">
+        <div class="glass-panel w-full max-w-2xl max-h-full flex flex-col rounded-2xl relative border border-white/10 shadow-2xl">
+            <!-- Header -->
+            <div class="p-6 border-b border-white/10 flex justify-between items-center bg-white/5 rounded-t-2xl">
+                <h3 id="policy-title" class="text-xl font-extrabold text-white"></h3>
+                <button onclick="closePolicyModal()" class="text-gray-500 hover:text-white transition w-8 h-8 flex items-center justify-center rounded-full hover:bg-white/10">
+                    <i class="fa-solid fa-xmark text-lg"></i>
+                </button>
+            </div>
+            <!-- Content -->
+            <div id="policy-content" class="p-6 overflow-y-auto text-gray-400 text-sm leading-relaxed custom-scrollbar space-y-4">
+                <!-- Content injected via JS -->
+            </div>
+        </div>
+    </div>
+
+    <!-- Live Purchase Toast -->
     <div id="purchase-toast" class="fixed bottom-6 left-6 z-50 hidden glass-panel border border-white/10 p-4 rounded-xl max-w-[300px] shadow-2xl flex items-center gap-4 bg-[#09090b]/90">
         <div class="bg-gradient-btn w-10 h-10 rounded-lg flex items-center justify-center shadow-lg">
             <i class="fa-solid fa-bag-shopping text-white"></i>
@@ -389,25 +422,11 @@
             document.getElementById('mobile-menu').classList.toggle('hidden');
         }
 
-        // Demo Data (Contains description & variants)
+        // Demo Data Fallback
         const demoProducts = [
             { 
                 name: '14 Server Boosts 1 Month', category: 'Boosts', price: '$9.99', stock: 'Available',
-                description: 'Get 14 Server Boosts delivered instantly to your Discord server. Upgrades your server to Level 3 immediately. Safe and secure.'
-            },
-            { 
-                name: 'Discord Aged Accounts [Full Access]', category: 'Accounts', price: '$59.99', stock: 'Available',
-                description: 'High quality aged Discord accounts with original email access. Highly resistant to bans. Please select the account creation year below:',
-                variants: '2015 Premium Account:$59.99|2016 Premium Account:$10.99|2017 Premium Account:$6.99|2018 Premium Account:$5.99|2019 Premium Account:$4.99'
-            },
-            { 
-                name: 'Profile Decorations [Gift Link]', category: 'Decorations', price: '$2.00', stock: 'Available',
-                description: 'Apply premium profile decorations to your Discord account instantly via gift link. Multiple variants available.',
-                variants: 'Anime Theme:$2.00|Cyberpunk Theme:$3.00|Halloween Theme:$4.00'
-            },
-            { 
-                name: 'Discord Nitro 1 Year', category: 'Nitro', price: '$35.00', stock: 'Low Stock',
-                description: 'Get Discord Nitro for a full year at the cheapest price on the market. Instant activation code via message.'
+                description: 'Get 14 Server Boosts delivered instantly to your Discord server.'
             }
         ];
 
@@ -463,7 +482,7 @@
             
             if(isDropdownOpen) {
                 list.classList.remove('hidden');
-                setTimeout(() => list.classList.add('active'), 10); // delay for animation
+                setTimeout(() => list.classList.add('active'), 10);
                 icon.style.transform = 'rotate(180deg)';
             } else {
                 list.classList.remove('active');
@@ -473,15 +492,11 @@
         }
 
         function selectVariant(name, price) {
-            // Update button text
             document.getElementById('custom-select-text').innerHTML = `<span class="text-white">${name}</span> <span class="text-pink-400 ml-2">${price}</span>`;
-            // Update big price
             document.getElementById('modal-price').innerText = price;
-            // Close dropdown
             toggleDropdown();
         }
 
-        // Close dropdown if clicked outside
         document.addEventListener('click', function(event) {
             const container = document.getElementById('custom-variants-container');
             if (isDropdownOpen && container && !container.contains(event.target)) {
@@ -512,13 +527,11 @@
                         const optName = parts[0].trim();
                         const optPrice = parts[1].trim();
                         
-                        // Setup first option as default
                         if(i === 0) {
                             selectBtnText.innerHTML = `<span class="text-white">${optName}</span> <span class="text-pink-400 ml-2">${optPrice}</span>`;
                             document.getElementById('modal-price').innerText = optPrice;
                         }
                         
-                        // Custom List Item
                         dropdownList.innerHTML += `
                             <li onclick="selectVariant('${optName}', '${optPrice}')" class="px-4 py-3 hover:bg-white/10 cursor-pointer flex justify-between items-center transition border-b border-white/5 last:border-0">
                                 <span class="text-sm font-semibold text-gray-200">${optName}</span>
@@ -533,8 +546,6 @@
             }
             
             document.getElementById('details-modal').classList.remove('hidden');
-            
-            // Ensure dropdown is closed when opening modal
             if(isDropdownOpen) toggleDropdown(); 
         }
 
@@ -552,7 +563,56 @@
             document.getElementById('contact-modal').classList.add('hidden');
         }
 
-        // Sheet Logic
+        // ==========================================
+        // POLICY MODALS (TOS, Privacy, Refund)
+        // ==========================================
+        const policyData = {
+            tos: {
+                title: "Terms of Service",
+                content: `
+                    <h4 class="text-white font-bold text-base mb-2">1. General Conditions</h4>
+                    <p class="mb-4">By accessing and purchasing from CRONIX STORE, you agree to be bound by these Terms of Service. We reserve the right to refuse service to anyone for any reason at any time.</p>
+                    <h4 class="text-white font-bold text-base mb-2">2. Digital Goods</h4>
+                    <p class="mb-4">All products sold on this store are digital. Once a product is delivered and verified as working, the responsibility shifts completely to the buyer. You are expected to use the tokens/accounts responsibly.</p>
+                    <h4 class="text-white font-bold text-base mb-2">3. Account Safety</h4>
+                    <p>We provide high-quality accounts with no prior bans. However, if your account gets banned due to spamming, using automated illegal scripts, or violating Discord's official guidelines, we are not liable and no compensation will be provided.</p>
+                `
+            },
+            privacy: {
+                title: "Privacy Policy",
+                content: `
+                    <h4 class="text-white font-bold text-base mb-2">1. Data Collection</h4>
+                    <p class="mb-4">We respect your privacy. We only collect the minimal amount of information required to complete your order, such as your Discord Username or contact email.</p>
+                    <h4 class="text-white font-bold text-base mb-2">2. Payment Security</h4>
+                    <p class="mb-4">All transactions (Crypto/bKash) are securely processed. We do not store any sensitive payment information, private keys, or passwords on our servers.</p>
+                    <h4 class="text-white font-bold text-base mb-2">3. Data Sharing</h4>
+                    <p>We will never sell, distribute, or share your personal information with third parties unless required by strict legal obligations.</p>
+                `
+            },
+            refund: {
+                title: "Refund & Warranty Policy",
+                content: `
+                    <h4 class="text-white font-bold text-base mb-2">1. Eligibility</h4>
+                    <p class="mb-4">Due to the nature of digital goods, refunds are strictly limited. A full refund will ONLY be issued if we fail to deliver your product within 48 hours or if the product is completely invalid upon delivery.</p>
+                    <h4 class="text-white font-bold text-base mb-2">2. Warranty Replacements</h4>
+                    <p class="mb-4">Products that come with a warranty (such as Server Boosts dropping) will be refilled/replaced free of charge within the warranty period. Refunds are not provided for dropped items, only replacements.</p>
+                    <h4 class="text-white font-bold text-base mb-2">3. Non-Refundable Scenarios</h4>
+                    <p>You are NOT eligible for a refund if: you change your mind, buy the wrong item by mistake, or your item gets banned due to your own misuse/rule-breaking.</p>
+                `
+            }
+        };
+
+        function openPolicyModal(type) {
+            document.getElementById('policy-title').innerText = policyData[type].title;
+            document.getElementById('policy-content').innerHTML = policyData[type].content;
+            document.getElementById('policy-modal').classList.remove('hidden');
+        }
+
+        function closePolicyModal() {
+            document.getElementById('policy-modal').classList.add('hidden');
+        }
+
+        // Sheet Data Fetch Logic
         if(GOOGLE_SHEET_CSV_URL.includes('docs.google.com')) {
              Papa.parse(GOOGLE_SHEET_CSV_URL, {
                 download: true,
@@ -595,4 +655,4 @@
         setTimeout(showRandomToast, 3000);
     </script>
 </body>
-            </html>
+    </html>
