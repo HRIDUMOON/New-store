@@ -92,103 +92,36 @@
             100% { box-shadow: 0 0 0 0 rgba(34, 197, 94, 0); }
         }
         
-        /* Custom Scrollbar for Dropdown & Modals */
-        .custom-scrollbar::-webkit-scrollbar {
-            width: 6px;
-        }
-        .custom-scrollbar::-webkit-scrollbar-track {
-            background: rgba(255, 255, 255, 0.02);
-            border-radius: 10px;
-        }
-        .custom-scrollbar::-webkit-scrollbar-thumb {
-            background: rgba(236, 72, 153, 0.5);
-            border-radius: 10px;
-        }
-        .custom-scrollbar::-webkit-scrollbar-thumb:hover {
-            background: rgba(236, 72, 153, 0.8);
-        }
+        .custom-scrollbar::-webkit-scrollbar { width: 6px; }
+        .custom-scrollbar::-webkit-scrollbar-track { background: rgba(255, 255, 255, 0.02); border-radius: 10px; }
+        .custom-scrollbar::-webkit-scrollbar-thumb { background: rgba(236, 72, 153, 0.5); border-radius: 10px; }
+        .custom-scrollbar::-webkit-scrollbar-thumb:hover { background: rgba(236, 72, 153, 0.8); }
 
         .toast-enter { animation: slideUpFade 0.5s ease forwards; }
         .toast-exit { animation: slideDownFade 0.5s ease forwards; }
         @keyframes slideUpFade { from { opacity: 0; transform: translateY(20px); } to { opacity: 1; transform: translateY(0); } }
         @keyframes slideDownFade { from { opacity: 1; transform: translateY(0); } to { opacity: 0; transform: translateY(20px); } }
         
-        /* Custom Select UI Animations */
-        .dropdown-menu {
-            transition: opacity 0.2s ease, transform 0.2s ease;
-            transform-origin: top;
-        }
-        .dropdown-menu.hidden {
-            opacity: 0;
-            transform: scaleY(0.9);
-            pointer-events: none;
-            display: block; 
-            visibility: hidden;
-        }
-        .dropdown-menu.active {
-            opacity: 1;
-            transform: scaleY(1);
-            pointer-events: auto;
-            visibility: visible;
-        }
+        .dropdown-menu { transition: opacity 0.2s ease, transform 0.2s ease; transform-origin: top; }
+        .dropdown-menu.hidden { opacity: 0; transform: scaleY(0.9); pointer-events: none; display: block; visibility: hidden; }
+        .dropdown-menu.active { opacity: 1; transform: scaleY(1); pointer-events: auto; visibility: visible; }
 
-        /* Review Scrolling Animations */
-        .scroll-container {
-            overflow: hidden;
-            white-space: nowrap;
-            position: relative;
-            width: 100vw;
-            left: 50%;
-            transform: translateX(-50%);
-            margin-bottom: 2rem;
-        }
-
-        .scroll-content {
-            display: inline-block;
-            white-space: nowrap;
-            padding-left: 100%; 
-            animation: scroll-left 50s linear infinite; /* Slowed down for more cards */
-        }
-
-        .scroll-content-reverse {
-            display: inline-block;
-            white-space: nowrap;
-            animation: scroll-right 50s linear infinite;
-            transform: translateX(-100%); 
-        }
-
-        .scroll-container:hover .scroll-content,
-        .scroll-container:hover .scroll-content-reverse {
-            animation-play-state: paused;
-        }
-
-        @keyframes scroll-left {
-            0% { transform: translateX(0); }
-            100% { transform: translateX(-100%); }
-        }
-
-        @keyframes scroll-right {
-            0% { transform: translateX(-100%); }
-            100% { transform: translateX(0); }
-        }
-
-        .review-card {
-            display: inline-block;
-            width: 350px;
-            white-space: normal;
-            vertical-align: top;
-            margin-right: 1.5rem;
-        }
+        .scroll-container { overflow: hidden; white-space: nowrap; position: relative; width: 100vw; left: 50%; transform: translateX(-50%); margin-bottom: 2rem; }
+        .scroll-content { display: inline-block; white-space: nowrap; padding-left: 100%; animation: scroll-left 50s linear infinite; }
+        .scroll-content-reverse { display: inline-block; white-space: nowrap; animation: scroll-right 50s linear infinite; transform: translateX(-100%); }
+        .scroll-container:hover .scroll-content, .scroll-container:hover .scroll-content-reverse { animation-play-state: paused; }
+        @keyframes scroll-left { 0% { transform: translateX(0); } 100% { transform: translateX(-100%); } }
+        @keyframes scroll-right { 0% { transform: translateX(-100%); } 100% { transform: translateX(0); } }
+        .review-card { display: inline-block; width: 350px; white-space: normal; vertical-align: top; margin-right: 1.5rem; }
     </style>
 </head>
 <body class="relative min-h-screen flex flex-col">
 
-    <!-- Background effects -->
     <div class="bg-glow"></div>
     <div class="bg-glow-2"></div>
 
-    <div class="w-full bg-[#5865F2] text-white text-center text-xs py-2 font-semibold tracking-wide border-b border-[#5865F2]/50 shadow-[0_0_15px_rgba(88,101,242,0.3)]">
-        <i class="fa-solid fa-credit-card mr-2"></i> bKash and Crypto payments are active
+    <div class="w-full bg-[#E2136E] text-white text-center text-xs py-2 font-semibold tracking-wide border-b border-[#E2136E]/50 shadow-[0_0_15px_rgba(226,19,110,0.3)]">
+        <i class="fa-solid fa-credit-card mr-2"></i> Automated bKash Payments are Live!
     </div>
 
     <!-- Navbar -->
@@ -200,32 +133,20 @@
                     <span class="text-gradient">CRONIX</span> STORE
                 </h1>
             </div>
-            
             <div class="hidden md:flex gap-8 text-sm font-semibold text-gray-300">
                 <a href="#products" class="hover:text-pink-400 transition"><i class="fa-solid fa-box-open mr-1"></i> Products</a>
                 <a href="#reviews" class="hover:text-pink-400 transition"><i class="fa-solid fa-star mr-1"></i> Reviews</a>
                 <a href="#why-us" class="hover:text-pink-400 transition"><i class="fa-solid fa-shield-halved mr-1"></i> About</a>
             </div>
-            
             <div class="flex items-center gap-4">
-                <button class="hidden md:flex glass-panel hover:bg-white/5 border border-white/10 px-5 py-2 rounded-xl text-sm font-semibold transition items-center gap-2 text-white">
-                    <i class="fa-solid fa-cart-shopping text-pink-500"></i> Cart 
-                    <span class="bg-pink-500 text-white text-[10px] px-1.5 rounded-full">0</span>
-                </button>
                 <button onclick="toggleMobileMenu()" class="md:hidden text-gray-300 text-xl hover:text-white transition p-2">
                     <i class="fa-solid fa-bars"></i>
                 </button>
             </div>
         </div>
-        
-        <!-- Mobile Menu Dropdown -->
         <div id="mobile-menu" class="hidden md:hidden absolute top-full left-0 w-full glass-panel border-b border-white/10 p-4 flex flex-col gap-4 text-sm font-medium">
             <a href="#products" onclick="toggleMobileMenu()" class="text-gray-300 hover:text-pink-400"><i class="fa-solid fa-box-open w-6 text-center"></i> Products</a>
             <a href="#reviews" onclick="toggleMobileMenu()" class="text-gray-300 hover:text-pink-400"><i class="fa-solid fa-star w-6 text-center"></i> Reviews</a>
-            <hr class="border-white/10">
-            <button class="bg-white/5 hover:bg-white/10 border border-white/10 px-4 py-3 rounded-xl text-sm font-semibold transition flex items-center justify-center gap-2 text-white">
-                <i class="fa-solid fa-cart-shopping text-pink-500"></i> View Cart (0)
-            </button>
         </div>
     </nav>
 
@@ -240,14 +161,6 @@
         <p class="text-gray-400 text-base md:text-lg mb-10 leading-relaxed max-w-2xl mx-auto">
             Premium Discord Services at the Lowest Prices. Instant delivery on Discord Nitro, Server Boosts, Profile Decorations, and Aged Accounts—all backed by reliable service.
         </p>
-        <div class="flex flex-col sm:flex-row justify-center gap-4">
-            <a href="#products" class="bg-gradient-btn text-white font-bold px-8 py-3.5 rounded-xl shadow-lg flex items-center justify-center gap-2">
-                <i class="fa-solid fa-bolt"></i> Explore Services
-            </a>
-            <a href="#" class="glass-panel hover:bg-white/10 text-white font-bold px-8 py-3.5 rounded-xl flex items-center justify-center gap-2 transition">
-                <i class="fa-brands fa-discord text-[#5865F2] text-xl"></i> Join Discord
-            </a>
-        </div>
     </header>
 
     <!-- Products Section -->
@@ -255,8 +168,6 @@
         <div class="flex items-center justify-between mb-8">
             <h3 class="text-2xl font-bold border-l-4 border-pink-500 pl-3">Top Services</h3>
         </div>
-        
-        <!-- Products Grid -->
         <div id="products-container" class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6">
             <div class="col-span-full text-center text-gray-400 py-10">
                 <i class="fa-solid fa-circle-notch fa-spin text-3xl mb-3 text-pink-500"></i>
@@ -265,352 +176,11 @@
         </div>
     </main>
 
-    <!-- Customer Reviews Section -->
-    <section id="reviews" class="py-16 bg-black/20 border-t border-white/5 overflow-hidden">
-        <div class="max-w-7xl mx-auto px-6 mb-12 text-center">
-            <h2 class="text-3xl font-bold text-white mb-2">What Our <span class="text-gradient">Customers Say</span></h2>
-            <p class="text-gray-400">Trusted by hundreds of Discord users.</p>
-        </div>
-
-        <!-- Right to Left Scroll (Row 1 - 10 Reviews) -->
-        <div class="scroll-container">
-            <div class="scroll-content">
-                <!-- 1 -->
-                <div class="review-card glass-panel p-6 rounded-2xl border-white/5">
-                    <div class="flex justify-between items-start mb-4">
-                        <div class="flex items-center gap-3">
-                            <div class="w-10 h-10 rounded-full bg-pink-500/20 flex items-center justify-center font-bold text-pink-400">S</div>
-                            <div>
-                                <h4 class="text-sm font-bold text-white">Sef**x</h4>
-                                <p class="text-xs text-gray-500">Bought: 14 Server Boosts</p>
-                            </div>
-                        </div>
-                        <div class="text-pink-500 text-xs">
-                            <i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i>
-                        </div>
-                    </div>
-                    <p class="text-gray-300 text-sm leading-relaxed">"Delivery was incredibly fast! Got my server to Level 3 in less than 5 minutes. Highly recommended!"</p>
-                </div>
-                <!-- 2 -->
-                <div class="review-card glass-panel p-6 rounded-2xl border-white/5">
-                    <div class="flex justify-between items-start mb-4">
-                        <div class="flex items-center gap-3">
-                            <div class="w-10 h-10 rounded-full bg-purple-500/20 flex items-center justify-center font-bold text-purple-400">A</div>
-                            <div>
-                                <h4 class="text-sm font-bold text-white">Al**x</h4>
-                                <p class="text-xs text-gray-500">Bought: Discord Nitro 1Y</p>
-                            </div>
-                        </div>
-                        <div class="text-pink-500 text-xs">
-                            <i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i>
-                        </div>
-                    </div>
-                    <p class="text-gray-300 text-sm leading-relaxed">"Cheapest nitro on the market. Admin was very helpful and guided me through the whole process."</p>
-                </div>
-                <!-- 3 -->
-                <div class="review-card glass-panel p-6 rounded-2xl border-white/5">
-                    <div class="flex justify-between items-start mb-4">
-                        <div class="flex items-center gap-3">
-                            <div class="w-10 h-10 rounded-full bg-blue-500/20 flex items-center justify-center font-bold text-blue-400">J</div>
-                            <div>
-                                <h4 class="text-sm font-bold text-white">Jo**n</h4>
-                                <p class="text-xs text-gray-500">Bought: 2018 Aged Account</p>
-                            </div>
-                        </div>
-                        <div class="text-pink-500 text-xs">
-                            <i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i>
-                        </div>
-                    </div>
-                    <p class="text-gray-300 text-sm leading-relaxed">"Clean account with original email just as promised. No issues logging in. Will buy again."</p>
-                </div>
-                <!-- 4 -->
-                <div class="review-card glass-panel p-6 rounded-2xl border-white/5">
-                    <div class="flex justify-between items-start mb-4">
-                        <div class="flex items-center gap-3">
-                            <div class="w-10 h-10 rounded-full bg-green-500/20 flex items-center justify-center font-bold text-green-400">M</div>
-                            <div>
-                                <h4 class="text-sm font-bold text-white">Mi**a</h4>
-                                <p class="text-xs text-gray-500">Bought: Anime Decoration</p>
-                            </div>
-                        </div>
-                        <div class="text-pink-500 text-xs">
-                            <i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i>
-                        </div>
-                    </div>
-                    <p class="text-gray-300 text-sm leading-relaxed">"Gift link worked perfectly. Applied it right away. Thank you for the smooth transaction!"</p>
-                </div>
-                <!-- 5 -->
-                 <div class="review-card glass-panel p-6 rounded-2xl border-white/5">
-                    <div class="flex justify-between items-start mb-4">
-                        <div class="flex items-center gap-3">
-                            <div class="w-10 h-10 rounded-full bg-yellow-500/20 flex items-center justify-center font-bold text-yellow-400">R</div>
-                            <div>
-                                <h4 class="text-sm font-bold text-white">Ry**n</h4>
-                                <p class="text-xs text-gray-500">Bought: 2 Server Boosts</p>
-                            </div>
-                        </div>
-                        <div class="text-pink-500 text-xs">
-                            <i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star-half-stroke"></i>
-                        </div>
-                    </div>
-                    <p class="text-gray-300 text-sm leading-relaxed">"Literally instant. Boosts are stable, hasn't dropped. Best shop I've used so far."</p>
-                </div>
-                <!-- 6 -->
-                 <div class="review-card glass-panel p-6 rounded-2xl border-white/5">
-                    <div class="flex justify-between items-start mb-4">
-                        <div class="flex items-center gap-3">
-                            <div class="w-10 h-10 rounded-full bg-cyan-500/20 flex items-center justify-center font-bold text-cyan-400">C</div>
-                            <div>
-                                <h4 class="text-sm font-bold text-white">Ch**s</h4>
-                                <p class="text-xs text-gray-500">Bought: Discord Nitro 1M</p>
-                            </div>
-                        </div>
-                        <div class="text-pink-500 text-xs">
-                            <i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i>
-                        </div>
-                    </div>
-                    <p class="text-gray-300 text-sm leading-relaxed">"Great service! Got my nitro activated in minutes. Will definitely come back next month."</p>
-                </div>
-                <!-- 7 -->
-                 <div class="review-card glass-panel p-6 rounded-2xl border-white/5">
-                    <div class="flex justify-between items-start mb-4">
-                        <div class="flex items-center gap-3">
-                            <div class="w-10 h-10 rounded-full bg-red-500/20 flex items-center justify-center font-bold text-red-400">D</div>
-                            <div>
-                                <h4 class="text-sm font-bold text-white">Da**n</h4>
-                                <p class="text-xs text-gray-500">Bought: 2020 Aged Account</p>
-                            </div>
-                        </div>
-                        <div class="text-pink-500 text-xs">
-                            <i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i>
-                        </div>
-                    </div>
-                    <p class="text-gray-300 text-sm leading-relaxed">"Account details were provided instantly. Works flawlessly without any verification locks."</p>
-                </div>
-                <!-- 8 -->
-                 <div class="review-card glass-panel p-6 rounded-2xl border-white/5">
-                    <div class="flex justify-between items-start mb-4">
-                        <div class="flex items-center gap-3">
-                            <div class="w-10 h-10 rounded-full bg-orange-500/20 flex items-center justify-center font-bold text-orange-400">E</div>
-                            <div>
-                                <h4 class="text-sm font-bold text-white">El**a</h4>
-                                <p class="text-xs text-gray-500">Bought: Cyberpunk Theme</p>
-                            </div>
-                        </div>
-                        <div class="text-pink-500 text-xs">
-                            <i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i>
-                        </div>
-                    </div>
-                    <p class="text-gray-300 text-sm leading-relaxed">"Love my new profile decoration! The process was so easy and the admin is super friendly."</p>
-                </div>
-                <!-- 9 -->
-                 <div class="review-card glass-panel p-6 rounded-2xl border-white/5">
-                    <div class="flex justify-between items-start mb-4">
-                        <div class="flex items-center gap-3">
-                            <div class="w-10 h-10 rounded-full bg-teal-500/20 flex items-center justify-center font-bold text-teal-400">P</div>
-                            <div>
-                                <h4 class="text-sm font-bold text-white">Pe**r</h4>
-                                <p class="text-xs text-gray-500">Bought: 14 Server Boosts</p>
-                            </div>
-                        </div>
-                        <div class="text-pink-500 text-xs">
-                            <i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i>
-                        </div>
-                    </div>
-                    <p class="text-gray-300 text-sm leading-relaxed">"My server is now Level 3! Thanks for the cheap boosts. Best investment for my community."</p>
-                </div>
-                <!-- 10 -->
-                 <div class="review-card glass-panel p-6 rounded-2xl border-white/5">
-                    <div class="flex justify-between items-start mb-4">
-                        <div class="flex items-center gap-3">
-                            <div class="w-10 h-10 rounded-full bg-indigo-500/20 flex items-center justify-center font-bold text-indigo-400">K</div>
-                            <div>
-                                <h4 class="text-sm font-bold text-white">Ky**e</h4>
-                                <p class="text-xs text-gray-500">Bought: Discord Nitro 1Y</p>
-                            </div>
-                        </div>
-                        <div class="text-pink-500 text-xs">
-                            <i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i>
-                        </div>
-                    </div>
-                    <p class="text-gray-300 text-sm leading-relaxed">"A full year of nitro for this price is insane. Fully legitimate, claiming it was very simple."</p>
-                </div>
-            </div>
-        </div>
-
-        <!-- Left to Right Scroll (Row 2 - 10 Reviews) -->
-        <div class="scroll-container">
-            <div class="scroll-content-reverse">
-                <!-- 11 -->
-                <div class="review-card glass-panel p-6 rounded-2xl border-white/5">
-                    <div class="flex justify-between items-start mb-4">
-                        <div class="flex items-center gap-3">
-                            <div class="w-10 h-10 rounded-full bg-orange-500/20 flex items-center justify-center font-bold text-orange-400">D</div>
-                            <div>
-                                <h4 class="text-sm font-bold text-white">Da**d</h4>
-                                <p class="text-xs text-gray-500">Bought: Discord Nitro 1M</p>
-                            </div>
-                        </div>
-                        <div class="text-pink-500 text-xs">
-                            <i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i>
-                        </div>
-                    </div>
-                    <p class="text-gray-300 text-sm leading-relaxed">"I was skeptical at first, but it's legit. Paid via bKash and got my Nitro in 2 mins."</p>
-                </div>
-                <!-- 12 -->
-                <div class="review-card glass-panel p-6 rounded-2xl border-white/5">
-                    <div class="flex justify-between items-start mb-4">
-                        <div class="flex items-center gap-3">
-                            <div class="w-10 h-10 rounded-full bg-cyan-500/20 flex items-center justify-center font-bold text-cyan-400">T</div>
-                            <div>
-                                <h4 class="text-sm font-bold text-white">Ty**r</h4>
-                                <p class="text-xs text-gray-500">Bought: 2016 Aged Account</p>
-                            </div>
-                        </div>
-                        <div class="text-pink-500 text-xs">
-                            <i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i>
-                        </div>
-                    </div>
-                    <p class="text-gray-300 text-sm leading-relaxed">"Account is exactly as described. Very old and sturdy. Thanks for the quick support!"</p>
-                </div>
-                <!-- 13 -->
-                <div class="review-card glass-panel p-6 rounded-2xl border-white/5">
-                    <div class="flex justify-between items-start mb-4">
-                        <div class="flex items-center gap-3">
-                            <div class="w-10 h-10 rounded-full bg-red-500/20 flex items-center justify-center font-bold text-red-400">K</div>
-                            <div>
-                                <h4 class="text-sm font-bold text-white">Ke**n</h4>
-                                <p class="text-xs text-gray-500">Bought: Halloween Theme</p>
-                            </div>
-                        </div>
-                        <div class="text-pink-500 text-xs">
-                            <i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i>
-                        </div>
-                    </div>
-                    <p class="text-gray-300 text-sm leading-relaxed">"Such a cool decoration. The admin replied fast on Telegram. Awesome service."</p>
-                </div>
-                <!-- 14 -->
-                <div class="review-card glass-panel p-6 rounded-2xl border-white/5">
-                    <div class="flex justify-between items-start mb-4">
-                        <div class="flex items-center gap-3">
-                            <div class="w-10 h-10 rounded-full bg-indigo-500/20 flex items-center justify-center font-bold text-indigo-400">L</div>
-                            <div>
-                                <h4 class="text-sm font-bold text-white">Lu**s</h4>
-                                <p class="text-xs text-gray-500">Bought: 14 Server Boosts</p>
-                            </div>
-                        </div>
-                        <div class="text-pink-500 text-xs">
-                            <i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star-half-stroke"></i>
-                        </div>
-                    </div>
-                    <p class="text-gray-300 text-sm leading-relaxed">"Good price, reliable delivery. Server looks great with the vanity URL unlocked!"</p>
-                </div>
-                <!-- 15 -->
-                 <div class="review-card glass-panel p-6 rounded-2xl border-white/5">
-                    <div class="flex justify-between items-start mb-4">
-                        <div class="flex items-center gap-3">
-                            <div class="w-10 h-10 rounded-full bg-yellow-500/20 flex items-center justify-center font-bold text-yellow-400">Z</div>
-                            <div>
-                                <h4 class="text-sm font-bold text-white">Za**k</h4>
-                                <p class="text-xs text-gray-500">Bought: Discord Nitro 1Y</p>
-                            </div>
-                        </div>
-                        <div class="text-pink-500 text-xs">
-                            <i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i>
-                        </div>
-                    </div>
-                    <p class="text-gray-300 text-sm leading-relaxed">"Honestly the best deal I've found. Support team is very responsive. Keep it up!"</p>
-                </div>
-                <!-- 16 -->
-                 <div class="review-card glass-panel p-6 rounded-2xl border-white/5">
-                    <div class="flex justify-between items-start mb-4">
-                        <div class="flex items-center gap-3">
-                            <div class="w-10 h-10 rounded-full bg-pink-500/20 flex items-center justify-center font-bold text-pink-400">S</div>
-                            <div>
-                                <h4 class="text-sm font-bold text-white">Sa**h</h4>
-                                <p class="text-xs text-gray-500">Bought: 2017 Aged Account</p>
-                            </div>
-                        </div>
-                        <div class="text-pink-500 text-xs">
-                            <i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i>
-                        </div>
-                    </div>
-                    <p class="text-gray-300 text-sm leading-relaxed">"Account works like a charm. No issues joining multiple servers. 10/10 quality."</p>
-                </div>
-                <!-- 17 -->
-                 <div class="review-card glass-panel p-6 rounded-2xl border-white/5">
-                    <div class="flex justify-between items-start mb-4">
-                        <div class="flex items-center gap-3">
-                            <div class="w-10 h-10 rounded-full bg-purple-500/20 flex items-center justify-center font-bold text-purple-400">N</div>
-                            <div>
-                                <h4 class="text-sm font-bold text-white">Ni**k</h4>
-                                <p class="text-xs text-gray-500">Bought: 2 Server Boosts</p>
-                            </div>
-                        </div>
-                        <div class="text-pink-500 text-xs">
-                            <i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i>
-                        </div>
-                    </div>
-                    <p class="text-gray-300 text-sm leading-relaxed">"Just needed a small boost for the extra emoji slots. Delivered exactly on time."</p>
-                </div>
-                <!-- 18 -->
-                 <div class="review-card glass-panel p-6 rounded-2xl border-white/5">
-                    <div class="flex justify-between items-start mb-4">
-                        <div class="flex items-center gap-3">
-                            <div class="w-10 h-10 rounded-full bg-blue-500/20 flex items-center justify-center font-bold text-blue-400">G</div>
-                            <div>
-                                <h4 class="text-sm font-bold text-white">Ga**y</h4>
-                                <p class="text-xs text-gray-500">Bought: Anime Decoration</p>
-                            </div>
-                        </div>
-                        <div class="text-pink-500 text-xs">
-                            <i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i>
-                        </div>
-                    </div>
-                    <p class="text-gray-300 text-sm leading-relaxed">"Got the gift link instantly in my DMs. Applied it and my profile looks amazing now!"</p>
-                </div>
-                <!-- 19 -->
-                 <div class="review-card glass-panel p-6 rounded-2xl border-white/5">
-                    <div class="flex justify-between items-start mb-4">
-                        <div class="flex items-center gap-3">
-                            <div class="w-10 h-10 rounded-full bg-green-500/20 flex items-center justify-center font-bold text-green-400">F</div>
-                            <div>
-                                <h4 class="text-sm font-bold text-white">Fa**d</h4>
-                                <p class="text-xs text-gray-500">Bought: Discord Nitro 1M</p>
-                            </div>
-                        </div>
-                        <div class="text-pink-500 text-xs">
-                            <i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i>
-                        </div>
-                    </div>
-                    <p class="text-gray-300 text-sm leading-relaxed">"First time buyer here. Everything went smooth, the admin is very polite. Will be back."</p>
-                </div>
-                <!-- 20 -->
-                 <div class="review-card glass-panel p-6 rounded-2xl border-white/5">
-                    <div class="flex justify-between items-start mb-4">
-                        <div class="flex items-center gap-3">
-                            <div class="w-10 h-10 rounded-full bg-red-500/20 flex items-center justify-center font-bold text-red-400">V</div>
-                            <div>
-                                <h4 class="text-sm font-bold text-white">Vi**r</h4>
-                                <p class="text-xs text-gray-500">Bought: 2015 Aged Account</p>
-                            </div>
-                        </div>
-                        <div class="text-pink-500 text-xs">
-                            <i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i>
-                        </div>
-                    </div>
-                    <p class="text-gray-300 text-sm leading-relaxed">"Needed a really old account for my main. This 2015 one is perfect, full access provided."</p>
-                </div>
-            </div>
-        </div>
-    </section>
-
     <!-- Why Choose Us -->
     <section id="why-us" class="border-t border-white/5 bg-black/40 py-16 relative">
         <div class="max-w-7xl mx-auto px-6">
             <div class="text-center mb-12">
                 <h2 class="text-3xl font-bold text-white">Why Choose <span class="text-gradient">Us?</span></h2>
-                <p class="text-gray-500 mt-2">We deliver the most reliable service in the industry.</p>
             </div>
             <div class="grid grid-cols-1 md:grid-cols-3 gap-6">
                 <div class="glass-panel p-8 rounded-2xl border-white/5 text-center group">
@@ -624,8 +194,8 @@
                     <div class="w-16 h-16 rounded-full bg-purple-500/10 flex items-center justify-center mx-auto mb-6 group-hover:bg-purple-500/20 transition">
                         <i class="fa-solid fa-bolt text-purple-500 text-2xl"></i>
                     </div>
-                    <h4 class="text-xl font-bold mb-3 text-white">Instant Delivery</h4>
-                    <p class="text-gray-400 text-sm leading-relaxed">Automated system delivers your products instantly right after your payment is confirmed.</p>
+                    <h4 class="text-xl font-bold mb-3 text-white">Automated Delivery</h4>
+                    <p class="text-gray-400 text-sm leading-relaxed">Automated webhook system validates your payment and prepares your order instantly.</p>
                 </div>
                 <div class="glass-panel p-8 rounded-2xl border-white/5 text-center group">
                     <div class="w-16 h-16 rounded-full bg-blue-500/10 flex items-center justify-center mx-auto mb-6 group-hover:bg-blue-500/20 transition">
@@ -638,59 +208,10 @@
         </div>
     </section>
 
-    <!-- Footer with Policies -->
+    <!-- Footer -->
     <footer class="border-t border-white/5 bg-[#050505] pt-16 pb-8 mt-auto" id="contact">
-        <div class="max-w-7xl mx-auto px-6">
-            <div class="grid grid-cols-1 md:grid-cols-3 gap-10 mb-12">
-                <!-- Branding -->
-                <div>
-                    <h3 class="text-2xl font-extrabold text-white mb-4"><span class="text-gradient">CRONIX</span> STORE</h3>
-                    <p class="text-gray-500 text-sm mb-6 leading-relaxed">The ultimate premium marketplace for digital assets, server enhancements, and high-quality gaming products.</p>
-                    <div class="flex gap-4">
-                        <a href="#" class="w-10 h-10 rounded-full glass-panel flex items-center justify-center text-gray-400 hover:text-[#5865F2] hover:bg-white/10 transition"><i class="fa-brands fa-discord"></i></a>
-                        <a href="#" class="w-10 h-10 rounded-full glass-panel flex items-center justify-center text-gray-400 hover:text-[#0088cc] hover:bg-white/10 transition"><i class="fa-brands fa-telegram"></i></a>
-                    </div>
-                </div>
-                <!-- Links -->
-                <div>
-                    <h4 class="text-white font-bold mb-5 text-lg">Quick Navigation</h4>
-                    <ul class="space-y-3 text-sm text-gray-400 font-medium">
-                        <li><a href="#products" class="hover:text-pink-400 transition flex items-center gap-2"><i class="fa-solid fa-chevron-right text-[10px] text-pink-500"></i> Shop Products</a></li>
-                        <li><a href="#reviews" class="hover:text-pink-400 transition flex items-center gap-2"><i class="fa-solid fa-chevron-right text-[10px] text-pink-500"></i> Customer Reviews</a></li>
-                        <li><a href="#contact" class="hover:text-pink-400 transition flex items-center gap-2"><i class="fa-solid fa-chevron-right text-[10px] text-pink-500"></i> Contact Support</a></li>
-                    </ul>
-                </div>
-                <!-- Legal / Policies -->
-                <div>
-                    <h4 class="text-white font-bold mb-5 text-lg">Legal & Policies</h4>
-                    <div class="flex flex-col gap-3">
-                        <a href="#" onclick="openPolicyModal('tos'); return false;" class="glass-panel p-3 rounded-xl flex items-center gap-3 hover:bg-white/5 hover:border-pink-500/30 transition group">
-                            <div class="bg-white/5 w-8 h-8 rounded-lg flex items-center justify-center text-gray-400 group-hover:text-pink-500 transition"><i class="fa-solid fa-file-contract text-xs"></i></div>
-                            <div>
-                                <div class="text-sm font-bold text-gray-200 group-hover:text-white">Terms of Service</div>
-                                <div class="text-[10px] text-gray-500">Rules & Regulations</div>
-                            </div>
-                        </a>
-                        <a href="#" onclick="openPolicyModal('privacy'); return false;" class="glass-panel p-3 rounded-xl flex items-center gap-3 hover:bg-white/5 hover:border-purple-500/30 transition group">
-                            <div class="bg-white/5 w-8 h-8 rounded-lg flex items-center justify-center text-gray-400 group-hover:text-purple-500 transition"><i class="fa-solid fa-user-shield text-xs"></i></div>
-                            <div>
-                                <div class="text-sm font-bold text-gray-200 group-hover:text-white">Privacy Policy</div>
-                                <div class="text-[10px] text-gray-500">Data Protection</div>
-                            </div>
-                        </a>
-                        <a href="#" onclick="openPolicyModal('refund'); return false;" class="glass-panel p-3 rounded-xl flex items-center gap-3 hover:bg-white/5 hover:border-blue-500/30 transition group">
-                            <div class="bg-white/5 w-8 h-8 rounded-lg flex items-center justify-center text-gray-400 group-hover:text-blue-500 transition"><i class="fa-solid fa-money-bill-transfer text-xs"></i></div>
-                            <div>
-                                <div class="text-sm font-bold text-gray-200 group-hover:text-white">Refund Policy</div>
-                                <div class="text-[10px] text-gray-500">Warranty details</div>
-                            </div>
-                        </a>
-                    </div>
-                </div>
-            </div>
-            <div class="border-t border-white/5 pt-8 text-center text-gray-600 text-xs font-medium">
-                &copy; 2026 CRONIX STORE. All rights reserved.
-            </div>
+        <div class="max-w-7xl mx-auto px-6 text-center text-gray-600 text-xs font-medium">
+            &copy; 2026 CRONIX STORE. All rights reserved.
         </div>
     </footer>
 
@@ -698,7 +219,7 @@
     <!-- MODALS & POP-UPS -->
     <!-- ========================================== -->
 
-    <!-- 1. Product Details Modal (With SCROLLABLE Dropdown) -->
+    <!-- 1. Product Details Modal -->
     <div id="details-modal" class="hidden fixed inset-0 z-[60] flex items-center justify-center bg-black/90 backdrop-blur-md px-4 transition-opacity">
         <div class="glass-panel w-full max-w-md rounded-2xl p-6 md:p-8 relative border border-white/10 shadow-[0_0_50px_rgba(217,70,239,0.1)]">
             <button onclick="closeDetailsModal()" class="absolute top-4 right-4 text-gray-500 hover:text-white transition w-8 h-8 flex items-center justify-center rounded-full hover:bg-white/10">
@@ -710,17 +231,13 @@
             
             <p id="modal-desc" class="text-gray-400 text-sm mb-6 leading-relaxed"></p>
             
-            <!-- CUSTOM VARIANT SELECTOR -->
             <div id="custom-variants-container" class="mb-6 hidden relative">
                 <label class="block text-xs font-bold text-gray-400 mb-2 uppercase tracking-wider">Select Option:</label>
-                
                 <button id="custom-select-btn" onclick="toggleDropdown()" class="w-full glass-panel border border-white/10 rounded-xl px-4 py-3.5 text-white text-sm font-semibold flex justify-between items-center hover:border-pink-500/50 transition bg-[#0f0f13]">
                     <span id="custom-select-text">Choose an option...</span>
                     <i id="custom-select-icon" class="fa-solid fa-chevron-down text-gray-400 transition-transform duration-300"></i>
                 </button>
-                
                 <ul id="custom-dropdown-list" class="dropdown-menu hidden absolute top-full left-0 w-full mt-2 glass-panel border border-white/10 rounded-xl bg-[#0a0a0c] z-10 max-h-52 overflow-y-auto custom-scrollbar shadow-2xl">
-                    <!-- Options injected via JS -->
                 </ul>
             </div>
             
@@ -736,44 +253,79 @@
         </div>
     </div>
 
-    <!-- 2. Contact Modal -->
+    <!-- 2. PAYMENT MODAL (NEW) -->
     <div id="contact-modal" class="hidden fixed inset-0 z-[60] flex items-center justify-center bg-black/90 backdrop-blur-md px-4 transition-opacity">
-        <div class="glass-panel w-full max-w-sm rounded-2xl p-8 relative border border-white/10 shadow-[0_0_40px_rgba(236,72,153,0.15)] text-center">
-            <button onclick="closeContactModal()" class="absolute top-4 right-4 text-gray-500 hover:text-white transition w-8 h-8 flex items-center justify-center rounded-full hover:bg-white/10">
+        <div class="glass-panel w-full max-w-md rounded-2xl p-6 md:p-8 relative border border-white/10 shadow-[0_0_40px_rgba(226,19,110,0.15)] text-center">
+            <button onclick="closeContactModal()" class="absolute top-4 right-4 text-gray-500 hover:text-white transition w-8 h-8 flex items-center justify-center rounded-full hover:bg-white/10 z-10">
                 <i class="fa-solid fa-xmark text-lg"></i>
             </button>
             
-            <div class="w-16 h-16 rounded-full bg-pink-500/10 flex items-center justify-center mx-auto mb-4 border border-pink-500/20">
-                <i class="fa-solid fa-headset text-3xl text-pink-500"></i>
-            </div>
-            <h3 class="text-2xl font-extrabold text-white mb-2">Complete Purchase</h3>
-            <p class="text-gray-400 text-xs mb-8">Contact our admin via any platform below to pay and receive your product instantly.</p>
-            
-            <div class="space-y-3">
-                <a href="https://discord.gg/dGVdE56NnR" target="_blank" class="w-full flex items-center justify-center gap-3 bg-[#5865F2]/10 hover:bg-[#5865F2] text-white border border-[#5865F2]/30 py-3.5 rounded-xl font-bold transition group">
-                    <i class="fa-brands fa-discord text-xl group-hover:scale-110 transition"></i> Buy via Discord
-                </a>
-                <a href="https://t.me/@sefoxalt" target="_blank" class="w-full flex items-center justify-center gap-3 bg-[#0088cc]/10 hover:bg-[#0088cc] text-white border border-[#0088cc]/30 py-3.5 rounded-xl font-bold transition group">
-                    <i class="fa-brands fa-telegram text-xl group-hover:scale-110 transition"></i> Buy via Telegram
-                </a>
-            </div>
-        </div>
-    </div>
+            <!-- STEP 1: bKash Payment Form -->
+            <div id="payment-step-1">
+                <div class="w-16 h-16 rounded-full bg-[#E2136E]/10 flex items-center justify-center mx-auto mb-4 border border-[#E2136E]/20">
+                    <img src="https://scripts.pay.bka.sh/logo/bkash_logo.svg" alt="bKash" class="w-8 opacity-90">
+                </div>
+                <h3 class="text-xl font-extrabold text-white mb-1">bKash Payment Process</h3>
+                <p class="text-gray-400 text-xs mb-5">Please send the exact amount to confirm order.</p>
+                
+                <div class="bg-[#0f0f13] p-4 rounded-xl border border-white/5 mb-5 text-left shadow-inner">
+                    <div class="flex justify-between text-sm mb-2 pb-2 border-b border-white/5">
+                        <span class="text-gray-400">Product:</span>
+                        <span class="text-white font-bold text-right ml-4 line-clamp-1" id="pay-product-name">...</span>
+                    </div>
+                    <div class="flex justify-between items-center text-sm mb-2 pb-2 border-b border-white/5">
+                        <span class="text-gray-400">Total Payable:</span>
+                        <span class="text-[#E2136E] font-black text-lg" id="pay-product-price">...</span>
+                    </div>
+                    <div class="flex justify-between items-center text-sm pt-1">
+                        <span class="text-gray-400"><i class="fa-solid fa-paper-plane mr-1"></i> Send Money To:</span>
+                        <span class="text-white font-bold bg-white/10 px-2 py-1 rounded select-all cursor-pointer border border-white/10" id="display-bkash-number">01XXXXXXXXX</span>
+                    </div>
+                </div>
 
-    <!-- 3. Policy Modal (TOS, Privacy, Refund) -->
-    <div id="policy-modal" class="hidden fixed inset-0 z-[70] flex items-center justify-center bg-black/90 backdrop-blur-md px-4 py-10 transition-opacity">
-        <div class="glass-panel w-full max-w-2xl max-h-full flex flex-col rounded-2xl relative border border-white/10 shadow-2xl">
-            <!-- Header -->
-            <div class="p-6 border-b border-white/10 flex justify-between items-center bg-white/5 rounded-t-2xl">
-                <h3 id="policy-title" class="text-xl font-extrabold text-white"></h3>
-                <button onclick="closePolicyModal()" class="text-gray-500 hover:text-white transition w-8 h-8 flex items-center justify-center rounded-full hover:bg-white/10">
-                    <i class="fa-solid fa-xmark text-lg"></i>
-                </button>
+                <div class="space-y-4 text-left">
+                    <div>
+                        <label class="text-xs text-gray-400 font-bold ml-1 uppercase tracking-wider">Your bKash Number</label>
+                        <input type="text" id="buyer-number" placeholder="e.g. 017XXXXXXXX" class="w-full bg-[#0f0f13] border border-white/10 rounded-xl px-4 py-3 text-white text-sm focus:outline-none focus:border-[#E2136E] transition mt-1">
+                    </div>
+                    <div>
+                        <label class="text-xs text-gray-400 font-bold ml-1 uppercase tracking-wider">Transaction ID (TrxID)</label>
+                        <input type="text" id="buyer-trxid" placeholder="e.g. 9X2A7YBC4" class="w-full bg-[#0f0f13] border border-white/10 rounded-xl px-4 py-3 text-white text-sm focus:outline-none focus:border-[#E2136E] transition mt-1">
+                    </div>
+                    <button onclick="submitPayment()" id="confirm-btn" class="w-full bg-[#E2136E] hover:bg-[#c90d5f] text-white font-bold py-3.5 rounded-xl transition shadow-[0_0_15px_rgba(226,19,110,0.4)] mt-2 flex justify-center items-center gap-2">
+                        <i class="fa-solid fa-check-circle"></i> Confirm Payment
+                    </button>
+                </div>
             </div>
-            <!-- Content -->
-            <div id="policy-content" class="p-6 overflow-y-auto text-gray-400 text-sm leading-relaxed custom-scrollbar space-y-4">
-                <!-- Content injected via JS -->
+
+            <!-- STEP 2: Success & Contact Links -->
+            <div id="payment-step-2" class="hidden">
+                <div class="w-16 h-16 rounded-full bg-green-500/10 flex items-center justify-center mx-auto mb-4 border border-green-500/20">
+                    <i class="fa-solid fa-check text-3xl text-green-500"></i>
+                </div>
+                <h3 class="text-2xl font-extrabold text-white mb-2">Order Confirmed!</h3>
+                <p class="text-gray-400 text-sm mb-6 leading-relaxed">Your payment information has been sent to our system. Please message us on any platform below with your <b>Order Key</b> to receive your products.</p>
+                
+                <div class="bg-[#0f0f13] p-4 rounded-xl border border-pink-500/30 mb-6 relative overflow-hidden">
+                    <div class="absolute top-0 left-0 w-1 h-full bg-pink-500"></div>
+                    <div class="text-xs text-gray-400 mb-1 font-bold uppercase">Your Order Key</div>
+                    <div class="text-2xl font-black text-pink-500 tracking-widest select-all" id="generated-order-key">CRX-XXXXXX</div>
+                    <div class="text-[10px] text-gray-500 mt-1">Tap to copy and send it to our support</div>
+                </div>
+
+                <div class="space-y-3">
+                    <a id="btn-whatsapp" href="#" target="_blank" class="w-full flex items-center justify-center gap-3 bg-[#25D366]/10 hover:bg-[#25D366] text-white border border-[#25D366]/30 py-3.5 rounded-xl font-bold transition group">
+                        <i class="fa-brands fa-whatsapp text-xl group-hover:scale-110 transition"></i> Message on WhatsApp
+                    </a>
+                    <a href="https://t.me/@sefoxalt" target="_blank" class="w-full flex items-center justify-center gap-3 bg-[#0088cc]/10 hover:bg-[#0088cc] text-white border border-[#0088cc]/30 py-3.5 rounded-xl font-bold transition group">
+                        <i class="fa-brands fa-telegram text-xl group-hover:scale-110 transition"></i> Message on Telegram
+                    </a>
+                    <a href="https://discord.gg/dGVdE56NnR" target="_blank" class="w-full flex items-center justify-center gap-3 bg-[#5865F2]/10 hover:bg-[#5865F2] text-white border border-[#5865F2]/30 py-3.5 rounded-xl font-bold transition group">
+                        <i class="fa-brands fa-discord text-xl group-hover:scale-110 transition"></i> Open Ticket in Discord
+                    </a>
+                </div>
             </div>
+
         </div>
     </div>
 
@@ -791,9 +343,19 @@
 
     <!-- JAVASCRIPT -->
     <script>
-        // ⚙️ SETTINGS
+        // ==========================================
+        // ⚙️ SETTINGS (EDIT THESE 3 LINES)
+        // ==========================================
+        const DISCORD_WEBHOOK_URL = 'https://discord.com/api/webhooks/1553275760536453130/_b_owh3rx1Oeg4GMh2XpI87-58tV3yHsGTp-G8LRWeEe1pPuTi0KpchwCwebGDTi1buZ'; // <-- আপনার ডিসকর্ড ওয়েবহুক লিংক দিন
+        const STORE_BKASH_NUMBER = '01719221925'; // <-- আপনার সেন্ড মানি বিকাশ নাম্বার দিন
+        const YOUR_WHATSAPP_NUMBER = '8801947119248'; // <-- আপনার হোয়াটসঅ্যাপ নাম্বার দিন (Country Code সহ)
+        
         const LOGO_URL = 'https://i.ibb.co.com/ZRmZ2HdZ/20261002-082632.png'; 
         const GOOGLE_SHEET_CSV_URL = 'https://docs.google.com/spreadsheets/d/e/2PACX-1vR7o8C-dVSm-DpqpHRO13J_uYnBfwyQvx3nsQp5n8OFaZTMY4VNSG3-IDAb8X-IEg-ywa-DmVo8ipPi/pub?output=csv'; 
+
+        // Update Store Details on Page Load
+        document.getElementById('display-bkash-number').innerText = STORE_BKASH_NUMBER;
+        document.getElementById('btn-whatsapp').href = `https://wa.me/${YOUR_WHATSAPP_NUMBER}`;
 
         let globalProducts = [];
         let isDropdownOpen = false;
@@ -809,15 +371,11 @@
             document.getElementById('mobile-menu').classList.toggle('hidden');
         }
 
-        // Demo Data Fallback
+        // Demo Data
         const demoProducts = [
-            { 
-                name: '14 Server Boosts 1 Month', category: 'Boosts', price: '$9.99', stock: 'Available',
-                description: 'Get 14 Server Boosts delivered instantly to your Discord server.'
-            }
+            { name: '14 Server Boosts 1 Month', category: 'Boosts', price: '৳999', stock: 'Available', description: 'Get 14 Server Boosts delivered instantly.' }
         ];
 
-        // Render Cards HTML
         function renderProducts(data) {
             globalProducts = data;
             const container = document.getElementById('products-container');
@@ -825,7 +383,6 @@
 
             data.forEach((item, index) => {
                 if(!item.name) return; 
-
                 let displayPrice = item.price;
                 if(item.variants && item.variants.includes(':') && !displayPrice) {
                      displayPrice = item.variants.split('|')[0].split(':')[1];
@@ -838,15 +395,6 @@
                         </div>
                         <div class="text-[10px] text-pink-400 font-bold uppercase tracking-wider mb-2">${item.category || 'Service'}</div>
                         <h4 class="text-xl font-extrabold text-white mb-2 leading-tight">${item.name}</h4>
-                        
-                        <div class="flex items-center gap-1 mb-5 text-[10px]">
-                            <i class="fa-solid fa-star text-pink-500"></i>
-                            <i class="fa-solid fa-star text-pink-500"></i>
-                            <i class="fa-solid fa-star text-pink-500"></i>
-                            <i class="fa-solid fa-star text-pink-500"></i>
-                            <i class="fa-solid fa-star text-pink-500"></i>
-                        </div>
-                        
                         <div class="text-3xl font-black text-white mb-5">${displayPrice}</div>
                         
                         <button onclick="openDetailsModal(${index})" class="mt-auto glass-panel border border-white/10 group-hover:border-pink-500/50 group-hover:bg-pink-500/10 w-full text-white text-sm font-bold py-3.5 rounded-xl flex justify-center items-center gap-2 transition-all">
@@ -858,9 +406,7 @@
             });
         }
 
-        // ==========================================
-        // CUSTOM DROPDOWN & MODAL LOGIC 
-        // ==========================================
+        // Dropdown Logic
         function toggleDropdown() {
             const list = document.getElementById('custom-dropdown-list');
             const icon = document.getElementById('custom-select-icon');
@@ -879,21 +425,13 @@
         }
 
         function selectVariant(name, price) {
-            document.getElementById('custom-select-text').innerHTML = `<span class="text-white">${name}</span> <span class="text-pink-400 ml-2">${price}</span>`;
+            document.getElementById('custom-select-text').innerHTML = `<span class="text-white variant-name-raw" data-name="${name}">${name}</span> <span class="text-pink-400 ml-2">${price}</span>`;
             document.getElementById('modal-price').innerText = price;
             toggleDropdown();
         }
 
-        document.addEventListener('click', function(event) {
-            const container = document.getElementById('custom-variants-container');
-            if (isDropdownOpen && container && !container.contains(event.target)) {
-                toggleDropdown();
-            }
-        });
-
         function openDetailsModal(index) {
             const product = globalProducts[index];
-            
             document.getElementById('modal-title').innerText = product.name;
             document.getElementById('modal-category').innerText = product.category || 'Product';
             document.getElementById('modal-desc').innerText = product.description || 'Premium quality service with instant delivery guarantee.';
@@ -905,7 +443,6 @@
             if (product.variants && product.variants.trim() !== "") {
                 variantContainer.classList.remove('hidden');
                 dropdownList.innerHTML = ''; 
-                
                 const options = product.variants.split('|');
                 
                 options.forEach((opt, i) => {
@@ -913,12 +450,10 @@
                     if(parts.length === 2) {
                         const optName = parts[0].trim();
                         const optPrice = parts[1].trim();
-                        
                         if(i === 0) {
-                            selectBtnText.innerHTML = `<span class="text-white">${optName}</span> <span class="text-pink-400 ml-2">${optPrice}</span>`;
+                            selectBtnText.innerHTML = `<span class="text-white variant-name-raw" data-name="${optName}">${optName}</span> <span class="text-pink-400 ml-2">${optPrice}</span>`;
                             document.getElementById('modal-price').innerText = optPrice;
                         }
-                        
                         dropdownList.innerHTML += `
                             <li onclick="selectVariant('${optName}', '${optPrice}')" class="px-4 py-3 hover:bg-white/10 cursor-pointer flex justify-between items-center transition border-b border-white/5 last:border-0">
                                 <span class="text-sm font-semibold text-gray-200">${optName}</span>
@@ -933,16 +468,39 @@
             }
             
             document.getElementById('details-modal').classList.remove('hidden');
-            if(isDropdownOpen) toggleDropdown(); 
         }
 
         function closeDetailsModal() {
             document.getElementById('details-modal').classList.add('hidden');
-            if(isDropdownOpen) toggleDropdown(); 
         }
 
+        // ==========================================
+        // NEW PAYMENT LOGIC & DISCORD WEBHOOK
+        // ==========================================
         function proceedToContact() {
             closeDetailsModal();
+            
+            // Get product name (Add variant if exists)
+            let finalProductName = document.getElementById('modal-title').innerText;
+            const variantContainer = document.getElementById('custom-variants-container');
+            
+            if(!variantContainer.classList.contains('hidden')) {
+                const variantEl = document.querySelector('.variant-name-raw');
+                if(variantEl) {
+                    finalProductName += ` (${variantEl.getAttribute('data-name')})`;
+                }
+            }
+
+            // Set details in payment modal
+            document.getElementById('pay-product-name').innerText = finalProductName;
+            document.getElementById('pay-product-price').innerText = document.getElementById('modal-price').innerText;
+            
+            // Reset inputs & switch to step 1
+            document.getElementById('buyer-number').value = '';
+            document.getElementById('buyer-trxid').value = '';
+            document.getElementById('payment-step-1').classList.remove('hidden');
+            document.getElementById('payment-step-2').classList.add('hidden');
+            
             document.getElementById('contact-modal').classList.remove('hidden');
         }
 
@@ -950,96 +508,95 @@
             document.getElementById('contact-modal').classList.add('hidden');
         }
 
-        // ==========================================
-        // POLICY MODALS (TOS, Privacy, Refund)
-        // ==========================================
-        const policyData = {
-            tos: {
-                title: "Terms of Service",
-                content: `
-                    <h4 class="text-white font-bold text-base mb-2">1. General Conditions</h4>
-                    <p class="mb-4">By accessing and purchasing from CRONIX STORE, you agree to be bound by these Terms of Service. We reserve the right to refuse service to anyone for any reason at any time.</p>
-                    <h4 class="text-white font-bold text-base mb-2">2. Digital Goods</h4>
-                    <p class="mb-4">All products sold on this store are digital. Once a product is delivered and verified as working, the responsibility shifts completely to the buyer. You are expected to use the tokens/accounts responsibly.</p>
-                    <h4 class="text-white font-bold text-base mb-2">3. Account Safety</h4>
-                    <p>We provide high-quality accounts with no prior bans. However, if your account gets banned due to spamming, using automated illegal scripts, or violating Discord's official guidelines, we are not liable and no compensation will be provided.</p>
-                `
-            },
-            privacy: {
-                title: "Privacy Policy",
-                content: `
-                    <h4 class="text-white font-bold text-base mb-2">1. Data Collection</h4>
-                    <p class="mb-4">We respect your privacy. We only collect the minimal amount of information required to complete your order, such as your Discord Username or contact email.</p>
-                    <h4 class="text-white font-bold text-base mb-2">2. Payment Security</h4>
-                    <p class="mb-4">All transactions (Crypto/bKash) are securely processed. We do not store any sensitive payment information, private keys, or passwords on our servers.</p>
-                    <h4 class="text-white font-bold text-base mb-2">3. Data Sharing</h4>
-                    <p>We will never sell, distribute, or share your personal information with third parties unless required by strict legal obligations.</p>
-                `
-            },
-            refund: {
-                title: "Refund & Warranty Policy",
-                content: `
-                    <h4 class="text-white font-bold text-base mb-2">1. Eligibility</h4>
-                    <p class="mb-4">Due to the nature of digital goods, refunds are strictly limited. A full refund will ONLY be issued if we fail to deliver your product within 48 hours or if the product is completely invalid upon delivery.</p>
-                    <h4 class="text-white font-bold text-base mb-2">2. Warranty Replacements</h4>
-                    <p class="mb-4">Products that come with a warranty (such as Server Boosts dropping) will be refilled/replaced free of charge within the warranty period. Refunds are not provided for dropped items, only replacements.</p>
-                    <h4 class="text-white font-bold text-base mb-2">3. Non-Refundable Scenarios</h4>
-                    <p>You are NOT eligible for a refund if: you change your mind, buy the wrong item by mistake, or your item gets banned due to your own misuse/rule-breaking.</p>
-                `
+        async function submitPayment() {
+            const btn = document.getElementById('confirm-btn');
+            const buyerNumber = document.getElementById('buyer-number').value.trim();
+            const trxId = document.getElementById('buyer-trxid').value.trim();
+            const productName = document.getElementById('pay-product-name').innerText;
+            const productPrice = document.getElementById('pay-product-price').innerText;
+            
+            if(buyerNumber === '' || trxId === '') {
+                alert("দয়া করে আপনার বিকাশ নাম্বার এবং Transaction ID (TrxID) সঠিকভাবে দিন!");
+                return;
             }
-        };
 
-        function openPolicyModal(type) {
-            document.getElementById('policy-title').innerText = policyData[type].title;
-            document.getElementById('policy-content').innerHTML = policyData[type].content;
-            document.getElementById('policy-modal').classList.remove('hidden');
+            // Generate Random Order Key (e.g., CRX-9A2B4C)
+            const orderKey = 'CRX-' + Math.random().toString(36).substr(2, 6).toUpperCase();
+
+            btn.innerHTML = '<i class="fa-solid fa-circle-notch fa-spin"></i> Processing...';
+            btn.disabled = true;
+
+            // Discord Webhook Payload Construction
+            const payload = {
+                username: "CRONIX STORE Automated System",
+                avatar_url: LOGO_URL,
+                embeds: [{
+                    title: "💰 New Payment Received (bKash)",
+                    color: 14816046, // Hex #E2136E (bKash Color)
+                    description: `A customer just submitted a payment for **${productName}**. Verify the TrxID below!`,
+                    fields: [
+                        { name: "🔑 Order Key", value: `\`${orderKey}\``, inline: true },
+                        { name: "🛒 Product", value: `**${productName}**`, inline: true },
+                        { name: "💵 Amount to verify", value: `**${productPrice}**`, inline: true },
+                        { name: "📱 Sender Number", value: `\`${buyerNumber}\``, inline: false },
+                        { name: "🧾 Transaction ID", value: `\`${trxId}\``, inline: false }
+                    ],
+                    footer: { text: "CRONIX STORE Bot • Powered by Webhooks" },
+                    timestamp: new Date().toISOString()
+                }]
+            };
+
+            try {
+                // Send Request to Webhook
+                if(DISCORD_WEBHOOK_URL.includes("discord.com/api/webhooks")) {
+                    await fetch(DISCORD_WEBHOOK_URL, {
+                        method: 'POST',
+                        headers: { 'Content-Type': 'application/json' },
+                        body: JSON.stringify(payload)
+                    });
+                } else {
+                    console.warn("Discord webhook URL is missing or invalid! Proceeding visually for testing.");
+                }
+
+                // Show Success Step 2
+                document.getElementById('generated-order-key').innerText = orderKey;
+                document.getElementById('payment-step-1').classList.add('hidden');
+                document.getElementById('payment-step-2').classList.remove('hidden');
+
+            } catch (error) {
+                alert("Something went wrong! Please check your internet connection.");
+                console.error("Webhook Error:", error);
+            } finally {
+                btn.innerHTML = '<i class="fa-solid fa-check-circle"></i> Confirm Payment';
+                btn.disabled = false;
+            }
         }
 
-        function closePolicyModal() {
-            document.getElementById('policy-modal').classList.add('hidden');
-        }
-
-        // Sheet Data Fetch Logic
+        // Sheet Data Fetch
         if(GOOGLE_SHEET_CSV_URL.includes('docs.google.com')) {
              Papa.parse(GOOGLE_SHEET_CSV_URL, {
                 download: true,
                 header: true,
                 complete: function(results) {
-                    if(results.data && results.data.length > 0) {
-                        renderProducts(results.data);
-                    } else {
-                        renderProducts(demoProducts); 
-                    }
+                    if(results.data && results.data.length > 0) renderProducts(results.data);
+                    else renderProducts(demoProducts); 
                 },
                 error: function() { renderProducts(demoProducts); }
             });
-        } else {
-            renderProducts(demoProducts);
-        }
+        } else renderProducts(demoProducts);
 
-        // Toast Notification System
-        const toastNames = ['Sef**x', 'Al**x', 'Jo**n', 'Mi**a', 'Ry**n', 'Ch**s', 'Da**n', 'El**a', 'Pe**r', 'Ky**e', 'Da**d', 'Ty**r', 'Ke**n', 'Lu**s', 'Za**k', 'Sa**h', 'Ni**k', 'Ga**y', 'Fa**d', 'Vi**r'];
-        const toastProducts = ['14 Server Boosts', 'Discord Nitro 1Y', '2018 Aged Account', 'Anime Decoration', '2 Server Boosts', 'Discord Nitro 1M', '2020 Aged Account', 'Cyberpunk Theme', '2016 Aged Account', 'Halloween Theme', '2017 Aged Account', '2015 Aged Account'];
-
+        // Toast Notifications
+        const toastNames = ['Sef**x', 'Al**x', 'Jo**n', 'Mi**a', 'Ry**n'];
+        const toastProducts = ['14 Server Boosts', 'Discord Nitro 1Y', '2018 Aged Account'];
         function showRandomToast() {
             const toast = document.getElementById('purchase-toast');
             const msgEl = document.getElementById('toast-msg');
-            const rName = toastNames[Math.floor(Math.random() * toastNames.length)];
-            const rProd = toastProducts[Math.floor(Math.random() * toastProducts.length)];
-            msgEl.innerHTML = `${rName} bought <br><span class="text-white">${rProd}</span>`;
-            
+            msgEl.innerHTML = `${toastNames[Math.floor(Math.random() * toastNames.length)]} bought <br><span class="text-white">${toastProducts[Math.floor(Math.random() * toastProducts.length)]}</span>`;
             toast.classList.remove('hidden', 'toast-exit');
             toast.classList.add('toast-enter');
-            
-            setTimeout(() => {
-                toast.classList.remove('toast-enter');
-                toast.classList.add('toast-exit');
-                setTimeout(() => toast.classList.add('hidden'), 500);
-            }, 4000);
+            setTimeout(() => { toast.classList.remove('toast-enter'); toast.classList.add('toast-exit'); setTimeout(() => toast.classList.add('hidden'), 500); }, 4000);
         }
-
-        setInterval(showRandomToast, 18000);
-        setTimeout(showRandomToast, 3000);
+        setInterval(showRandomToast, 18000); setTimeout(showRandomToast, 3000);
     </script>
 </body>
-                                                                                                          </html>
+    </html>
